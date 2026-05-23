@@ -10,14 +10,23 @@ import { cn } from "@/lib/utils";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (window.location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const navLinks = [
     { name: "Features", href: "#features" },
@@ -27,45 +36,51 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-        isScrolled ? "py-3" : "py-6"
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-border-stroke bg-background-soft/90 backdrop-blur-md font-sans",
+        isScrolled ? "py-3 shadow-premium" : "py-5"
       )}
     >
-      <div
-        className={cn(
-          "max-w-7xl mx-auto rounded-full transition-all duration-300 px-6 py-2 flex items-center justify-between",
-          isScrolled ? "glass shadow-premium" : "bg-transparent"
-        )}
-      >
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-primary-green rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform">
+      <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 group">
+          <motion.div 
+            whileHover={{ scale: 1.05, rotate: 6 }}
+            className="w-10 h-10 bg-primary-green rounded-xl flex items-center justify-center transition-transform"
+          >
             <span className="text-white font-bold text-xl">S</span>
-          </div>
+          </motion.div>
           <span className="text-2xl font-bold tracking-tight text-primary-dark">
             Splitry
           </span>
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1 relative" onMouseLeave={() => setHoveredLink(null)}>
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-secondary-gray hover:text-primary-green transition-colors"
+              className="relative px-4 py-2 text-sm font-bold text-stone-600 hover:text-stone-900 transition-colors uppercase tracking-wide rounded-lg z-10"
+              onMouseEnter={() => setHoveredLink(link.name)}
             >
-              {link.name}
+              <span className="relative z-10">{link.name}</span>
+              {hoveredLink === link.name && (
+                <motion.span
+                  layoutId="nav-hover-pill"
+                  className="absolute inset-0 bg-primary-green/10 rounded-xl -z-0"
+                  transition={{ type: "spring", stiffness: 350, damping: 26 }}
+                />
+              )}
             </Link>
           ))}
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="ghost" size="sm">
-            Sign In
-          </Button>
-          <Button size="sm" className="group">
+          <Button variant="primary" size="default" className="group font-bold text-sm uppercase tracking-wide">
             Download App
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -73,10 +88,10 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-primary-dark"
+          className="md:hidden text-primary-dark cursor-pointer p-1"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -87,31 +102,34 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-24 left-6 right-6 glass rounded-3xl p-6 shadow-2xl md:hidden"
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 w-full bg-background-soft border-b border-border-stroke p-6 shadow-2xl md:hidden flex flex-col gap-6"
           >
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-lg font-medium text-primary-dark"
+                  className="text-base font-bold text-stone-600 hover:text-stone-900 transition-colors uppercase tracking-wide"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <hr className="border-border-stroke" />
-              <div className="flex flex-col gap-4">
-                <Button variant="outline" className="w-full">
+              <hr className="border-border-stroke my-2" />
+              <div className="flex flex-col gap-3">
+                <Button variant="outline" size="default" className="w-full font-bold text-sm uppercase tracking-wide">
                   Sign In
                 </Button>
-                <Button className="w-full">Download App</Button>
+                <Button variant="primary" size="default" className="w-full font-bold text-sm uppercase tracking-wide">
+                  Download App
+                </Button>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 

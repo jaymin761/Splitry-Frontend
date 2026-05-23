@@ -6,21 +6,33 @@ import { motion } from "framer-motion";
 import { Apple, Play, ArrowRight, ShieldCheck, Zap, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
-const FloatingCard = ({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) => (
+const FloatingCard = ({ 
+  children, 
+  className, 
+  delay = 0,
+  initialX = 0
+}: { 
+  children: React.ReactNode, 
+  className?: string, 
+  delay?: number,
+  initialX?: number
+}) => (
   <motion.div
-    initial={{ y: 20, opacity: 0 }}
+    initial={{ x: initialX, y: 20, opacity: 0 }}
     animate={{
+      x: 0,
       y: [0, -10, 0],
       opacity: 1
     }}
     transition={{
+      x: { duration: 0.45, ease: "easeOut", delay },
       y: {
         duration: 4,
         repeat: Infinity,
         ease: "easeInOut",
-        delay
+        delay: delay + 0.45
       },
-      opacity: { duration: 0.8, delay }
+      opacity: { duration: 0.45, delay }
     }}
     className={className}
   >
@@ -68,16 +80,6 @@ const HeroSection = () => {
               <Apple className="mr-2 w-5 h-5 fill-current" />
               App Store
             </Button>
-            <Button size="lg" variant="dark" className="h-14 px-8 rounded-2xl group">
-              <Play className="mr-2 w-5 h-5 fill-current" />
-              Play Store
-            </Button>
-            <Button variant="ghost" className="h-14 px-6 text-base font-semibold group">
-              Watch Demo
-              <div className="ml-2 w-8 h-8 rounded-full bg-white border border-border-stroke flex items-center justify-center group-hover:bg-primary-dark group-hover:text-white transition-colors">
-                <ArrowRight className="w-4 h-4" />
-              </div>
-            </Button>
           </motion.div>
 
           <motion.div
@@ -110,36 +112,37 @@ const HeroSection = () => {
               style={{ borderRadius: '3rem' }}
             >
               <Image
-                src="/Home Screen.png"
+                src="/home-screen.png"
                 alt="Splitry App Mockup"
                 fill
+                unoptimized
                 className="object-cover"
                 priority
               />
             </div>
 
             {/* Floating Cards */}
-            <FloatingCard className="absolute -top-10 -right-4 md:-right-12 xl:-right-16 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={0.5}>
+            <FloatingCard className="absolute -top-10 -right-4 md:-right-12 xl:-right-16 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={0.15} initialX={60}>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold">₹</div>
+                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold">$</div>
                 <div>
                   <p className="text-xs text-secondary-gray font-medium">Balance</p>
-                  <p className="text-sm font-bold text-red-500">You owe ₹240</p>
+                  <p className="text-sm font-bold text-red-500">You owe $240</p>
                 </div>
               </div>
             </FloatingCard>
 
-            <FloatingCard className="absolute top-1/2 -left-8 md:-left-20 xl:-left-24 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={1.2}>
+            <FloatingCard className="absolute top-1/2 -left-8 md:-left-20 xl:-left-24 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={0.45} initialX={-60}>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">✓</div>
                 <div>
                   <p className="text-xs text-secondary-gray font-medium">Activity</p>
-                  <p className="text-sm font-bold text-primary-dark">Rahul paid ₹1200</p>
+                  <p className="text-sm font-bold text-primary-dark">Rahul paid $1200</p>
                 </div>
               </div>
             </FloatingCard>
 
-            <FloatingCard className="absolute bottom-10 -right-4 md:-right-8 xl:-right-12 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={0.8}>
+            <FloatingCard className="absolute bottom-10 -right-4 md:-right-8 xl:-right-12 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={0.3} initialX={60}>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">AI</div>
                 <div>

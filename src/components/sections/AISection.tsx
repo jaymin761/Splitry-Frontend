@@ -158,7 +158,7 @@ const AISection = () => {
               </div>
               <div>
                 <p className="text-[10px] text-secondary-gray font-normal uppercase tracking-wider mb-1">AI Prediction</p>
-                <p className="text-blue-400">Food & Dining: ₹4,200</p>
+                <p className="text-blue-400">Food & Dining: $4,200</p>
               </div>
             </motion.div>
           </div>

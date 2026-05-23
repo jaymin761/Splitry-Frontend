@@ -14,6 +14,7 @@ const buttonVariants = cva(
         outline: "border border-border-stroke bg-transparent hover:bg-primary-dark hover:text-white",
         ghost: "hover:bg-primary-dark/5 text-primary-dark",
         glass: "glass text-primary-dark hover:bg-white/90",
+        retro: "bg-primary-green text-white rounded-xl border-2 border-[#026E4B] border-b-[4px] active:border-b-2 active:translate-y-[2px] active:scale-100 hover:brightness-105 transition-all font-bold uppercase tracking-wider shadow-sm",
       },
       size: {
         default: "h-11 px-6 py-2",

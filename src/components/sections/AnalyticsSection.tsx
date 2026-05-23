@@ -94,11 +94,11 @@ const AnalyticsSection = () => {
             <div className="mt-8 grid grid-cols-2 gap-4">
               <div className="p-4 rounded-xl bg-background-soft border border-border-stroke">
                 <p className="text-xs text-secondary-gray font-medium uppercase tracking-wider">Total Shared</p>
-                <p className="text-2xl font-bold text-primary-dark">₹42,390</p>
+                <p className="text-2xl font-bold text-primary-dark">$42,390</p>
               </div>
               <div className="p-4 rounded-xl bg-background-soft border border-border-stroke">
                 <p className="text-xs text-secondary-gray font-medium uppercase tracking-wider">Avg. per Group</p>
-                <p className="text-2xl font-bold text-primary-green">₹1,240</p>
+                <p className="text-2xl font-bold text-primary-green">$1,240</p>
               </div>
             </div>
           </motion.div>

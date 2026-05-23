@@ -54,10 +54,6 @@ const DownloadSection = () => {
                 <Apple className="mr-3 w-6 h-6 fill-current" />
                 App Store
               </Button>
-              <Button size="lg" variant="glass" className="h-16 px-10 rounded-2xl group text-lg bg-white/10 text-white border-white/20 hover:bg-white/20">
-                <Play className="mr-3 w-6 h-6 fill-current" />
-                Google Play
-              </Button>
             </div>
           </motion.div>
         </div>

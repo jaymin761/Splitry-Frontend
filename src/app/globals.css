@@ -10,7 +10,7 @@
   --color-success-green: #34C759;
   --color-alert-red: #FF383C;
 
-  --font-sans: "Inter", "Instrument Sans", system-ui, sans-serif;
+  --font-sans: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
   
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
@@ -47,4 +47,23 @@ body {
 
 .gradient-text {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-dark to-primary-green;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
