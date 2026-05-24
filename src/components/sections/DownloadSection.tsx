@@ -2,8 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Apple, Play, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Sparkles } from "lucide-react";
 
 const DownloadSection = () => {
   return (
@@ -50,10 +49,38 @@ const DownloadSection = () => {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-6">
-              <Button size="lg" className="h-16 px-10 rounded-2xl group text-lg">
-                <Apple className="mr-3 w-6 h-6 fill-current" />
-                App Store
-              </Button>
+              <a
+                href="#"
+                className="inline-block transition-opacity hover:opacity-80 active:opacity-60"
+                aria-label="Download on the App Store"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="190"
+                  height="64"
+                  viewBox="0 0 190 64"
+                  aria-hidden="true"
+                >
+                  <rect width="190" height="64" rx="12" fill="black" />
+                  <rect x="0.75" y="0.75" width="188.5" height="62.5" rx="11.25" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" fill="none" />
+
+                  {/* Apple logo */}
+                  <path
+                    d="M41.5 32.2c-.04-3.95 3.23-5.87 3.38-5.96-1.84-2.7-4.71-3.07-5.73-3.1-2.43-.25-4.74 1.44-5.97 1.44-1.23 0-3.14-1.41-5.16-1.37-2.64.04-5.08 1.55-6.43 3.9-2.76 4.78-.7 11.85 1.97 15.73 1.31 1.89 2.87 4.02 4.91 3.94 1.97-.08 2.72-1.27 5.1-1.27 2.39 0 3.08 1.27 5.17 1.24 2.13-.04 3.48-1.93 4.77-3.83 1.51-2.19 2.13-4.31 2.16-4.42-.05-.02-4.13-1.58-4.17-6.3z"
+                    fill="white"
+                  />
+                  <path
+                    d="M37.47 20.47c1.09-1.32 1.82-3.15 1.62-4.98-1.57.06-3.46 1.05-4.58 2.36-1.01 1.16-1.89 3-1.65 4.77 1.75.13 3.53-.88 4.61-2.15z"
+                    fill="white"
+                  />
+
+                  {/* Download on the */}
+                  <text x="58" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="12" fill="white" letterSpacing="0.3">Download on the</text>
+
+                  {/* App Store */}
+                  <text x="56" y="48" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="26" fontWeight="600" fill="white" letterSpacing="-0.5">App Store</text>
+                </svg>
+              </a>
             </div>
           </motion.div>
         </div>
