@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/home-screen.png",
+        url: "/splitry-logo-s1.png",
         width: 1200,
         height: 630,
         alt: "Splitry App Interface",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Splitry | Split Expenses Smarter with AI",
     description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly.",
-    images: ["/home-screen.png"],
+    images: ["/splitry-logo-s1.png"],
     creator: "@splitry",
   },
 };

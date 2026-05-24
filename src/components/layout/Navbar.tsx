@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -47,11 +48,17 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
         <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 group">
-          <motion.div 
-            whileHover={{ scale: 1.05, rotate: 6 }}
-            className="w-10 h-10 bg-primary-green rounded-xl flex items-center justify-center transition-transform"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="relative w-10 h-10 transition-transform"
           >
-            <span className="text-white font-bold text-xl">S</span>
+            <Image
+              src="/splitry-logo-s1.png"
+              alt="Splitry Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </motion.div>
           <span className="text-2xl font-bold tracking-tight text-primary-dark">
             Splitry
