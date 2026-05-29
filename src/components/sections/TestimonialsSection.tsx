@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -51,7 +52,7 @@ const TestimonialsSection = () => {
               <Quote className="absolute top-8 right-8 w-12 h-12 text-primary-green/10 group-hover:text-primary-green/20 transition-colors" />
               
               <div className="flex items-center gap-4 mb-6">
-                <img src={t.image} alt={t.name} className="w-14 h-14 rounded-full border-2 border-white shadow-md" />
+                <Image src={t.image} alt={t.name} width={56} height={56} className="w-14 h-14 rounded-full border-2 border-white shadow-md" />
                 <div>
                   <h4 className="font-bold text-primary-dark">{t.name}</h4>
                   <p className="text-sm text-secondary-gray">{t.role}</p>

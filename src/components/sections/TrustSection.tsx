@@ -1,6 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const TrustSection = () => {
   return (
@@ -12,7 +13,7 @@ const TrustSection = () => {
             <div className="flex -space-x-3">
               {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="w-12 h-12 rounded-full border-4 border-white overflow-hidden bg-gray-200">
-                  <img src={`https://i.pravatar.cc/150?u=${i}`} alt="user" className="w-full h-full object-cover" />
+                  <Image src={`https://i.pravatar.cc/150?u=${i}`} alt="user" width={48} height={48} className="w-full h-full object-cover" />
                 </div>
               ))}
               <div className="w-12 h-12 rounded-full border-4 border-white bg-primary-green flex items-center justify-center text-white text-xs font-bold">
