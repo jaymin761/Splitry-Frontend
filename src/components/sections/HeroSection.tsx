@@ -89,8 +89,7 @@ const HeroSection = () => {
               Real-time Sync
             </div>
           </motion.div>
-        </div>.
-        <div className=""></div>
+        </div>
 
         {/* Visuals */}
         <div className="relative mt-12 lg:mt-0 flex justify-center items-center h-[400px] lg:h-[500px] w-full">
@@ -207,7 +206,7 @@ const HeroSection = () => {
           </div>
 
           {/* Glow effect */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-full max-h-[500px] bg-primary-green/10 blur-[120px] rounded-full -z-10 pointer-events-none" />
+          {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-full max-h-[500px] bg-primary-green/10 blur-[120px] rounded-full -z-10 pointer-events-none" /> */}
         </div>
       </div>
     </section>
