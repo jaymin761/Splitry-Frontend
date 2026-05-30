@@ -16,7 +16,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <HowItWorks />
-      <AppShowcase />
+      {/* <AppShowcase /> */}
       <AISection />
       <AnalyticsSection />
       <TestimonialsSection />

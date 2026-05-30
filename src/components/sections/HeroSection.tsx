@@ -1,43 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck, Zap, Sparkles } from "lucide-react";
-
-const FloatingCard = ({ 
-  children, 
-  className, 
-  delay = 0,
-  initialX = 0
-}: { 
-  children: React.ReactNode, 
-  className?: string, 
-  delay?: number,
-  initialX?: number
-}) => (
-  <motion.div
-    initial={{ x: initialX, y: 20, opacity: 0 }}
-    animate={{
-      x: 0,
-      y: [0, -10, 0],
-      opacity: 1
-    }}
-    transition={{
-      x: { duration: 0.45, ease: "easeOut", delay },
-      y: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: delay + 0.45
-      },
-      opacity: { duration: 0.45, delay }
-    }}
-    className={className}
-  >
-    {children}
-  </motion.div>
-);
 
 const HeroSection = () => {
   return (
@@ -64,8 +29,8 @@ const HeroSection = () => {
               Split expenses <br />
               <span className="text-primary-green">smarter with AI.</span>
             </h1>
-            <p className="mt-6 text-xl text-secondary-gray max-w-xl mx-auto lg:mx-0">
-              Track, split, settle, and manage shared expenses with friends and groups effortlessly using smart automation and UPI.
+            <p className="mt-6 text-xl text-secondary-gray max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Track, split, settle, and manage shared expenses with friends and groups effortlessly. Our AI automatically scans receipts, categorizes items, and calculates exact shares including tax and tip. Settle up instantly using secure UPI integration. No more awkward math, just seamless group finances.
             </p>
           </motion.div>
 
@@ -124,64 +89,125 @@ const HeroSection = () => {
               Real-time Sync
             </div>
           </motion.div>
-        </div>
+        </div>.
+        <div className=""></div>
 
         {/* Visuals */}
-        <div className="relative mt-12 lg:mt-0">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="relative z-10 mx-auto w-[280px] md:w-[320px] lg:w-[300px] xl:w-[380px]"
-          >
-            <div 
-              className="relative aspect-[9/19] overflow-hidden shadow-2xl border-[8px] border-primary-dark ring-4 ring-white/50"
-              style={{ borderRadius: '3rem' }}
+        <div className="relative mt-12 lg:mt-0 flex justify-center items-center h-[400px] lg:h-[500px] w-full">
+          {/* The container for abstract visualization */}
+          <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] scale-75 md:scale-100">
+            {/* SVG for connecting lines */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
+              <defs>
+                <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#10B981" stopOpacity="0.5" />
+                  <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.5" />
+                </linearGradient>
+              </defs>
+
+              {/* Lines from center (200,200) to nodes */}
+              {[
+                { x: 320, y: 80, delay: 0 },
+                { x: 340, y: 280, delay: 0.2 },
+                { x: 90, y: 310, delay: 0.4 },
+                { x: 70, y: 130, delay: 0.6 },
+              ].map((pos, i) => (
+                <motion.line
+                  key={i}
+                  x1="200"
+                  y1="200"
+                  x2={pos.x}
+                  y2={pos.y}
+                  stroke="url(#line-gradient)"
+                  strokeWidth="3"
+                  strokeDasharray="6 6"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.5, delay: 0.5 + pos.delay, ease: "easeOut" }}
+                />
+              ))}
+            </svg>
+
+            {/* Center Node (Main Expense) */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, type: "spring", bounce: 0.5 }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
             >
-              <Image
-                src="/home-screen.png"
-                alt="Splitry App Mockup"
-                fill
-                unoptimized
-                className="object-cover"
-                priority
+              <div className="relative flex items-center justify-center w-28 h-28 bg-white rounded-full shadow-premium border border-border-stroke">
+                {/* Pulsing ring */}
+                <motion.div
+                  animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 rounded-full border-2 border-primary-green"
+                />
+                <div className="text-center z-10">
+                  <p className="text-sm text-secondary-gray font-medium">Total</p>
+                  <p className="text-xl font-bold text-primary-dark">$115</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Surrounding Nodes (Friends/Splits) */}
+            {[
+              { id: 1, x: 320, y: 80, label: "Alex", amount: "$25", color: "text-blue-600 border-blue-200", delay: 0.5 },
+              { id: 2, x: 340, y: 280, label: "Sam", amount: "$40", color: "text-purple-600 border-purple-200", delay: 0.7 },
+              { id: 3, x: 90, y: 310, label: "You", amount: "$15", color: "text-green-600 border-green-200", delay: 0.9 },
+              { id: 4, x: 70, y: 130, label: "Mia", amount: "$35", color: "text-pink-600 border-pink-200", delay: 1.1 },
+            ].map((node) => (
+              <motion.div
+                key={node.id}
+                initial={{ scale: 0, opacity: 0, x: 200, y: 200 }}
+                animate={{ scale: 1, opacity: 1, x: node.x, y: node.y }}
+                transition={{ duration: 0.8, delay: node.delay, type: "spring", bounce: 0.4 }}
+                className="absolute top-0 left-0 -ml-[36px] -mt-[36px] z-20 flex flex-col items-center"
+              >
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3 + node.id * 0.5, repeat: Infinity, ease: "easeInOut", delay: node.delay }}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <div className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold shadow-md border-2 bg-white ${node.color} relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-current opacity-10"></div>
+                    {node.label[0]}
+                  </div>
+                  <div className="bg-white px-3 py-1 rounded-full shadow-sm border border-border-stroke text-sm font-bold text-primary-dark">
+                    {node.amount}
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+
+            {/* Particles moving along lines */}
+            {[
+              { x1: 200, y1: 200, x2: 320, y2: 80, delay: 1 },
+              { x1: 200, y1: 200, x2: 340, y2: 280, delay: 1.5 },
+              { x1: 200, y1: 200, x2: 90, y2: 310, delay: 2 },
+              { x1: 200, y1: 200, x2: 70, y2: 130, delay: 2.5 },
+            ].map((particle, i) => (
+              <motion.div
+                key={`p-${i}`}
+                initial={{ x: particle.x1, y: particle.y1, opacity: 0, scale: 0 }}
+                animate={{
+                  x: [particle.x1, particle.x2],
+                  y: [particle.y1, particle.y2],
+                  opacity: [0, 1, 0],
+                  scale: [0.5, 1, 0.5]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: particle.delay,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-0 left-0 -ml-2 -mt-2 w-4 h-4 bg-primary-green rounded-full blur-[2px] z-30"
               />
-            </div>
+            ))}
+          </div>
 
-            {/* Floating Cards */}
-            <FloatingCard className="absolute -top-10 -right-4 md:-right-12 xl:-right-16 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={0.15} initialX={60}>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold">$</div>
-                <div>
-                  <p className="text-xs text-secondary-gray font-medium">Balance</p>
-                  <p className="text-sm font-bold text-red-500">You owe $240</p>
-                </div>
-              </div>
-            </FloatingCard>
-
-            <FloatingCard className="absolute top-1/2 -left-8 md:-left-20 xl:-left-24 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={0.45} initialX={-60}>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">✓</div>
-                <div>
-                  <p className="text-xs text-secondary-gray font-medium">Activity</p>
-                  <p className="text-sm font-bold text-primary-dark">Rahul paid $1200</p>
-                </div>
-              </div>
-            </FloatingCard>
-
-            <FloatingCard className="absolute bottom-10 -right-4 md:-right-8 xl:-right-12 z-20 glass p-4 rounded-2xl shadow-premium border-white/40" delay={0.3} initialX={60}>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">AI</div>
-                <div>
-                  <p className="text-xs text-secondary-gray font-medium">Smart Detection</p>
-                  <p className="text-sm font-bold text-primary-dark">Receipt detected</p>
-                </div>
-              </div>
-            </FloatingCard>
-          </motion.div>
-
-          {/* Glow effect behind phone */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary-green/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
+          {/* Glow effect */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-full max-h-[500px] bg-primary-green/10 blur-[120px] rounded-full -z-10 pointer-events-none" />
         </div>
       </div>
     </section>
