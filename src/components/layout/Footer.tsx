@@ -41,8 +41,11 @@ const Footer = () => {
               AI-powered expense splitting for friends, couples, and groups. Settle debts instantly and stay friends.
             </p>
             <div className="flex items-center gap-4">
-              {[Facebook, Instagram].map((Icon, i) => (
-                <Link key={i} href="#" className="w-10 h-10 rounded-full border border-border-stroke flex items-center justify-center text-secondary-gray hover:text-primary-green hover:border-primary-green transition-all">
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61590603446388" },
+                { Icon: Instagram, href: "https://www.instagram.com/splitryapp/" }
+              ].map(({ Icon, href }, i) => (
+                <Link key={i} href={href} target={href !== "#" ? "_blank" : undefined} rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-border-stroke flex items-center justify-center text-secondary-gray hover:text-primary-green hover:border-primary-green transition-all">
                   <Icon className="w-5 h-5" />
                 </Link>
               ))}
@@ -59,13 +62,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* <div>
+          <div>
             <h4 className="font-bold text-primary-dark mb-6 text-lg">Company</h4>
             <ul className="flex flex-col gap-4 text-secondary-gray">
-              <li><Link href="#" className="hover:text-primary-green transition-colors">Blog</Link></li>
-              <li><Link href="#" className="hover:text-primary-green transition-colors">Contact</Link></li>
+              <li><Link href="/about" className="hover:text-primary-green transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-primary-green transition-colors">Contact</Link></li>
             </ul>
-          </div> */}
+          </div>
 
           <div>
             <h4 className="font-bold text-primary-dark mb-6 text-lg">Legal</h4>

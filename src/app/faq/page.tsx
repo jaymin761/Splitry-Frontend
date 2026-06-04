@@ -87,7 +87,7 @@ export default function FAQ() {
             Back to Home
           </Link>
           <h1 className="text-4xl font-bold text-primary-dark">Frequently Asked Questions</h1>
-          <p className="text-secondary-gray mt-3">Find quick answers to common questions about Splitry's expense splitting, AI features, and payment settlements.</p>
+          <p className="text-secondary-gray mt-3">Find quick answers to common questions about Splitry&apos;s expense splitting, AI features, and payment settlements.</p>
         </div>
       </div>
 
