@@ -59,13 +59,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h4 className="font-bold text-primary-dark mb-6 text-lg">Company</h4>
             <ul className="flex flex-col gap-4 text-secondary-gray">
               <li><Link href="#" className="hover:text-primary-green transition-colors">Blog</Link></li>
               <li><Link href="#" className="hover:text-primary-green transition-colors">Contact</Link></li>
             </ul>
-          </div>
+          </div> */}
 
           <div>
             <h4 className="font-bold text-primary-dark mb-6 text-lg">Legal</h4>

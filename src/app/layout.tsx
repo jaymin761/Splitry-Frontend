@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://splitry.com",
   },
   icons: {
     icon: [
