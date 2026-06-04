@@ -92,7 +92,7 @@ const HeroSection = () => {
         </div>
 
         {/* Visuals */}
-        <div className="relative mt-12 lg:mt-0 flex justify-center items-center h-[400px] lg:h-[500px] w-full">
+        <div className="relative mt-12 lg:mt-0 hidden lg:flex justify-center items-center h-[400px] lg:h-[500px] w-full">
           {/* The container for abstract visualization */}
           <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] scale-75 md:scale-100">
             {/* SVG for connecting lines */}
