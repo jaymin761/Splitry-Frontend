@@ -41,10 +41,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico" },
-      { url: "/logo.png", type: "image/png" }
+      { url: "/AppIcon.png", type: "image/png" }
     ],
     apple: [
-      { url: "/apple-icon.png", type: "image/png" }
+      { url: "/AppIcon.png", type: "image/png" }
     ],
   },
   robots: {
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/splitry-logo-s1.png",
+        url: "/AppIcon.png",
         width: 1200,
         height: 630,
         alt: "Splitry App Interface",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Splitry | Split Expenses Smarter with AI",
     description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly.",
-    images: ["/splitry-logo-s1.png"],
+    images: ["/AppIcon.png"],
     creator: "@splitry",
   },
 };

@@ -27,7 +27,7 @@ const Footer = () => {
             <Link href="/" className="flex items-center gap-2">
               <div className="relative w-10 h-10">
                 <Image
-                  src="/splitry-logo-s1.png"
+                  src="/AppIcon.png"
                   alt="Splitry Logo"
                   fill
                   className="object-contain"

@@ -54,7 +54,7 @@ const Navbar = () => {
             className="relative w-10 h-10 transition-transform"
           >
             <Image
-              src="/splitry-logo-s1.png"
+              src="/AppIcon.png"
               alt="Splitry Logo"
               fill
               className="object-contain"
