@@ -5,12 +5,8 @@ import { motion } from "framer-motion";
 import {
   Zap,
   Scan,
-  Mic,
-  CreditCard,
-  Users,
   MessageSquare,
   BarChart3,
-  BrainCircuit,
   Bell,
   Scale
 } from "lucide-react";
@@ -28,18 +24,6 @@ const features = [
     description: "Snap a photo and let our AI extract items, prices, and taxes instantly.",
     icon: Scan,
     color: "bg-emerald-500",
-  },
-  {
-    title: "Voice Expense Input",
-    description: "Just say 'Coffee with Sarah 450' and we'll handle the rest.",
-    icon: Mic,
-    color: "bg-purple-500",
-  },
-  {
-    title: "UPI Payments",
-    description: "Seamlessly settle debts with integrated UPI support for instant transfers.",
-    icon: CreditCard,
-    color: "bg-orange-500",
   },
   // {
   //   title: "Group Management",
@@ -60,12 +44,6 @@ const features = [
     color: "bg-cyan-500",
   },
   {
-    title: "AI Spending Prediction",
-    description: "Get insights into future expenses based on your past spending patterns.",
-    icon: BrainCircuit,
-    color: "bg-yellow-600",
-  },
-  {
     title: "Auto Reminders",
     description: "Never forget a debt. Smart reminders send nudges to keep things square.",
     icon: Bell,
@@ -79,7 +57,14 @@ const features = [
   },
 ];
 
-const FeatureCard = ({ feature, index }: { feature: any, index: number }) => (
+interface Feature {
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+}
+
+const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}

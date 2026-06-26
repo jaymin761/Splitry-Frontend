@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -8,80 +7,7 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://splitry.com"),
-  title: {
-    default: "Splitry | Split Expenses Smarter with AI",
-    template: "%s | Splitry",
-  },
-  description: "Track, split, settle, and manage shared expenses with friends, roommates, and groups effortlessly using AI-powered receipt scanning and automated calculations.",
-  keywords: [
-    "expense splitting app",
-    "bill split",
-    "AI expense manager",
-    "shared expenses calculator",
-    "roommate expense tracker",
-    "group bill splitter",
-    "split bill with AI",
-    "Splitry app",
-    "settle debts smartly",
-    "personal finance app"
-  ],
-  authors: [{ name: "Splitry Team", url: "https://splitry.com" }],
-  creator: "Splitry Inc.",
-  publisher: "Splitry Inc.",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  alternates: {
-    canonical: "https://splitry.com",
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/AppIcon.png", type: "image/png" }
-    ],
-    apple: [
-      { url: "/AppIcon.png", type: "image/png" }
-    ],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  openGraph: {
-    title: "Splitry | Split Expenses Smarter with AI",
-    description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly with automated AI scanning.",
-    type: "website",
-    url: "https://splitry.com",
-    siteName: "Splitry",
-    locale: "en_US",
-    images: [
-      {
-        url: "/AppIcon.png",
-        width: 1200,
-        height: 630,
-        alt: "Splitry App Interface",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Splitry | Split Expenses Smarter with AI",
-    description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly.",
-    images: ["/AppIcon.png"],
-    creator: "@splitry",
-  },
-};
+
 
 export default function RootLayout({
   children,
