@@ -5,12 +5,8 @@ import { motion } from "framer-motion";
 import {
   Zap,
   Scan,
-  Mic,
-  CreditCard,
-  Users,
   MessageSquare,
   BarChart3,
-  BrainCircuit,
   Bell,
   Scale
 } from "lucide-react";
@@ -61,7 +57,14 @@ const features = [
   },
 ];
 
-const FeatureCard = ({ feature, index }: { feature: any, index: number }) => (
+interface Feature {
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+}
+
+const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
