@@ -38,7 +38,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-2xl font-bold text-primary-dark mb-4">2. Description of Service</h2>
             <p className="text-secondary-gray leading-relaxed">
-              Splitry is an AI-powered expense management platform that allows users to track, split, and settle shared expenses with friends, family, roommates, and groups. Features include AI receipt scanning, UPI payment integration, group management, and spending analytics.
+              Splitry is a smart expense management platform that allows users to track, split, and settle shared expenses with friends, family, roommates, and groups. Features include automated receipt scanning, UPI payment integration, group management, and spending analytics.
             </p>
           </section>
 
@@ -79,9 +79,9 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">6. AI Features</h2>
+            <h2 className="text-2xl font-bold text-primary-dark mb-4">6. Automated Features</h2>
             <p className="text-secondary-gray leading-relaxed">
-              Our AI receipt scanner and spending prediction features are provided for convenience. While we strive for accuracy, AI-generated results may not always be correct. You are responsible for verifying all AI-extracted data before confirming expenses.
+              Our receipt scanner and spending prediction features are provided for convenience. While we strive for accuracy, automatically generated results may not always be correct. You are responsible for verifying all extracted data before confirming expenses.
             </p>
           </section>
 

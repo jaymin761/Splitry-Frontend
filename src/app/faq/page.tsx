@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions (FAQ)",
-  description: "Get answers to all your questions about Splitry, the AI-powered expense splitting app. Learn how to scan receipts, split bills, and settle with UPI.",
+  description: "Get answers to all your questions about Splitry, the smart expense splitting app. Learn how to scan receipts, split bills, and settle with UPI.",
   alternates: { canonical: "/faq" },
 };
 
@@ -13,11 +13,11 @@ const faqCategories = [
     items: [
       {
         question: "What is Splitry?",
-        answer: "Splitry is an AI-powered expense manager that helps friends, couples, roommates, and groups track, split, and settle shared bills effortlessly. By combining intelligent receipt scanning, automated calculations, and smooth payment flows, Splitry makes group finances stress-free."
+        answer: "Splitry is a smart expense manager that helps friends, couples, roommates, and groups track, split, and settle shared bills effortlessly. By combining intelligent receipt scanning, automated calculations, and smooth payment flows, Splitry makes group finances stress-free."
       },
       {
         question: "Is Splitry free to use?",
-        answer: "Yes! Splitry is completely free to download and use. You can create unlimited groups, invite friends, add expenses, and scan receipts using our AI parser without paying anything."
+        answer: "Yes! Splitry is completely free to download and use. You can create unlimited groups, invite friends, add expenses, and scan receipts using our built-in parser without paying anything."
       },
       {
         question: "How do I invite friends to my group?",
@@ -26,19 +26,19 @@ const faqCategories = [
     ]
   },
   {
-    category: "AI & Receipt Scanning",
+    category: "Receipt Scanning",
     items: [
       {
-        question: "How does the AI receipt scanner work?",
-        answer: "When you add an expense, simply tap the 'Scan Receipt' button and take a photo of your receipt. Our built-in AI parser instantly extracts the items, prices, tax, and tip. You can then quickly assign specific items to different group members or split them equally."
+        question: "How does the receipt scanner work?",
+        answer: "When you add an expense, simply tap the 'Scan Receipt' button and take a photo of your receipt. Our built-in parser instantly extracts the items, prices, tax, and tip. You can then quickly assign specific items to different group members or split them equally."
       },
       {
-        question: "What are AI Reminders and Suggestions?",
-        answer: "Splitry uses smart suggestions to predict category tags and group selections for new expenses, saving you typing time. AI Reminders are gentle, automated notifications sent to group members with pending balances, taking the awkwardness out of asking for money."
+        question: "What are Smart Reminders and Suggestions?",
+        answer: "Splitry uses smart suggestions to predict category tags and group selections for new expenses, saving you typing time. Smart Reminders are gentle, automated notifications sent to group members with pending balances, taking the awkwardness out of asking for money."
       },
       {
-        question: "Does the AI support itemized tax and tip splitting?",
-        answer: "Yes! The AI automatically calculates the proportional tax and tip for each item. If you assign an item to someone, their share of the tax and tip will be computed automatically and added to their total."
+        question: "Does Splitry support itemized tax and tip splitting?",
+        answer: "Yes! Splitry automatically calculates the proportional tax and tip for each item. If you assign an item to someone, their share of the tax and tip will be computed automatically and added to their total."
       }
     ]
   },
@@ -87,7 +87,7 @@ export default function FAQ() {
             Back to Home
           </Link>
           <h1 className="text-4xl font-bold text-primary-dark">Frequently Asked Questions</h1>
-          <p className="text-secondary-gray mt-3">Find quick answers to common questions about Splitry&apos;s expense splitting, AI features, and payment settlements.</p>
+          <p className="text-secondary-gray mt-3">Find quick answers to common questions about Splitry&apos;s expense splitting, smart features, and payment settlements.</p>
         </div>
       </div>
 

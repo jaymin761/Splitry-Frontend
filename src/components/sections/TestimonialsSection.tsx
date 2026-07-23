@@ -17,7 +17,7 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Product Designer",
     image: "https://i.pravatar.cc/150?u=priya",
-    quote: "The AI receipt scanner is like magic. I just snap a photo and everything is perfectly split in seconds.",
+    quote: "The receipt scanner is like magic. I just snap a photo and everything is perfectly split in seconds.",
     rating: 5
   },
   {

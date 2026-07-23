@@ -23,24 +23,6 @@ const features = [
     icon: Zap,
     color: "bg-blue-500",
   },
-  {
-    title: "AI Receipt Scanner",
-    description: "Snap a photo and let our AI extract items, prices, and taxes instantly.",
-    icon: Scan,
-    color: "bg-emerald-500",
-  },
-  {
-    title: "Voice Expense Input",
-    description: "Just say 'Coffee with Sarah 450' and we'll handle the rest.",
-    icon: Mic,
-    color: "bg-purple-500",
-  },
-  {
-    title: "UPI Payments",
-    description: "Seamlessly settle debts with integrated UPI support for instant transfers.",
-    icon: CreditCard,
-    color: "bg-orange-500",
-  },
   // {
   //   title: "Group Management",
   //   description: "Organize trips, roommates, or events with dedicated expense groups.",
@@ -60,7 +42,7 @@ const features = [
     color: "bg-cyan-500",
   },
   {
-    title: "AI Spending Prediction",
+    title: "Spending Insights",
     description: "Get insights into future expenses based on your past spending patterns.",
     icon: BrainCircuit,
     color: "bg-yellow-600",

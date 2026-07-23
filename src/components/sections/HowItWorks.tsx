@@ -13,7 +13,7 @@ const steps = [
   },
   {
     title: "Add Expenses",
-    description: "Snap a receipt or type an amount. AI automatically identifies and splits it for you.",
+    description: "Snap a receipt or type an amount. Splitry automatically identifies and splits it for you.",
     icon: Receipt,
     color: "bg-emerald-500",
   },

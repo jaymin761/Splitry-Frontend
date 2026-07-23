@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, Zap, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { ShieldCheck, Zap, Sparkles, Star, CheckCircle2, Receipt } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -23,17 +23,16 @@ const HeroSection = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-green/10 text-primary-green text-sm font-semibold mb-6">
               <Sparkles className="w-4 h-4" />
-              AI-Powered Expense Splitting
+              Smart Expense Splitting
             </div>
             <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight text-primary-dark leading-[1.1]">
               Split expenses <br />
-              <span className="text-primary-green">smarter with AI.</span>
+              <span className="text-primary-green">the smart way.</span>
             </h1>
             <p className="mt-6 text-xl text-secondary-gray max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Track, split, settle, and manage shared expenses with friends and groups effortlessly. Our AI automatically scans receipts, categorizes items, and calculates exact shares including tax and tip. Settle up instantly using secure UPI integration. No more awkward math, just seamless group finances.
+              Track, split, settle, and manage shared expenses with friends and groups effortlessly. Splitry automatically scans receipts, categorizes items, and calculates exact shares including tax and tip. Settle up instantly using secure UPI integration. No more awkward math, just seamless group finances.
             </p>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,6 +71,38 @@ const HeroSection = () => {
                 <text x="47" y="39" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="21" fontWeight="600" fill="white" letterSpacing="-0.3">App Store</text>
               </svg>
             </a>
+
+            <a
+              href="#"
+              className="relative inline-block transition-opacity hover:opacity-80 active:opacity-60"
+              aria-label="Get it on Google Play"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="160"
+                height="54"
+                viewBox="0 0 160 54"
+                aria-hidden="true"
+              >
+                <rect width="160" height="54" rx="10" fill="black" />
+                <rect x="0.75" y="0.75" width="158.5" height="52.5" rx="9.25" stroke="white" strokeOpacity="0.6" strokeWidth="1.5" fill="none" />
+
+                {/* GET IT ON */}
+                <text x="48" y="21" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="9" fill="white" letterSpacing="0.5">GET IT ON</text>
+
+                {/* Google Play */}
+                <text x="47" y="39" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="19" fontWeight="600" fill="white" letterSpacing="-0.3">Play Store</text>
+              </svg>
+
+              <Image
+                src="/playelogo.png"
+                alt=""
+                width={20}
+                height={20}
+                className="absolute top-[16px] left-[19px] w-5 h-5"
+                aria-hidden="true"
+              />
+            </a>
           </motion.div>
 
           <motion.div
@@ -92,121 +123,78 @@ const HeroSection = () => {
         </div>
 
         {/* Visuals */}
-        <div className="relative mt-12 lg:mt-0 hidden lg:flex justify-center items-center h-[400px] lg:h-[500px] w-full">
-          {/* The container for abstract visualization */}
-          <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] scale-75 md:scale-100">
-            {/* SVG for connecting lines */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
-              <defs>
-                <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#10B981" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.5" />
-                </linearGradient>
-              </defs>
+        <div className="relative mt-16 lg:mt-0 flex justify-center items-center w-full">
+          {/* Ambient glow behind the mockup */}
+          <div className="absolute w-[85%] h-[85%] bg-primary-green/15 blur-[100px] rounded-full -z-10" />
 
-              {/* Lines from center (200,200) to nodes */}
-              {[
-                { x: 320, y: 80, delay: 0 },
-                { x: 340, y: 280, delay: 0.2 },
-                { x: 90, y: 310, delay: 0.4 },
-                { x: 70, y: 130, delay: 0.6 },
-              ].map((pos, i) => (
-                <motion.line
-                  key={i}
-                  x1="200"
-                  y1="200"
-                  x2={pos.x}
-                  y2={pos.y}
-                  stroke="url(#line-gradient)"
-                  strokeWidth="3"
-                  strokeDasharray="6 6"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.5, delay: 0.5 + pos.delay, ease: "easeOut" }}
-                />
-              ))}
-            </svg>
-
-            {/* Center Node (Main Expense) */}
+          {/* Phone mockup */}
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-[230px] sm:max-w-[260px] lg:max-w-[300px] mx-auto"
+          >
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, type: "spring", bounce: 0.5 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+              animate={{ y: [0, -14, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative aspect-[9/19] rounded-[2.75rem] overflow-hidden border-[6px] border-primary-dark shadow-premium bg-white"
             >
-              <div className="relative flex items-center justify-center w-28 h-28 bg-white rounded-full shadow-premium border border-border-stroke">
-                {/* Pulsing ring */}
-                <motion.div
-                  animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 rounded-full border-2 border-primary-green"
-                />
-                <div className="text-center z-10">
-                  <p className="text-sm text-secondary-gray font-medium">Total</p>
-                  <p className="text-xl font-bold text-primary-dark">$115</p>
-                </div>
-              </div>
+              {/* Dynamic-island style notch */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-5 bg-primary-dark rounded-full z-10" />
+
+              <Image
+                src="/hero-mockup.jpeg"
+                alt="Splitry app home screen showing total balance and recent groups"
+                fill
+                sizes="(min-width: 1024px) 300px, (min-width: 640px) 260px, 230px"
+                className="object-cover"
+                priority
+              />
             </motion.div>
 
-            {/* Surrounding Nodes (Friends/Splits) */}
-            {[
-              { id: 1, x: 320, y: 80, label: "Alex", amount: "$25", color: "text-blue-600 border-blue-200", delay: 0.5 },
-              { id: 2, x: 340, y: 280, label: "Sam", amount: "$40", color: "text-purple-600 border-purple-200", delay: 0.7 },
-              { id: 3, x: 90, y: 310, label: "You", amount: "$15", color: "text-green-600 border-green-200", delay: 0.9 },
-              { id: 4, x: 70, y: 130, label: "Mia", amount: "$35", color: "text-pink-600 border-pink-200", delay: 1.1 },
-            ].map((node) => (
+            {/* Floating card: settled instantly */}
+            <motion.div
+              initial={{ opacity: 0, x: -20, y: -10 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="hidden sm:block"
+            >
               <motion.div
-                key={node.id}
-                initial={{ scale: 0, opacity: 0, x: 200, y: 200 }}
-                animate={{ scale: 1, opacity: 1, x: node.x, y: node.y }}
-                transition={{ duration: 0.8, delay: node.delay, type: "spring", bounce: 0.4 }}
-                className="absolute top-0 left-0 -ml-[36px] -mt-[36px] z-20 flex flex-col items-center"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                className="absolute -left-16 top-16 flex items-center gap-3 bg-white/90 backdrop-blur-md border border-border-stroke rounded-2xl px-4 py-3 shadow-premium"
               >
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 3 + node.id * 0.5, repeat: Infinity, ease: "easeInOut", delay: node.delay }}
-                  className="flex flex-col items-center gap-2"
-                >
-                  <div className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold shadow-md border-2 bg-white ${node.color} relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-current opacity-10"></div>
-                    {node.label[0]}
-                  </div>
-                  <div className="bg-white px-3 py-1 rounded-full shadow-sm border border-border-stroke text-sm font-bold text-primary-dark">
-                    {node.amount}
-                  </div>
-                </motion.div>
+                <div className="w-9 h-9 rounded-full bg-primary-green/10 flex items-center justify-center text-primary-green flex-shrink-0">
+                  <CheckCircle2 className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-primary-dark leading-tight">Settled Instantly</p>
+                </div>
               </motion.div>
-            ))}
+            </motion.div>
 
-            {/* Particles moving along lines */}
-            {[
-              { x1: 200, y1: 200, x2: 320, y2: 80, delay: 1 },
-              { x1: 200, y1: 200, x2: 340, y2: 280, delay: 1.5 },
-              { x1: 200, y1: 200, x2: 90, y2: 310, delay: 2 },
-              { x1: 200, y1: 200, x2: 70, y2: 130, delay: 2.5 },
-            ].map((particle, i) => (
+            {/* Floating card: receipt scan */}
+            <motion.div
+              initial={{ opacity: 0, x: 20, y: 10 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="hidden sm:block"
+            >
               <motion.div
-                key={`p-${i}`}
-                initial={{ x: particle.x1, y: particle.y1, opacity: 0, scale: 0 }}
-                animate={{
-                  x: [particle.x1, particle.x2],
-                  y: [particle.y1, particle.y2],
-                  opacity: [0, 1, 0],
-                  scale: [0.5, 1, 0.5]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: particle.delay,
-                  ease: "easeInOut"
-                }}
-                className="absolute top-0 left-0 -ml-2 -mt-2 w-4 h-4 bg-primary-green rounded-full blur-[2px] z-30"
-              />
-            ))}
-          </div>
-
-          {/* Glow effect */}
-          {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-full max-h-[500px] bg-primary-green/10 blur-[120px] rounded-full -z-10 pointer-events-none" /> */}
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                className="absolute -right-16 bottom-20 flex items-center gap-3 bg-white/90 backdrop-blur-md border border-border-stroke rounded-2xl px-4 py-3 shadow-premium"
+              >
+                <div className="w-9 h-9 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 flex-shrink-0">
+                  <Receipt className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-primary-dark leading-tight">Dinner @ Noma</p>
+                  <p className="text-xs text-secondary-gray leading-tight">Split 6 ways &middot; $450</p>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

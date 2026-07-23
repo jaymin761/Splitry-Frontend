@@ -38,7 +38,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-secondary-gray leading-relaxed">
-              AI-powered expense splitting for friends, couples, and groups. Settle debts instantly and stay friends.
+              Smart expense splitting for friends, couples, and groups. Settle debts instantly and stay friends.
             </p>
             <div className="flex items-center gap-4">
               {[
@@ -56,7 +56,6 @@ const Footer = () => {
             <h4 className="font-bold text-primary-dark mb-6 text-lg">Product</h4>
             <ul className="flex flex-col gap-4 text-secondary-gray">
               <li><Link href="#features" className="hover:text-primary-green transition-colors">Features</Link></li>
-              <li><Link href="#ai" className="hover:text-primary-green transition-colors">AI Engine</Link></li>
               <li><Link href="#analytics" className="hover:text-primary-green transition-colors">Analytics</Link></li>
               {/* <li><Link href="#" className="hover:text-primary-green transition-colors">Pricing</Link></li> */}
             </ul>

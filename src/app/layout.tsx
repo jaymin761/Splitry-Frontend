@@ -11,18 +11,18 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://splitry.com"),
   title: {
-    default: "Splitry | Split Expenses Smarter with AI",
+    default: "Splitry | Split Expenses the Smart Way",
     template: "%s | Splitry",
   },
-  description: "Track, split, settle, and manage shared expenses with friends, roommates, and groups effortlessly using AI-powered receipt scanning and automated calculations.",
+  description: "Track, split, settle, and manage shared expenses with friends, roommates, and groups effortlessly using smart receipt scanning and automated calculations.",
   keywords: [
     "expense splitting app",
     "bill split",
-    "AI expense manager",
+    "smart expense manager",
     "shared expenses calculator",
     "roommate expense tracker",
     "group bill splitter",
-    "split bill with AI",
+    "split bill app",
     "Splitry app",
     "settle debts smartly",
     "personal finance app"
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Splitry | Split Expenses Smarter with AI",
-    description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly with automated AI scanning.",
+    title: "Splitry | Split Expenses the Smart Way",
+    description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly with automated receipt scanning.",
     type: "website",
     url: "https://splitry.com",
     siteName: "Splitry",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Splitry | Split Expenses Smarter with AI",
+    title: "Splitry | Split Expenses the Smart Way",
     description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly.",
     images: ["/AppIcon.png"],
     creator: "@splitry",
@@ -99,7 +99,7 @@ export default function RootLayout({
       "price": "0",
       "priceCurrency": "USD"
     },
-    "description": "Splitry is an AI-powered expense manager that helps friends, couples, and groups track, split, and settle shared bills effortlessly using receipt scanning and smart calculations.",
+    "description": "Splitry is a smart expense manager that helps friends, couples, and groups track, split, and settle shared bills effortlessly using receipt scanning and smart calculations.",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",

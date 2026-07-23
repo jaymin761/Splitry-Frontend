@@ -3,7 +3,6 @@ import HeroSection from "@/components/sections/HeroSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import HowItWorks from "@/components/sections/HowItWorks";
 import AppShowcase from "@/components/sections/AppShowcase";
-import AISection from "@/components/sections/AISection";
 import AnalyticsSection from "@/components/sections/AnalyticsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import DownloadSection from "@/components/sections/DownloadSection";
@@ -17,7 +16,6 @@ export default function Home() {
       <FeaturesSection />
       <HowItWorks />
       {/* <AppShowcase /> */}
-      <AISection />
       <AnalyticsSection />
       <TestimonialsSection />
       <DownloadSection />

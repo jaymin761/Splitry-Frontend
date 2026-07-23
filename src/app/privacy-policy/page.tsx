@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Financial Data:</strong> Expense amounts, transaction descriptions, group splits, and payment history within the app.</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Device Information:</strong> Device type, operating system, and app version for technical support.</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Usage Data:</strong> How you interact with the app, features used, and session duration.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Camera / Photos:</strong> Only when you use the AI receipt scanner feature, and only with your explicit permission.</span></li>
+              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Camera / Photos:</strong> Only when you use the receipt scanner feature, and only with your explicit permission.</span></li>
             </ul>
           </section>
 
@@ -53,7 +53,7 @@ export default function PrivacyPolicy() {
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To provide and maintain the Splitry Service</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To process expense splits and settlement calculations</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To send reminders and notifications about balances</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To improve our AI receipt scanning accuracy</span></li>
+              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To improve our receipt scanning accuracy</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To provide customer support and respond to inquiries</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To analyze usage patterns and improve the app experience</span></li>
             </ul>

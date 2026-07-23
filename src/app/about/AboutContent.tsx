@@ -22,8 +22,8 @@ export default function AboutContent() {
   const values = [
     {
       icon: <Sparkles className="w-6 h-6" />,
-      title: "AI-Powered Simplicity",
-      description: "We leverage cutting-edge AI to eliminate manual math, scanning receipts instantly with pinpoint accuracy."
+      title: "Smart Simplicity",
+      description: "We leverage cutting-edge technology to eliminate manual math, scanning receipts instantly with pinpoint accuracy."
     },
     {
       icon: <Users className="w-6 h-6" />,
@@ -80,7 +80,7 @@ export default function AboutContent() {
                     It started at a group dinner. The check arrived, and what was supposed to be a fun night turned into a frustrating 20-minute math exercise involving tax, tip, and who had the extra appetizer.
                   </p>
                   <p>
-                    We realized existing apps either required manual entry of every single item, or were too complex for everyday use. We knew there had to be a better way&mdash;one powered by artificial intelligence.
+                    We realized existing apps either required manual entry of every single item, or were too complex for everyday use. We knew there had to be a better, smarter way.
                   </p>
                   <p>
                     Today, Splitry is a dedicated team on a mission to eliminate financial friction between friends, utilizing advanced receipt scanning and smart algorithms to make splitting expenses feel like magic.

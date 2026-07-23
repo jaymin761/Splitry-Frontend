@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Splitry - AI Expense Splitter',
+    name: 'Splitry - Smart Expense Splitter',
     short_name: 'Splitry',
-    description: 'AI-powered expense splitting for friends, couples, roommates, and groups. Settle bills and track shared costs effortlessly.',
+    description: 'Smart expense splitting for friends, couples, roommates, and groups. Settle bills and track shared costs effortlessly.',
     start_url: '/',
     display: 'standalone',
     background_color: '#FDFBF7',
