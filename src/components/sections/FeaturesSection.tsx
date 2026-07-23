@@ -8,9 +8,12 @@ import {
   BarChart3,
   Bell,
   Scale,
-  BrainCircuit
+  BrainCircuit,
+  PiggyBank,
+  BellRing
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const features = [
   {
@@ -55,6 +58,18 @@ const features = [
     icon: Scale,
     color: "bg-teal-500",
   },
+  {
+    title: "Budget Planner",
+    description: "Set monthly budgets and track your spending to stay in control.",
+    icon: PiggyBank,
+    color: "bg-lime-600",
+  },
+  {
+    title: "Bill Reminders",
+    description: "Never miss a payment with timely reminders for bills and recurring expenses.",
+    icon: BellRing,
+    color: "bg-indigo-500",
+  },
 ];
 
 interface Feature {
@@ -70,22 +85,26 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
-    whileHover={{ y: -5 }}
-    className="group relative p-8 rounded-3xl bg-white border border-border-stroke hover:border-primary-green/30 transition-all shadow-sm hover:shadow-premium"
   >
-    <div className={cn(
-      "w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 group-hover:rotate-3",
-      feature.color,
-      "bg-opacity-10"
-    )}>
-      <feature.icon className={cn("w-6 h-6", feature.color.replace("bg-", "text-"))} />
-    </div>
-    <h3 className="text-xl font-bold text-primary-dark mb-3">{feature.title}</h3>
-    <p className="text-secondary-gray leading-relaxed">{feature.description}</p>
+    <TiltCard
+      maxTilt={7}
+      scale={1.02}
+      className="group relative p-8 rounded-3xl bg-white border border-border-stroke hover:border-primary-green/30 transition-colors shadow-sm hover:shadow-premium"
+    >
+      <div className={cn(
+        "w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 group-hover:rotate-3 [transform:translateZ(20px)]",
+        feature.color,
+        "bg-opacity-10"
+      )}>
+        <feature.icon className={cn("w-6 h-6", feature.color.replace("bg-", "text-"))} />
+      </div>
+      <h3 className="text-xl font-bold text-primary-dark mb-3 [transform:translateZ(15px)]">{feature.title}</h3>
+      <p className="text-secondary-gray leading-relaxed">{feature.description}</p>
 
-    <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-      <div className="w-2 h-2 rounded-full bg-primary-green animate-ping" />
-    </div>
+      <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="w-2 h-2 rounded-full bg-primary-green animate-ping" />
+      </div>
+    </TiltCard>
   </motion.div>
 );
 

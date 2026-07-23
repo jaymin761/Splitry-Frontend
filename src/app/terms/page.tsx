@@ -38,7 +38,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-2xl font-bold text-primary-dark mb-4">2. Description of Service</h2>
             <p className="text-secondary-gray leading-relaxed">
-              Splitry is a smart expense management platform that allows users to track, split, and settle shared expenses with friends, family, roommates, and groups. Features include automated receipt scanning, UPI payment integration, group management, and spending analytics.
+              Splitry is a smart expense management platform that allows users to track, split, and settle shared expenses with friends, family, roommates, and groups. Features include automated receipt scanning, payment recording, group management, and spending analytics.
             </p>
           </section>
 
@@ -67,14 +67,14 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">5. Payment & UPI Integration</h2>
+            <h2 className="text-2xl font-bold text-primary-dark mb-4">5. Recording Payments</h2>
             <p className="text-secondary-gray leading-relaxed">
-              Splitry facilitates UPI payments for settling expenses. By using the payment feature, you agree that:
+              Splitry lets you record payments that happen outside the app to settle expenses. No money moves through Splitry. By using this feature, you agree that:
             </p>
             <ul className="space-y-3 text-secondary-gray mt-4">
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>All transactions are between users directly; Splitry is not a payment processor.</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>Splitry is not responsible for failed, disputed, or unauthorized transactions.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>You are solely responsible for verifying recipient UPI IDs before making payments.</span></li>
+              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>You are solely responsible for verifying recipient payment details before making payments.</span></li>
             </ul>
           </section>
 

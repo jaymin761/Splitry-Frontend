@@ -2,13 +2,20 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Sparkles } from "lucide-react";
 
 const DownloadSection = () => {
   return (
     <section className="py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative rounded-[3rem] bg-primary-dark overflow-hidden p-12 md:p-24 text-center">
+      <div className="max-w-7xl mx-auto [perspective:1600px]">
+        <motion.div
+          initial={{ opacity: 0, rotateX: 8, y: 30 }}
+          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative rounded-[3rem] bg-primary-dark overflow-hidden p-12 md:p-24 text-center"
+        >
           {/* Animated Background Gradients */}
           <div className="absolute inset-0 -z-10">
             <motion.div
@@ -81,9 +88,41 @@ const DownloadSection = () => {
                   <text x="56" y="48" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="26" fontWeight="600" fill="white" letterSpacing="-0.5">App Store</text>
                 </svg>
               </a>
+
+              <a
+                href="#"
+                className="relative inline-block transition-opacity hover:opacity-80 active:opacity-60"
+                aria-label="Get it on Google Play"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="190"
+                  height="64"
+                  viewBox="0 0 190 64"
+                  aria-hidden="true"
+                >
+                  <rect width="190" height="64" rx="12" fill="black" />
+                  <rect x="0.75" y="0.75" width="188.5" height="62.5" rx="11.25" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" fill="none" />
+
+                  {/* GET IT ON */}
+                  <text x="58" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="11" fill="white" letterSpacing="0.5">GET IT ON</text>
+
+                  {/* Google Play */}
+                  <text x="56" y="48" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="23" fontWeight="600" fill="white" letterSpacing="-0.3">Play Store</text>
+                </svg>
+
+                <Image
+                  src="/playelogo.png"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="absolute top-[19px] left-[22px] w-6 h-6"
+                  aria-hidden="true"
+                />
+              </a>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

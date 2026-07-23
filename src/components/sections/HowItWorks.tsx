@@ -19,7 +19,7 @@ const steps = [
   },
   {
     title: "Settle Instantly",
-    description: "Pay back with one tap via UPI. Splitry optimizes payments to minimize transfers.",
+    description: "Pay your friend however you like, then mark it settled in one tap. Splitry optimizes payments to minimize transfers.",
     icon: CreditCard,
     color: "bg-orange-500",
   },
@@ -38,7 +38,15 @@ const HowItWorks = () => {
         <div className="relative">
           {/* Connector Line (Desktop) */}
           <div className="hidden lg:block absolute top-[4.5rem] left-0 w-full h-1 bg-border-stroke -translate-y-1/2 z-0" />
-          
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
+            style={{ transformOrigin: "left" }}
+            className="hidden lg:block absolute top-[4.5rem] left-0 w-full h-1 bg-gradient-to-r from-primary-green via-primary-green to-emerald-400 -translate-y-1/2 z-0"
+          />
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
             {steps.map((step, i) => (
               <motion.div

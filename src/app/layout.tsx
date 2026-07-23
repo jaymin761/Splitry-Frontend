@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     default: "Splitry | Split Expenses the Smart Way",
     template: "%s | Splitry",
   },
-  description: "Track, split, settle, and manage shared expenses with friends, roommates, and groups effortlessly using smart receipt scanning and automated calculations.",
+  description: "Track, split, settle, and manage shared expenses with friends, roommates, and groups.",
   keywords: [
     "expense splitting app",
     "bill split",
@@ -98,7 +99,7 @@ export default function RootLayout({
       "price": "0",
       "priceCurrency": "USD"
     },
-    "description": "Splitry is a smart expense manager that helps friends, couples, and groups track, split, and settle shared bills effortlessly using receipt scanning and smart calculations.",
+    "description": "Splitry is a smart expense manager that helps friends, couples, and groups track, split, and settle shared bills effortlessly using smart calculations.",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",

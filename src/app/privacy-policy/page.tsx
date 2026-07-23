@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         <div className="max-w-4xl mx-auto px-6 py-8">
           <Link href="/" className="inline-flex items-center gap-2 text-primary-green font-semibold mb-6 hover:opacity-80 transition-opacity">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 5l-7 7 7 7"/>
+              <path d="M19 12H5M12 5l-7 7 7 7" />
             </svg>
             Back to Home
           </Link>
@@ -53,7 +53,7 @@ export default function PrivacyPolicy() {
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To provide and maintain the Splitry Service</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To process expense splits and settlement calculations</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To send reminders and notifications about balances</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To improve our receipt scanning accuracy</span></li>
+              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To improve our expense splitting accuracy</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To provide customer support and respond to inquiries</span></li>
               <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To analyze usage patterns and improve the app experience</span></li>
             </ul>

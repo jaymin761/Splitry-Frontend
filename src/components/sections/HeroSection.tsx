@@ -1,16 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { ShieldCheck, Zap, Sparkles, Star, CheckCircle2, Receipt } from "lucide-react";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const springX = useSpring(pointerX, { stiffness: 60, damping: 16, mass: 0.5 });
+  const springY = useSpring(pointerY, { stiffness: 60, damping: 16, mass: 0.5 });
+
+  const blobX = useTransform(springX, [-1, 1], [-24, 24]);
+  const blobY = useTransform(springY, [-1, 1], [-24, 24]);
+  const phoneX = useTransform(springX, [-1, 1], [12, -12]);
+  const phoneY = useTransform(springY, [-1, 1], [12, -12]);
+
+  const handlePointerMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    pointerX.set(((e.clientX - rect.left) / rect.width - 0.5) * 2);
+    pointerY.set(((e.clientY - rect.top) / rect.height - 0.5) * 2);
+  };
+
+  const handlePointerLeave = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+  };
+
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-visible">
+    <section
+      ref={sectionRef}
+      onMouseMove={handlePointerMove}
+      onMouseLeave={handlePointerLeave}
+      className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-visible"
+    >
       {/* Background Decor */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-green/5 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary-green/10 blur-[120px] rounded-full" />
+        <motion.div style={{ x: blobX, y: blobY }} className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-green/5 blur-[120px] rounded-full" />
+        <motion.div style={{ x: useTransform(blobX, (v) => -v), y: useTransform(blobY, (v) => -v) }} className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary-green/10 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16 items-center">
@@ -30,7 +60,7 @@ const HeroSection = () => {
               <span className="text-primary-green">the smart way.</span>
             </h1>
             <p className="mt-6 text-xl text-secondary-gray max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Track, split, settle, and manage shared expenses with friends and groups effortlessly. Splitry automatically scans receipts, categorizes items, and calculates exact shares including tax and tip. Settle up instantly using secure UPI integration. No more awkward math, just seamless group finances.
+              Track, split, settle, and manage shared expenses with friends and groups effortlessly. Splitry automatically scans receipts, categorizes items, and calculates exact shares including tax and tip. Record settlements in a tap — no money ever moves through Splitry. No more awkward math, just seamless group finances.
             </p>
           </motion.div>
           <motion.div
@@ -113,7 +143,7 @@ const HeroSection = () => {
           >
             <div className="flex items-center gap-2 text-sm font-medium text-secondary-gray">
               <ShieldCheck className="w-5 h-5 text-primary-green" />
-              Secure UPI Settle
+              No Funds Held
             </div>
             <div className="flex items-center gap-2 text-sm font-medium text-secondary-gray">
               <Zap className="w-5 h-5 text-primary-green" />
@@ -123,33 +153,38 @@ const HeroSection = () => {
         </div>
 
         {/* Visuals */}
-        <div className="relative mt-16 lg:mt-0 flex justify-center items-center w-full">
+        <div className="relative mt-16 lg:mt-0 flex justify-center items-center w-full [perspective:1400px]">
           {/* Ambient glow behind the mockup */}
           <div className="absolute w-[85%] h-[85%] bg-primary-green/15 blur-[100px] rounded-full -z-10" />
 
-          {/* Phone mockup */}
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[230px] sm:max-w-[260px] lg:max-w-[300px] mx-auto"
-          >
+          {/* Phone mockup group (mouse parallax) */}
+          <motion.div style={{ x: phoneX, y: phoneY }} className="relative w-full max-w-[230px] sm:max-w-[260px] lg:max-w-[300px] mx-auto">
+            {/* Entrance animation */}
             <motion.div
-              animate={{ y: [0, -14, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative aspect-[9/19] rounded-[2.75rem] overflow-hidden border-[6px] border-primary-dark shadow-premium bg-white"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Dynamic-island style notch */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-5 bg-primary-dark rounded-full z-10" />
+              {/* 3D tilt + gentle float */}
+              <TiltCard
+                maxTilt={12}
+                scale={1.03}
+                animate={{ y: [0, -14, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="aspect-[9/19] rounded-[2.75rem] overflow-hidden border-[6px] border-primary-dark shadow-premium bg-white"
+              >
+                {/* Dynamic-island style notch */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-5 bg-primary-dark rounded-full z-10" />
 
-              <Image
-                src="/hero-mockup.jpeg"
-                alt="Splitry app home screen showing total balance and recent groups"
-                fill
-                sizes="(min-width: 1024px) 300px, (min-width: 640px) 260px, 230px"
-                className="object-cover"
-                priority
-              />
+                <Image
+                  src="/hero-mockup.jpeg"
+                  alt="Splitry app home screen showing total balance and recent groups"
+                  fill
+                  sizes="(min-width: 1024px) 300px, (min-width: 640px) 260px, 230px"
+                  className="object-cover"
+                  priority
+                />
+              </TiltCard>
             </motion.div>
 
             {/* Floating card: settled instantly */}

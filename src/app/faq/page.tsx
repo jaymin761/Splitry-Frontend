@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions (FAQ)",
-  description: "Get answers to all your questions about Splitry, the smart expense splitting app. Learn how to scan receipts, split bills, and settle with UPI.",
+  description: "Get answers to all your questions about Splitry, the smart expense splitting app. Learn how to scan receipts, split bills, and record settlements.",
   alternates: { canonical: "/faq" },
 };
 
@@ -51,11 +51,11 @@ const faqCategories = [
       },
       {
         question: "How do I settle up my balance?",
-        answer: "To settle up, tap the 'Settle Up' button in your group. You can choose who you want to pay and the amount. On mobile devices, this will launch your preferred UPI app (like GPay, PhonePe, or Paytm) with the pre-filled amount and recipient UPI ID for instant settlement."
+        answer: "Tap the 'Settle Up' button in your group and choose who you paid and the amount. You're recording a payment that happened outside Splitry — pay your friend however you like (bank transfer, cash, or any payment app), then log it so everyone's balance updates instantly. No money moves through Splitry."
       },
       {
         question: "Does Splitry store or process my money?",
-        answer: "No, Splitry is not a mobile wallet and does not hold or process your funds. All payments are completed securely outside of Splitry via standard UPI apps, directly from your bank account to your friend's bank account."
+        answer: "No, Splitry is not a mobile wallet and does not hold, process, or move your funds. All payments happen directly between you and your friends, outside of Splitry. Splitry just keeps the record straight."
       }
     ]
   },

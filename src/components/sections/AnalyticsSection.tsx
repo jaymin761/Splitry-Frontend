@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from "recharts";
 import { TrendingUp, PieChart, Activity } from "lucide-react";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const data = [
   { name: "Jan", amount: 4000 },
@@ -57,50 +58,51 @@ const AnalyticsSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="p-8 rounded-[2.5rem] bg-white border border-border-stroke shadow-premium"
           >
-            <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
-              Monthly Spending Trend
-              <span className="text-xs font-normal text-secondary-gray ml-auto">Last 6 months</span>
-            </h3>
-            
-            <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={data}>
-                  <defs>
-                    <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#03A671" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#03A671" stopOpacity={0}/>
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E6E8EA" />
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#98979F', fontSize: 12}} />
-                  <YAxis hide />
-                  <Tooltip 
-                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
-                  />
-                  <Area 
-                    type="monotone" 
-                    dataKey="amount" 
-                    stroke="#03A671" 
-                    strokeWidth={3}
-                    fillOpacity={1} 
-                    fill="url(#colorAmount)" 
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
+            <TiltCard maxTilt={5} scale={1.01} className="p-8 rounded-[2.5rem] bg-white border border-border-stroke shadow-premium">
+              <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
+                Monthly Spending Trend
+                <span className="text-xs font-normal text-secondary-gray ml-auto">Last 6 months</span>
+              </h3>
 
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-background-soft border border-border-stroke">
-                <p className="text-xs text-secondary-gray font-medium uppercase tracking-wider">Total Shared</p>
-                <p className="text-2xl font-bold text-primary-dark">$42,390</p>
+              <div className="h-[300px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={data}>
+                    <defs>
+                      <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#03A671" stopOpacity={0.3}/>
+                        <stop offset="95%" stopColor="#03A671" stopOpacity={0}/>
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E6E8EA" />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#98979F', fontSize: 12}} />
+                    <YAxis hide />
+                    <Tooltip
+                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
+                    />
+                    <Area
+                      type="monotone"
+                      dataKey="amount"
+                      stroke="#03A671"
+                      strokeWidth={3}
+                      fillOpacity={1}
+                      fill="url(#colorAmount)"
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
               </div>
-              <div className="p-4 rounded-xl bg-background-soft border border-border-stroke">
-                <p className="text-xs text-secondary-gray font-medium uppercase tracking-wider">Avg. per Group</p>
-                <p className="text-2xl font-bold text-primary-green">$1,240</p>
+
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-background-soft border border-border-stroke">
+                  <p className="text-xs text-secondary-gray font-medium uppercase tracking-wider">Total Shared</p>
+                  <p className="text-2xl font-bold text-primary-dark">$42,390</p>
+                </div>
+                <div className="p-4 rounded-xl bg-background-soft border border-border-stroke">
+                  <p className="text-xs text-secondary-gray font-medium uppercase tracking-wider">Avg. per Group</p>
+                  <p className="text-2xl font-bold text-primary-green">$1,240</p>
+                </div>
               </div>
-            </div>
+            </TiltCard>
           </motion.div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import Image from "next/image";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const testimonials = [
   {
@@ -24,7 +25,7 @@ const testimonials = [
     name: "Marcus Chen",
     role: "Software Engineer",
     image: "https://i.pravatar.cc/150?u=marcus",
-    quote: "The UI is incredibly smooth. It feels like a premium app should. The UPI integration makes settling up instant.",
+    quote: "The UI is incredibly smooth. It feels like a premium app should. Marking payments as settled is instant.",
     rating: 5
   }
 ];
@@ -47,25 +48,27 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="w-full md:w-[380px] p-8 rounded-[2rem] bg-background-soft border border-border-stroke relative group"
+              className="w-full md:w-[380px]"
             >
-              <Quote className="absolute top-8 right-8 w-12 h-12 text-primary-green/10 group-hover:text-primary-green/20 transition-colors" />
-              
-              <div className="flex items-center gap-4 mb-6">
-                <Image src={t.image} alt={t.name} width={56} height={56} className="w-14 h-14 rounded-full border-2 border-white shadow-md" />
-                <div>
-                  <h4 className="font-bold text-primary-dark">{t.name}</h4>
-                  <p className="text-sm text-secondary-gray">{t.role}</p>
+              <TiltCard maxTilt={6} scale={1.02} className="p-8 rounded-[2rem] bg-background-soft border border-border-stroke relative group">
+                <Quote className="absolute top-8 right-8 w-12 h-12 text-primary-green/10 group-hover:text-primary-green/20 transition-colors" />
+
+                <div className="flex items-center gap-4 mb-6">
+                  <Image src={t.image} alt={t.name} width={56} height={56} className="w-14 h-14 rounded-full border-2 border-white shadow-md" />
+                  <div>
+                    <h4 className="font-bold text-primary-dark">{t.name}</h4>
+                    <p className="text-sm text-secondary-gray">{t.role}</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex text-yellow-400 mb-4">
-                {[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-              </div>
+                <div className="flex text-yellow-400 mb-4">
+                  {[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
 
-              <p className="text-primary-dark leading-relaxed italic text-lg">
-                "{t.quote}"
-              </p>
+                <p className="text-primary-dark leading-relaxed italic text-lg">
+                  "{t.quote}"
+                </p>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

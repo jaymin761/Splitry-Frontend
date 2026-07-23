@@ -2,7 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import HowItWorks from "@/components/sections/HowItWorks";
-import AppShowcase from "@/components/sections/AppShowcase";
+import UseCasesSection from "@/components/sections/UseCasesSection";
 import AnalyticsSection from "@/components/sections/AnalyticsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import DownloadSection from "@/components/sections/DownloadSection";
@@ -15,7 +15,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <HowItWorks />
-      {/* <AppShowcase /> */}
+      <UseCasesSection />
       <AnalyticsSection />
       <TestimonialsSection />
       <DownloadSection />
