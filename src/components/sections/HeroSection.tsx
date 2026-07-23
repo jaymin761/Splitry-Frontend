@@ -2,9 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import Image from "next/image";
-import { ShieldCheck, Zap, Sparkles, Star, CheckCircle2, Receipt } from "lucide-react";
-import { TiltCard } from "@/components/ui/TiltCard";
+import { ShieldCheck, Zap, Sparkles, Star } from "lucide-react";
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -15,8 +13,6 @@ const HeroSection = () => {
 
   const blobX = useTransform(springX, [-1, 1], [-24, 24]);
   const blobY = useTransform(springY, [-1, 1], [-24, 24]);
-  const phoneX = useTransform(springX, [-1, 1], [12, -12]);
-  const phoneY = useTransform(springY, [-1, 1], [12, -12]);
 
   const handlePointerMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = sectionRef.current?.getBoundingClientRect();
@@ -43,9 +39,9 @@ const HeroSection = () => {
         <motion.div style={{ x: useTransform(blobX, (v) => -v), y: useTransform(blobY, (v) => -v) }} className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary-green/10 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-16 items-center">
+      <div className="max-w-4xl mx-auto px-6">
         {/* Content */}
-        <div className="flex flex-col gap-8 text-center lg:text-left">
+        <div className="flex flex-col items-center gap-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,7 +55,7 @@ const HeroSection = () => {
               Split expenses <br />
               <span className="text-primary-green">the smart way.</span>
             </h1>
-            <p className="mt-6 text-xl text-secondary-gray max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="mt-6 text-xl text-secondary-gray max-w-2xl mx-auto leading-relaxed">
               Track, split, settle, and manage shared expenses with friends and groups effortlessly. Splitry automatically scans receipts, categorizes items, and calculates exact shares including tax and tip. Record settlements in a tap — no money ever moves through Splitry. No more awkward math, just seamless group finances.
             </p>
           </motion.div>
@@ -67,7 +63,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
+            className="flex flex-wrap items-center justify-center gap-4"
           >
             <a
               href="#"
@@ -117,21 +113,15 @@ const HeroSection = () => {
                 <rect width="160" height="54" rx="10" fill="black" />
                 <rect x="0.75" y="0.75" width="158.5" height="52.5" rx="9.25" stroke="white" strokeOpacity="0.6" strokeWidth="1.5" fill="none" />
 
+                {/* Play triangle */}
+                <path d="M20 15.5 L20 38.5 L35 27 Z" fill="white" />
+
                 {/* GET IT ON */}
                 <text x="48" y="21" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="9" fill="white" letterSpacing="0.5">GET IT ON</text>
 
                 {/* Google Play */}
                 <text x="47" y="39" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="19" fontWeight="600" fill="white" letterSpacing="-0.3">Play Store</text>
               </svg>
-
-              <Image
-                src="/playelogo.png"
-                alt=""
-                width={20}
-                height={20}
-                className="absolute top-[16px] left-[19px] w-5 h-5"
-                aria-hidden="true"
-              />
             </a>
           </motion.div>
 
@@ -139,7 +129,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="flex items-center justify-center lg:justify-start gap-8 pt-4"
+            className="flex items-center justify-center gap-8 pt-4"
           >
             <div className="flex items-center gap-2 text-sm font-medium text-secondary-gray">
               <ShieldCheck className="w-5 h-5 text-primary-green" />
@@ -149,86 +139,6 @@ const HeroSection = () => {
               <Zap className="w-5 h-5 text-primary-green" />
               Real-time Sync
             </div>
-          </motion.div>
-        </div>
-
-        {/* Visuals */}
-        <div className="relative mt-16 lg:mt-0 flex justify-center items-center w-full [perspective:1400px]">
-          {/* Ambient glow behind the mockup */}
-          <div className="absolute w-[85%] h-[85%] bg-primary-green/15 blur-[100px] rounded-full -z-10" />
-
-          {/* Phone mockup group (mouse parallax) */}
-          <motion.div style={{ x: phoneX, y: phoneY }} className="relative w-full max-w-[230px] sm:max-w-[260px] lg:max-w-[300px] mx-auto">
-            {/* Entrance animation */}
-            <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {/* 3D tilt + gentle float */}
-              <TiltCard
-                maxTilt={12}
-                scale={1.03}
-                animate={{ y: [0, -14, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="aspect-[9/19] rounded-[2.75rem] overflow-hidden border-[6px] border-primary-dark shadow-premium bg-white"
-              >
-                {/* Dynamic-island style notch */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-5 bg-primary-dark rounded-full z-10" />
-
-                <Image
-                  src="/hero-mockup.jpeg"
-                  alt="Splitry app home screen showing total balance and recent groups"
-                  fill
-                  sizes="(min-width: 1024px) 300px, (min-width: 640px) 260px, 230px"
-                  className="object-cover"
-                  priority
-                />
-              </TiltCard>
-            </motion.div>
-
-            {/* Floating card: settled instantly */}
-            <motion.div
-              initial={{ opacity: 0, x: -20, y: -10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="hidden sm:block"
-            >
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-                className="absolute -left-16 top-16 flex items-center gap-3 bg-white/90 backdrop-blur-md border border-border-stroke rounded-2xl px-4 py-3 shadow-premium"
-              >
-                <div className="w-9 h-9 rounded-full bg-primary-green/10 flex items-center justify-center text-primary-green flex-shrink-0">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-primary-dark leading-tight">Settled Instantly</p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Floating card: receipt scan */}
-            <motion.div
-              initial={{ opacity: 0, x: 20, y: 10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="hidden sm:block"
-            >
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                className="absolute -right-16 bottom-20 flex items-center gap-3 bg-white/90 backdrop-blur-md border border-border-stroke rounded-2xl px-4 py-3 shadow-premium"
-              >
-                <div className="w-9 h-9 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 flex-shrink-0">
-                  <Receipt className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-primary-dark leading-tight">Dinner @ Noma</p>
-                  <p className="text-xs text-secondary-gray leading-tight">Split 6 ways &middot; $450</p>
-                </div>
-              </motion.div>
-            </motion.div>
           </motion.div>
         </div>
       </div>

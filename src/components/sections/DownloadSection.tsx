@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Sparkles } from "lucide-react";
 
 const DownloadSection = () => {
@@ -104,21 +103,15 @@ const DownloadSection = () => {
                   <rect width="190" height="64" rx="12" fill="black" />
                   <rect x="0.75" y="0.75" width="188.5" height="62.5" rx="11.25" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" fill="none" />
 
+                  {/* Play triangle */}
+                  <path d="M24 18 L24 46 L42 32 Z" fill="white" />
+
                   {/* GET IT ON */}
                   <text x="58" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="11" fill="white" letterSpacing="0.5">GET IT ON</text>
 
                   {/* Google Play */}
                   <text x="56" y="48" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="23" fontWeight="600" fill="white" letterSpacing="-0.3">Play Store</text>
                 </svg>
-
-                <Image
-                  src="/playelogo.png"
-                  alt=""
-                  width={24}
-                  height={24}
-                  className="absolute top-[19px] left-[22px] w-6 h-6"
-                  aria-hidden="true"
-                />
               </a>
             </div>
           </motion.div>
