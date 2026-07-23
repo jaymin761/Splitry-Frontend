@@ -4,11 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   Zap,
-  Scan,
   MessageSquare,
   BarChart3,
   Bell,
-  Scale
+  Scale,
+  BrainCircuit
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
