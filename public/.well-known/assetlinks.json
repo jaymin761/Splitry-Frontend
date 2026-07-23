@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.splitry.app.splitry",
+      "sha256_cert_fingerprints": [
+        "89:39:6B:90:A3:68:56:3B:3F:02:9E:D1:6F:21:05:C0:9F:0D:5F:C9:8E:63:A6:44:80:73:C1:8A:D5:D4:EC:58"
+      ]
+    }
+  }
+]
