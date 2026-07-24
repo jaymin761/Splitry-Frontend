@@ -26,68 +26,71 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://splitry.com";
   const canonicalUrl = `${baseUrl}/qr/${encodeURIComponent(secret)}`;
-  const shareImageUrl = `${baseUrl}/images/share.png`;
+  const logoUrl = `${baseUrl}/logo.png`;
+
+  const appDescription =
+    "Splitry is a free app for sharing expenses with friends and family. Our mission is to reduce the stress that money places on relationships.";
 
   if (!payload || !payload.fullName) {
+    const title = "Splitry";
     return {
-      title: "Splitry",
-      description: "Split expenses with friends.",
+      title,
+      description: appDescription,
       alternates: {
         canonical: canonicalUrl,
       },
       openGraph: {
-        title: "Splitry",
-        description: "Split expenses with friends.",
-        url: canonicalUrl,
         siteName: "Splitry",
+        title,
+        description: appDescription,
+        url: canonicalUrl,
         images: [
           {
-            url: shareImageUrl,
-            width: 1200,
-            height: 630,
-            alt: "Splitry - Split Expenses",
+            url: logoUrl,
+            width: 512,
+            height: 512,
+            alt: "Splitry Logo",
           },
         ],
         type: "website",
       },
       twitter: {
-        card: "summary_large_image",
-        title: "Splitry",
-        description: "Split expenses with friends.",
-        images: [shareImageUrl],
+        card: "summary",
+        title,
+        description: appDescription,
+        images: [logoUrl],
       },
     };
   }
 
-  const title = `${payload.fullName} invited you to Splitry`;
-  const description = `Join ${payload.fullName} on Splitry and split expenses effortlessly.`;
+  const title = `Join ${payload.fullName} on Splitry`;
 
   return {
     title,
-    description,
+    description: appDescription,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title,
-      description,
-      url: canonicalUrl,
       siteName: "Splitry",
+      title,
+      description: appDescription,
+      url: canonicalUrl,
       images: [
         {
-          url: shareImageUrl,
-          width: 1200,
-          height: 630,
+          url: logoUrl,
+          width: 512,
+          height: 512,
           alt: title,
         },
       ],
       type: "profile",
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title,
-      description,
-      images: [shareImageUrl],
+      description: appDescription,
+      images: [logoUrl],
     },
   };
 }
@@ -141,7 +144,7 @@ export default async function QRPage({ params }: PageProps) {
             </div>
           )}
 
-          <div className="absolute bottom-0 right-0 bg-[#03A671] text-white p-1.5 rounded-full shadow-md border-2 border-white">
+          <div className="absolute bottom-0 right-0 bg-[#03A671] text-[#FFFFFF] p-1.5 rounded-full shadow-md border-2 border-white">
             <ShieldCheck className="w-4 h-4" />
           </div>
         </div>
