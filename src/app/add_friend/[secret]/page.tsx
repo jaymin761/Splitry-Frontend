@@ -8,35 +8,21 @@ import { QRPayload } from "@/types/qr";
 import { ShieldCheck, AlertCircle, ArrowLeft, Users } from "lucide-react";
 
 interface PageProps {
-  params: Promise<{ secret: string[] | string }>;
-}
-
-/**
- * Extracts full secret string regardless of whether it arrives as an array (un-encoded slashes)
- * or a single string (URL-encoded).
- */
-async function getSecretFromParams(params: Promise<{ secret: string[] | string }>): Promise<string> {
-  const resolved = await params;
-  console.log(resolved)
-
-  if (!resolved || !resolved.secret) return "";
-  if (Array.isArray(resolved.secret)) {
-    return resolved.secret.join("/");
-  }
-  return resolved.secret || "";
+  params: Promise<{ secret: string }>;
 }
 
 /**
  * Server-side metadata generator for Add Friend deep links.
  */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const secret = await getSecretFromParams(params);
+  const { secret } = await params;
   const payload: QRPayload | null = decryptQRPayload(secret);
 
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://splitry.com";
   const canonicalUrl = `${baseUrl}/add_friend/${encodeURIComponent(secret)}`;
   const shareImageUrl = `${baseUrl}/images/share.png`;
 
+  // Fallback metadata if decryption fails
   if (!payload || !payload.fullName) {
     return {
       title: "Splitry",
@@ -103,11 +89,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 /**
  * Server Component: Renders the Add Friend Deep Link page.
- * Path: app/add_friend/[...secret]/page.tsx
+ * Path: app/add_friend/[secret]/page.tsx
  */
 export default async function AddFriendPage({ params }: PageProps) {
-  const secret = await getSecretFromParams(params);
-  console.log({ secret })
+  const { secret } = await params;
+
   // Decrypt payload on server
   const payload: QRPayload | null = decryptQRPayload(secret);
 

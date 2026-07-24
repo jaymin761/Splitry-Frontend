@@ -11,14 +11,8 @@ interface PageProps {
   params: Promise<{ secret: string[] | string }>;
 }
 
-/**
- * Extracts full secret string regardless of whether it arrives as an array (un-encoded slashes)
- * or a single string (URL-encoded).
- */
 async function getSecretFromParams(params: Promise<{ secret: string[] | string }>): Promise<string> {
   const resolved = await params;
-  console.log(resolved)
-
   if (!resolved || !resolved.secret) return "";
   if (Array.isArray(resolved.secret)) {
     return resolved.secret.join("/");
@@ -26,15 +20,12 @@ async function getSecretFromParams(params: Promise<{ secret: string[] | string }
   return resolved.secret || "";
 }
 
-/**
- * Server-side metadata generator for Add Friend deep links.
- */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const secret = await getSecretFromParams(params);
   const payload: QRPayload | null = decryptQRPayload(secret);
 
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://splitry.com";
-  const canonicalUrl = `${baseUrl}/add_friend/${encodeURIComponent(secret)}`;
+  const canonicalUrl = `${baseUrl}/qr/${encodeURIComponent(secret)}`;
   const shareImageUrl = `${baseUrl}/images/share.png`;
 
   if (!payload || !payload.fullName) {
@@ -101,22 +92,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-/**
- * Server Component: Renders the Add Friend Deep Link page.
- * Path: app/add_friend/[...secret]/page.tsx
- */
-export default async function AddFriendPage({ params }: PageProps) {
+export default async function QRPage({ params }: PageProps) {
   const secret = await getSecretFromParams(params);
-  console.log({ secret })
-  // Decrypt payload on server
   const payload: QRPayload | null = decryptQRPayload(secret);
 
-  // If decryption fails, render Invalid QR state
   if (!payload) {
-    return <InvalidQRCard message="Invalid or corrupt invitation link" />;
+    return <InvalidQRCard message="Invalid or corrupt QR code" />;
   }
 
-  // Compute initials for profile picture fallback
   const initials = payload.fullName
     .split(" ")
     .map((n) => n[0])
@@ -126,15 +109,12 @@ export default async function AddFriendPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-[#FDFBF7] flex flex-col items-center justify-center p-4 sm:p-6 text-[#28282C]">
-      {/* Background Decorative Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#03A671]/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#03A671]/5 rounded-full blur-3xl" />
       </div>
 
-      {/* Main Card */}
       <div className="w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/60 text-center flex flex-col items-center transition-all">
-        {/* Brand Header */}
         <div className="flex items-center gap-2 mb-8">
           <div className="w-9 h-9 rounded-xl bg-[#03A671] flex items-center justify-center text-white font-bold text-lg shadow-md shadow-[#03A671]/30">
             S
@@ -144,7 +124,6 @@ export default async function AddFriendPage({ params }: PageProps) {
           </span>
         </div>
 
-        {/* Profile Avatar */}
         <div className="relative mb-6">
           {payload.avatarUrl ? (
             <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-[#03A671]/20 shadow-lg relative">
@@ -167,7 +146,6 @@ export default async function AddFriendPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* User Info */}
         <h1 className="text-2xl sm:text-3xl font-extrabold text-[#28282C] mb-2 tracking-tight">
           {payload.fullName}
         </h1>
@@ -175,12 +153,10 @@ export default async function AddFriendPage({ params }: PageProps) {
           invited you to connect on Splitry and split expenses effortlessly.
         </p>
 
-        {/* Open App CTA Button */}
         <div className="w-full mb-6">
           <OpenAppButton encryptedPayload={secret} />
         </div>
 
-        {/* Informational Note */}
         <div className="text-xs text-[#98979F] flex items-center gap-1.5 justify-center">
           <span>Protected by Splitry Secure Encryption</span>
         </div>
@@ -207,7 +183,7 @@ function InvalidQRCard({ message }: { message: string }) {
         </div>
 
         <h1 className="text-xl sm:text-2xl font-bold text-[#28282C] mb-2">
-          Invalid Link
+          Invalid QR
         </h1>
         <p className="text-[#98979F] text-sm mb-6 max-w-xs">{message}</p>
 

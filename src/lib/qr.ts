@@ -25,10 +25,16 @@ const getQRSecretKey = (): Buffer => {
  */
 export function decryptQRPayload(qrCodeSecret: string): QRPayload | null {
   try {
+    console.log({ qrCodeSecret })
     if (!qrCodeSecret || typeof qrCodeSecret !== "string") return null;
 
-    // Decode URL component in case characters like ":" were encoded as "%3A"
-    const decodedSecret = decodeURIComponent(qrCodeSecret);
+    let decodedSecret = qrCodeSecret;
+    try {
+      decodedSecret = decodeURIComponent(qrCodeSecret);
+    } catch {
+      decodedSecret = qrCodeSecret;
+    }
+
     const parts = decodedSecret.split(":");
     if (parts.length !== 2) return null;
 
@@ -49,6 +55,7 @@ export function decryptQRPayload(qrCodeSecret: string): QRPayload | null {
 
     return payload;
   } catch (error) {
+    console.log(error)
     return null;
   }
 }
