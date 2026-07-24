@@ -9,8 +9,13 @@ import { QRPayload } from "@/types/qr";
  * server-side environment variable. It is NEVER exposed to the browser.
  */
 const getQRSecretKey = (): Buffer => {
-  const secret = process.env.QR_SECRET_KEY || "SplitryQRSecretKey32BytesLong!";
-  return Buffer.from(secret.padEnd(32, "0").slice(0, 32));
+  const secret = process.env.QR_SECRET_KEY;
+  if (secret) {
+    return Buffer.from(secret.padEnd(32, "0").slice(0, 32));
+  } else {
+    throw new Error("QR_SECRET_KEY not found in environment variables");
+  }
+
 };
 
 /**
