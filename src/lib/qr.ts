@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import { QRPayload } from "@/types/qr";
+import { GroupQRPayload } from "@/types/qr";
 
 /**
  * Derives a 32-byte Buffer key from the server environment variable `QR_SECRET_KEY`.
@@ -15,7 +16,6 @@ const getQRSecretKey = (): Buffer => {
   } else {
     throw new Error("QR_SECRET_KEY not found in environment variables");
   }
-
 };
 
 /**
@@ -61,6 +61,47 @@ export function decryptQRPayload(qrCodeSecret: string): QRPayload | null {
     return payload;
   } catch (error) {
     console.log(error)
+    return null;
+  }
+}
+
+/**
+ * Decrypts an encrypted Group QR payload string using AES-256-CBC algorithm.
+ * 
+ * @param qrCodeSecret The encrypted QR payload from the URL parameter.
+ * @returns The parsed GroupQRPayload object or null if decryption/parsing fails.
+ */
+export function decryptGroupQRPayload(qrCodeSecret: string): GroupQRPayload | null {
+  try {
+    if (!qrCodeSecret || typeof qrCodeSecret !== "string") return null;
+
+    let decodedSecret = qrCodeSecret;
+    try {
+      decodedSecret = decodeURIComponent(qrCodeSecret);
+    } catch {
+      decodedSecret = qrCodeSecret;
+    }
+
+    const parts = decodedSecret.split(":");
+    if (parts.length !== 2) return null;
+
+    const key = getQRSecretKey();
+    const iv = Buffer.from(parts[0], "hex");
+    const encryptedText = parts[1];
+
+    const decipher = crypto.createDecipheriv("aes-256-cbc", key, iv);
+    let decrypted = decipher.update(encryptedText, "base64", "utf8");
+    decrypted += decipher.final("utf8");
+
+    const payload = JSON.parse(decrypted) as GroupQRPayload;
+
+    // Validate essential group fields
+    if (!payload || typeof payload !== "object" || !payload.groupId || !payload.name) {
+      return null;
+    }
+
+    return payload;
+  } catch (error) {
     return null;
   }
 }

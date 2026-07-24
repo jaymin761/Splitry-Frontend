@@ -6,6 +6,13 @@ export interface QRPayload {
   createdAt?: string;
 }
 
+export interface GroupQRPayload {
+  groupId: string;
+  name: string;
+  avatarUrl?: string;
+  createdAt?: string;
+}
+
 export interface QRValidationResult {
   isValid: boolean;
   payload: QRPayload | null;
