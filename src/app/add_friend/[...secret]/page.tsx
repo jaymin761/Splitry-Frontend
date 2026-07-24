@@ -17,6 +17,7 @@ interface PageProps {
  */
 async function getSecretFromParams(params: Promise<{ secret: string[] | string }>): Promise<string> {
   const resolved = await params;
+  console.log("secret 1", resolved)
   if (Array.isArray(resolved.secret)) {
     return resolved.secret.join("/");
   }
@@ -28,8 +29,9 @@ async function getSecretFromParams(params: Promise<{ secret: string[] | string }
  */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const secret = await getSecretFromParams(params);
+  console.log("secret 2 ", secret)
   const payload: QRPayload | null = decryptQRPayload(secret);
-
+  console.log(payload)
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://splitry.com";
   const canonicalUrl = `${baseUrl}/add_friend/${encodeURIComponent(secret)}`;
   const shareImageUrl = `${baseUrl}/images/share.png`;
