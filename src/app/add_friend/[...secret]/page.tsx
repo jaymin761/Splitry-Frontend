@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://splitry.com";
   const canonicalUrl = `${baseUrl}/add_friend/${encodeURIComponent(secret)}`;
-  const logoUrl = `${baseUrl}/logo.png`;
+  const logoUrl = `${baseUrl}/AppIcon.png`;
 
   const appDescription = payload?.fullName
     ? `Join ${payload.fullName} on Splitry and split expenses effortlessly.`
@@ -59,8 +59,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [
         {
           url: logoUrl,
-          width: 300,
-          height: 300,
+          width: 150,
+          height: 150,
           alt: "Splitry Logo",
         },
       ],
