@@ -28,42 +28,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonicalUrl = `${baseUrl}/qr/${encodeURIComponent(secret)}`;
   const logoUrl = `${baseUrl}/logo.png`;
 
-  const appDescription =
-    "Splitry is a free app for sharing expenses with friends and family. Our mission is to reduce the stress that money places on relationships.";
+  const appDescription = payload?.fullName
+    ? `Join ${payload.fullName} on Splitry and split expenses effortlessly.`
+    : "Splitry is a free app for sharing expenses with friends and family.";
 
-  if (!payload || !payload.fullName) {
-    const title = "Splitry";
-    return {
-      title,
-      description: appDescription,
-      alternates: {
-        canonical: canonicalUrl,
-      },
-      openGraph: {
-        siteName: "Splitry",
-        title,
-        description: appDescription,
-        url: canonicalUrl,
-        images: [
-          {
-            url: logoUrl,
-            width: 512,
-            height: 512,
-            alt: "Splitry Logo",
-          },
-        ],
-        type: "website",
-      },
-      twitter: {
-        card: "summary",
-        title,
-        description: appDescription,
-        images: [logoUrl],
-      },
-    };
-  }
-
-  const title = `Join ${payload.fullName} on Splitry`;
+  const title = payload?.fullName
+    ? `${payload.fullName} invited you to Splitry`
+    : "Splitry";
 
   return {
     title,
@@ -79,15 +50,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [
         {
           url: logoUrl,
-          width: 512,
-          height: 512,
-          alt: title,
+          width: 300,
+          height: 300,
+          alt: "Splitry Logo",
         },
       ],
-      type: "profile",
+      type: "website",
     },
     twitter: {
-      card: "summary",
+      card: "summary", // Compact square thumbnail on the right side
       title,
       description: appDescription,
       images: [logoUrl],
@@ -144,7 +115,7 @@ export default async function QRPage({ params }: PageProps) {
             </div>
           )}
 
-          <div className="absolute bottom-0 right-0 bg-[#03A671] text-[#FFFFFF] p-1.5 rounded-full shadow-md border-2 border-white">
+          <div className="absolute bottom-0 right-0 bg-[#03A671] text-white p-1.5 rounded-full shadow-md border-2 border-white">
             <ShieldCheck className="w-4 h-4" />
           </div>
         </div>

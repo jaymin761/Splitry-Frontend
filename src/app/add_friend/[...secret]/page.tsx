@@ -26,7 +26,8 @@ async function getSecretFromParams(params: Promise<{ secret: string[] | string }
 }
 
 /**
- * Server-side metadata generator matching Splitwise rich preview card format.
+ * Server-side metadata generator for Add Friend deep links.
+ * Configured with compact `summary` card format to display a clean, small side thumbnail.
  */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const secret = await getSecretFromParams(params);
@@ -36,44 +37,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonicalUrl = `${baseUrl}/add_friend/${encodeURIComponent(secret)}`;
   const logoUrl = `${baseUrl}/logo.png`;
 
-  const appDescription =
-    "Splitry is a free app for sharing expenses with friends and family. Our mission is to reduce the stress that money places on relationships.";
+  const appDescription = payload?.fullName
+    ? `Join ${payload.fullName} on Splitry and split expenses effortlessly.`
+    : "Splitry is a free app for sharing expenses with friends and family.";
 
-  // Fallback metadata if decryption fails
-  if (!payload || !payload.fullName) {
-    const title = "Splitry";
-    return {
-      title,
-      description: appDescription,
-      alternates: {
-        canonical: canonicalUrl,
-      },
-      openGraph: {
-        siteName: "Splitry",
-        title,
-        description: appDescription,
-        url: canonicalUrl,
-        images: [
-          {
-            url: logoUrl,
-            width: 512,
-            height: 512,
-            alt: "Splitry Logo",
-          },
-        ],
-        type: "website",
-      },
-      twitter: {
-        card: "summary",
-        title,
-        description: appDescription,
-        images: [logoUrl],
-      },
-    };
-  }
-
-  // Dynamic metadata when user is resolved (Matches Splitwise preview structure)
-  const title = `Join ${payload.fullName} on Splitry`;
+  const title = payload?.fullName
+    ? `${payload.fullName} invited you to Splitry`
+    : "Splitry";
 
   return {
     title,
@@ -89,15 +59,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [
         {
           url: logoUrl,
-          width: 512,
-          height: 512,
-          alt: title,
+          width: 300,
+          height: 300,
+          alt: "Splitry Logo",
         },
       ],
-      type: "profile",
+      type: "website",
     },
     twitter: {
-      card: "summary",
+      card: "summary", // Forces small square thumbnail on the right side instead of giant header
       title,
       description: appDescription,
       images: [logoUrl],
