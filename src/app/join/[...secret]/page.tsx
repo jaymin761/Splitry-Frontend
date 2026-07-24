@@ -70,8 +70,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   // Dynamic metadata: Join "dubai" on Splitry (matching Splitwise format)
   const title = `Join "${payload.name}"`;
-  const description = `Splitry is a free app for sharing expenses with friends and family. Our mission is to reduce the stress that money places on relationships.`;
-
+  const description =
+    "Split expenses with your group in seconds. Track who owes what, settle balances, and stay organized with Splitry.";
   return {
     title,
     description,
@@ -133,7 +133,7 @@ export default async function JoinPage({ params }: PageProps) {
 
       {/* Main Card */}
       <div className="w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/60 text-center flex flex-col items-center transition-all">
-        
+
         {/* Brand Header */}
         <div className="flex items-center gap-2 mb-8">
           <div className="w-9 h-9 rounded-xl overflow-hidden shadow-md shadow-[#03A671]/20 relative flex-shrink-0">
