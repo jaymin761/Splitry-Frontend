@@ -1,124 +1,272 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { 
+  ShieldCheck, 
+  ArrowLeft, 
+  Trash2, 
+  Lock, 
+  Users, 
+  Bell, 
+  Camera, 
+  BookUser, 
+  MessageSquare, 
+  Database, 
+  FileText,
+  Mail
+} from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "Read Splitry's Privacy Policy to understand how we collect, use, and protect your personal data.",
+  title: "Privacy Policy | Splitry",
+  description: "Read Splitry's Privacy Policy to understand how we collect, use, protect, and handle your data and account deletion rights.",
   alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-background-soft">
+    <main className="min-h-screen bg-[#FDFBF7] text-[#28282C]">
       {/* Header */}
-      <div className="bg-white border-b border-border-stroke">
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-primary-green font-semibold mb-6 hover:opacity-80 transition-opacity">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 5l-7 7 7 7" />
-            </svg>
+      <div className="bg-white border-b border-[#E5E5E7]">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-[#03A671] font-semibold mb-6 hover:text-[#028f61] transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
             Back to Home
           </Link>
-          <h1 className="text-4xl font-bold text-primary-dark">Privacy Policy</h1>
-          <p className="text-secondary-gray mt-3">Last updated: May 24, 2025</p>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2.5 bg-[#03A671]/10 text-[#03A671] rounded-2xl">
+              <ShieldCheck className="w-8 h-8" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#28282C] tracking-tight">
+              Privacy Policy & Data Security
+            </h1>
+          </div>
+          <p className="text-[#98979F] text-sm sm:text-base font-medium">
+            Last updated: July 27, 2026 • Effective for all Splitry applications & web services
+          </p>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="bg-white rounded-3xl border border-border-stroke shadow-sm p-10 space-y-10">
+      {/* Main Content Container */}
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <div className="bg-white rounded-3xl border border-[#E5E5E7] shadow-xl p-6 sm:p-12 space-y-12">
 
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">1. Introduction</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              Welcome to Splitry (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website (collectively, the &quot;Service&quot;).
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">2. Information We Collect</h2>
-            <p className="text-secondary-gray leading-relaxed mb-4">We may collect the following types of information:</p>
-            <ul className="space-y-3 text-secondary-gray">
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Account Information:</strong> Name, email address, phone number, and profile photo when you register.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Financial Data:</strong> Expense amounts, transaction descriptions, group splits, and payment history within the app.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Device Information:</strong> Device type, operating system, and app version for technical support.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Usage Data:</strong> How you interact with the app, features used, and session duration.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Camera / Photos:</strong> Only when you use the receipt scanner feature, and only with your explicit permission.</span></li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">3. How We Use Your Information</h2>
-            <ul className="space-y-3 text-secondary-gray">
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To provide and maintain the Splitry Service</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To process expense splits and settlement calculations</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To send reminders and notifications about balances</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To improve our expense splitting accuracy</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To provide customer support and respond to inquiries</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>To analyze usage patterns and improve the app experience</span></li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">4. Sharing Your Information</h2>
-            <p className="text-secondary-gray leading-relaxed mb-4">We do <strong className="text-primary-dark">not</strong> sell your personal data. We may share your information only in these limited cases:</p>
-            <ul className="space-y-3 text-secondary-gray">
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">With Group Members:</strong> Expense data is shared with the people in your groups.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Service Providers:</strong> Trusted third-party vendors who help us operate the Service (e.g., cloud hosting, analytics).</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span><strong className="text-primary-dark">Legal Requirements:</strong> If required by law or to protect our rights.</span></li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">5. Data Security</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              We implement industry-standard security measures including encryption in transit (TLS/HTTPS), encrypted storage, and regular security audits. However, no method of transmission over the internet is 100% secure. We strive to protect your information but cannot guarantee absolute security.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">6. Data Retention</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              We retain your personal data for as long as your account is active or as needed to provide the Service. You may request deletion of your account and associated data at any time by contacting us at <a href="mailto:hello@splitry.com" className="text-primary-green hover:underline">hello@splitry.com</a>.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">7. Your Rights</h2>
-            <p className="text-secondary-gray leading-relaxed mb-4">Depending on your location, you may have the following rights:</p>
-            <ul className="space-y-3 text-secondary-gray">
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>Right to access your personal data</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>Right to correct inaccurate data</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>Right to request deletion of your data</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>Right to opt-out of marketing communications</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>Right to data portability</span></li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">8. Children&apos;s Privacy</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              Splitry is not directed to children under 13. We do not knowingly collect personal information from children under 13. If we become aware that a child has provided us personal information, we will delete it immediately.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">9. Changes to This Policy</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the date at the top of this page and, where appropriate, via email or in-app notification.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">10. Contact Us</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              If you have any questions about this Privacy Policy or our data practices, please contact us:
-            </p>
-            <div className="mt-4 p-6 bg-background-soft rounded-2xl border border-border-stroke">
-              <p className="text-primary-dark font-semibold">Splitry Inc.</p>
-              <p className="text-secondary-gray">Email: <a href="mailto:hello@splitry.com" className="text-primary-green hover:underline">hello@splitry.com</a></p>
-              <p className="text-secondary-gray">Website: <a href="https://splitry.com" className="text-primary-green hover:underline">https://splitry.com</a></p>
+          {/* Trust Banner */}
+          <div className="p-6 bg-[#03A671]/5 border border-[#03A671]/20 rounded-2xl flex items-start gap-4">
+            <Lock className="w-6 h-6 text-[#03A671] flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-bold text-[#28282C] text-lg mb-1">Our Core Privacy Commitment</h3>
+              <p className="text-[#98979F] text-sm leading-relaxed">
+                At Splitry, your trust is our highest priority. We do <strong>NOT</strong> sell your personal data to third parties or advertising networks. Every byte of financial and contact information you share is processed strictly to deliver transparent expense management, bill splitting, and group settlements.
+              </p>
             </div>
+          </div>
+
+          {/* 1. Introduction */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">1</span>
+              Introduction
+            </h2>
+            <p className="text-[#98979F] leading-relaxed">
+              Welcome to Splitry (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). This Privacy Policy outlines how Splitry collects, uses, stores, and protects your data when you use our mobile application (iOS & Android) and website services (collectively, the &quot;Service&quot;). By accessing or using Splitry, you consent to the data practices described in this policy.
+            </p>
+          </section>
+
+          {/* 2. Information We Collect */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">2</span>
+              Information We Collect & Device Permissions
+            </h2>
+            <p className="text-[#98979F] leading-relaxed mb-6">
+              To provide a seamless expense-sharing experience, we collect specific data points based on your interactions with the app:
+            </p>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {/* Account Data */}
+              <div className="p-5 bg-[#FDFBF7] border border-[#E5E5E7] rounded-2xl space-y-2">
+                <div className="flex items-center gap-2 text-[#28282C] font-semibold">
+                  <Users className="w-5 h-5 text-[#03A671]" />
+                  <span>Account & Identity Data</span>
+                </div>
+                <p className="text-xs text-[#98979F] leading-relaxed">
+                  Full name, email address, phone number, and profile image uploaded during registration or profile setup.
+                </p>
+              </div>
+
+              {/* Financial & Expense Data */}
+              <div className="p-5 bg-[#FDFBF7] border border-[#E5E5E7] rounded-2xl space-y-2">
+                <div className="flex items-center gap-2 text-[#28282C] font-semibold">
+                  <Database className="w-5 h-5 text-[#03A671]" />
+                  <span>Financial & Expense Tracking</span>
+                </div>
+                <p className="text-xs text-[#98979F] leading-relaxed">
+                  Expense titles, monetary amounts, currency preferences, split shares, payment status, and settlement history.
+                </p>
+              </div>
+
+              {/* Device Contacts */}
+              <div className="p-5 bg-[#FDFBF7] border border-[#E5E5E7] rounded-2xl space-y-2">
+                <div className="flex items-center gap-2 text-[#28282C] font-semibold">
+                  <BookUser className="w-5 h-5 text-[#03A671]" />
+                  <span>Device Contacts (Optional)</span>
+                </div>
+                <p className="text-xs text-[#98979F] leading-relaxed">
+                  With your explicit permission, we access your device address book solely to let you search and select friends to add to groups. We do <strong>not</strong> scrape or store your complete contact book on our servers.
+                </p>
+              </div>
+
+              {/* Camera & Media Library */}
+              <div className="p-5 bg-[#FDFBF7] border border-[#E5E5E7] rounded-2xl space-y-2">
+                <div className="flex items-center gap-2 text-[#28282C] font-semibold">
+                  <Camera className="w-5 h-5 text-[#03A671]" />
+                  <span>Camera & Media Library</span>
+                </div>
+                <p className="text-xs text-[#98979F] leading-relaxed">
+                  Accessed with your permission to pick or crop receipt photos, profile avatars, group cover images, or chat attachment photos.
+                </p>
+              </div>
+
+              {/* Group Chat & Real-Time Sync */}
+              <div className="p-5 bg-[#FDFBF7] border border-[#E5E5E7] rounded-2xl space-y-2">
+                <div className="flex items-center gap-2 text-[#28282C] font-semibold">
+                  <MessageSquare className="w-5 h-5 text-[#03A671]" />
+                  <span>Group Messages & Chat</span>
+                </div>
+                <p className="text-xs text-[#98979F] leading-relaxed">
+                  Text messages, attached images, and whiteboard drawing updates transmitted via secure WebSockets (`socket.io`) to update group members in real-time.
+                </p>
+              </div>
+
+              {/* Push Notifications */}
+              <div className="p-5 bg-[#FDFBF7] border border-[#E5E5E7] rounded-2xl space-y-2">
+                <div className="flex items-center gap-2 text-[#28282C] font-semibold">
+                  <Bell className="w-5 h-5 text-[#03A671]" />
+                  <span>Push Notification Tokens</span>
+                </div>
+                <p className="text-xs text-[#98979F] leading-relaxed">
+                  Firebase Cloud Messaging (FCM) push tokens used to send instant push alerts when new expenses, settlements, or group invites are created.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* 3. How We Use Your Information */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">3</span>
+              How We Use Your Information
+            </h2>
+            <ul className="space-y-3 text-[#98979F] text-sm sm:text-base">
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Expense Calculation & Balances:</strong> To accurately calculate who owes whom and simplify group balances.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Push Alerts & Reminders:</strong> To deliver real-time notifications about new expenses, bill reminders, and payment settlements.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Contact Invitations:</strong> To allow you to launch native SMS or Email apps to invite friends locally from your device.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Group Collaboration:</strong> To sync chat messages, shared group whiteboards, and receipt uploads securely among group participants.</span>
+              </li>
+            </ul>
+          </section>
+
+          {/* 4. Account Deletion & Right to be Forgotten */}
+          <section className="p-6 sm:p-8 bg-[#FDFBF7] border border-[#03A671]/30 rounded-3xl space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-red-100 text-red-600 rounded-xl">
+                <Trash2 className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#28282C]">
+                  4. Account Deletion & Data Erasure
+                </h2>
+                <p className="text-xs text-[#98979F]">Your right to permanently delete your account and personal data</p>
+              </div>
+            </div>
+
+            <p className="text-sm text-[#98979F] leading-relaxed">
+              We respect your right to control your personal data. You can request complete deletion of your account and personal information at any time:
+            </p>
+
+            <div className="space-y-4 text-sm text-[#28282C]">
+              <div className="p-4 bg-white rounded-2xl border border-[#E5E5E7] space-y-1">
+                <h4 className="font-bold text-[#03A671]">Method A: In-App Account Deletion</h4>
+                <p className="text-xs text-[#98979F]">
+                  Open the Splitry Mobile App → Go to <strong>Profile / Settings</strong> → Tap <strong>&quot;Deactivate / Delete Account&quot;</strong> → Confirm deletion.
+                </p>
+              </div>
+
+              <div className="p-4 bg-white rounded-2xl border border-[#E5E5E7] space-y-1">
+                <h4 className="font-bold text-[#03A671]">Method B: Direct Email Deletion Request</h4>
+                <p className="text-xs text-[#98979F]">
+                  Send an email to <a href="mailto:hello@splitry.com" className="text-[#03A671] underline font-semibold">hello@splitry.com</a> with the subject <em>&quot;Account Deletion Request&quot;</em> from your registered email address. We will process your request within 7 business days.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 bg-amber-50 border border-amber-200 rounded-2xl text-xs text-amber-800 space-y-2">
+              <h5 className="font-bold flex items-center gap-1.5">
+                <FileText className="w-4 h-4 text-amber-600" />
+                What happens when you delete your account?
+              </h5>
+              <ul className="space-y-1 list-disc list-inside text-amber-900/80">
+                <li>Your profile credentials, email, phone number, and push notification tokens are permanently removed from our active database.</li>
+                <li>To prevent financial imbalance or group ledger corruption, existing group transaction amounts you created remain recorded in existing groups, but your personal identity is replaced with <em>&quot;Deleted User&quot;</em>.</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* 5. Data Security & Storage Encryption */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">5</span>
+              Data Security & Storage Encryption
+            </h2>
+            <p className="text-[#98979F] leading-relaxed">
+              We employ bank-grade security protocols to protect your information:
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-[#98979F]">
+              <li className="flex gap-2 items-center"><span className="text-[#03A671] font-bold">✓</span><span><strong>Encryption in Transit:</strong> All communications between the app and server use HTTPS/TLS 1.3 encryption.</span></li>
+              <li className="flex gap-2 items-center"><span className="text-[#03A671] font-bold">✓</span><span><strong>Encrypted QR Payloads:</strong> QR codes and deep links are encrypted using AES-256-CBC with secure IV verification.</span></li>
+              <li className="flex gap-2 items-center"><span className="text-[#03A671] font-bold">✓</span><span><strong>Local Session Security:</strong> Authentication tokens are stored securely in local device storage (`GetStorage`) and sanitized on logout.</span></li>
+            </ul>
+          </section>
+
+          {/* 6. Children's Privacy */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">6</span>
+              Children&apos;s Privacy
+            </h2>
+            <p className="text-[#98979F] leading-relaxed">
+              Splitry is intended solely for users aged 13 and older. We do not knowingly collect or solicit personal data from children under 13. If we discover that a child under 13 has registered, we will promptly delete their account and data.
+            </p>
+          </section>
+
+          {/* 7. Contact Us */}
+          <section className="p-6 bg-[#FDFBF7] rounded-3xl border border-[#E5E5E7] text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-xl font-bold text-[#28282C] mb-1">Have Questions About Your Privacy?</h3>
+              <p className="text-xs sm:text-sm text-[#98979F]">
+                Our dedicated privacy team is available to assist you with data requests or questions.
+              </p>
+            </div>
+            <a
+              href="mailto:hello@splitry.com"
+              className="px-6 py-3 bg-[#03A671] text-white font-semibold text-sm rounded-2xl hover:bg-[#028f61] transition-all flex items-center gap-2 flex-shrink-0 shadow-lg shadow-[#03A671]/20"
+            >
+              <Mail className="w-4 h-4" />
+              Contact Privacy Team
+            </a>
           </section>
 
         </div>

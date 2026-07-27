@@ -1,142 +1,231 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { 
+  FileText, 
+  ArrowLeft, 
+  ShieldCheck, 
+  CreditCard, 
+  Users, 
+  AlertTriangle, 
+  Scale, 
+  Ban, 
+  Mail,
+  CheckCircle2
+} from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: "Read Splitry's Terms of Service to understand the rules and guidelines for using our app.",
+  title: "Terms of Service | Splitry",
+  description: "Read Splitry's Terms of Service to understand the rules, user guidelines, non-banking disclaimers, and legal policies governing our apps and platform.",
   alternates: { canonical: "/terms" },
 };
 
 export default function TermsOfService() {
   return (
-    <main className="min-h-screen bg-background-soft">
+    <main className="min-h-screen bg-[#FDFBF7] text-[#28282C]">
       {/* Header */}
-      <div className="bg-white border-b border-border-stroke">
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-primary-green font-semibold mb-6 hover:opacity-80 transition-opacity">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 5l-7 7 7 7"/>
-            </svg>
+      <div className="bg-white border-b border-[#E5E5E7]">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-[#03A671] font-semibold mb-6 hover:text-[#028f61] transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
             Back to Home
           </Link>
-          <h1 className="text-4xl font-bold text-primary-dark">Terms of Service</h1>
-          <p className="text-secondary-gray mt-3">Last updated: May 24, 2025</p>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2.5 bg-[#03A671]/10 text-[#03A671] rounded-2xl">
+              <FileText className="w-8 h-8" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#28282C] tracking-tight">
+              Terms of Service
+            </h1>
+          </div>
+          <p className="text-[#98979F] text-sm sm:text-base font-medium">
+            Last updated: July 27, 2026 • Effective for all Splitry applications & web services
+          </p>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="bg-white rounded-3xl border border-border-stroke shadow-sm p-10 space-y-10">
+      {/* Main Content Container */}
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <div className="bg-white rounded-3xl border border-[#E5E5E7] shadow-xl p-6 sm:p-12 space-y-12">
 
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">1. Acceptance of Terms</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              By accessing or using Splitry (&quot;the Service&quot;), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our Service. These terms apply to all users, including registered users, groups, and visitors.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">2. Description of Service</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              Splitry is a smart expense management platform that allows users to track, split, and settle shared expenses with friends, family, roommates, and groups. Features include automated receipt scanning, payment recording, group management, and spending analytics.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">3. User Accounts</h2>
-            <ul className="space-y-3 text-secondary-gray">
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>You must be at least 13 years old to create an account.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>You are responsible for maintaining the confidentiality of your account credentials.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>You must provide accurate and truthful information when registering.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>You are responsible for all activity that occurs under your account.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>Notify us immediately at <a href="mailto:support@splitry.com" className="text-primary-green hover:underline">support@splitry.com</a> if you suspect unauthorized access.</span></li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">4. Acceptable Use</h2>
-            <p className="text-secondary-gray leading-relaxed mb-4">You agree not to use the Service to:</p>
-            <ul className="space-y-3 text-secondary-gray">
-              <li className="flex gap-3"><span className="text-red-500 font-bold mt-1">✕</span><span>Engage in fraud, money laundering, or any illegal financial activity</span></li>
-              <li className="flex gap-3"><span className="text-red-500 font-bold mt-1">✕</span><span>Harass, threaten, or abuse other users</span></li>
-              <li className="flex gap-3"><span className="text-red-500 font-bold mt-1">✕</span><span>Submit false or misleading expense information</span></li>
-              <li className="flex gap-3"><span className="text-red-500 font-bold mt-1">✕</span><span>Attempt to reverse engineer or hack the application</span></li>
-              <li className="flex gap-3"><span className="text-red-500 font-bold mt-1">✕</span><span>Use automated bots or scrapers to access the Service</span></li>
-              <li className="flex gap-3"><span className="text-red-500 font-bold mt-1">✕</span><span>Violate any applicable laws or regulations</span></li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">5. Recording Payments</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              Splitry lets you record payments that happen outside the app to settle expenses. No money moves through Splitry. By using this feature, you agree that:
-            </p>
-            <ul className="space-y-3 text-secondary-gray mt-4">
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>All transactions are between users directly; Splitry is not a payment processor.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>Splitry is not responsible for failed, disputed, or unauthorized transactions.</span></li>
-              <li className="flex gap-3"><span className="text-primary-green font-bold mt-1">•</span><span>You are solely responsible for verifying recipient payment details before making payments.</span></li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">6. Automated Features</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              Our receipt scanner and spending prediction features are provided for convenience. While we strive for accuracy, automatically generated results may not always be correct. You are responsible for verifying all extracted data before confirming expenses.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">7. Intellectual Property</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              All content, features, and functionality of the Splitry Service — including but not limited to software, design, logos, and text — are owned by Splitry Inc. and protected by intellectual property laws. You may not copy, modify, distribute, or create derivative works without our written consent.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">8. Disclaimer of Warranties</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              The Service is provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind. Splitry does not warrant that the Service will be uninterrupted, error-free, or completely secure. We disclaim all warranties, express or implied, including merchantability and fitness for a particular purpose.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">9. Limitation of Liability</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              To the maximum extent permitted by law, Splitry Inc. shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, or goodwill — arising from your use of or inability to use the Service.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">10. Termination</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              We reserve the right to suspend or terminate your account at our discretion, with or without notice, if you violate these Terms. You may also delete your account at any time through the app settings.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">11. Changes to Terms</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              We may update these Terms at any time. We will notify you of material changes via email or in-app notification at least 7 days before they take effect. Continued use of the Service after changes constitutes acceptance of the new Terms.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">12. Governing Law</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              These Terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts located in India.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">13. Contact Us</h2>
-            <p className="text-secondary-gray leading-relaxed">
-              For any questions about these Terms of Service, please contact us:
-            </p>
-            <div className="mt-4 p-6 bg-background-soft rounded-2xl border border-border-stroke">
-              <p className="text-primary-dark font-semibold">Splitry Inc.</p>
-              <p className="text-secondary-gray">Email: <a href="mailto:hello@splitry.com" className="text-primary-green hover:underline">hello@splitry.com</a></p>
-              <p className="text-secondary-gray">Website: <a href="https://splitry.com" className="text-primary-green hover:underline">https://splitry.com</a></p>
+          {/* Key Notice Banner */}
+          <div className="p-6 bg-[#03A671]/5 border border-[#03A671]/20 rounded-2xl flex items-start gap-4">
+            <ShieldCheck className="w-6 h-6 text-[#03A671] flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-bold text-[#28282C] text-lg mb-1">Important User Agreement Notice</h3>
+              <p className="text-[#98979F] text-sm leading-relaxed">
+                By downloading, registering, or using the Splitry mobile applications (iOS & Android) or website, you agree to these Terms of Service. Please read them carefully. Splitry provides calculation and group tracking tools to simplify expense sharing among friends, roommates, and family.
+              </p>
             </div>
+          </div>
+
+          {/* 1. Acceptance of Terms */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">1</span>
+              Acceptance of Terms
+            </h2>
+            <p className="text-[#98979F] leading-relaxed">
+              These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you and Splitry Inc. (&quot;Splitry&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). These Terms apply to all visitors, registered account holders, and group members who access or use our mobile applications, web portals, and API services (collectively, the &quot;Service&quot;).
+            </p>
+          </section>
+
+          {/* 2. Service Scope & Non-Banking Disclaimer */}
+          <section className="p-6 bg-[#FDFBF7] border border-[#03A671]/30 rounded-3xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-[#03A671]/10 text-[#03A671] rounded-xl">
+                <CreditCard className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#28282C]">
+                2. Service Scope & Non-Banking Disclaimer
+              </h2>
+            </div>
+            <p className="text-sm text-[#98979F] leading-relaxed">
+              Splitry is an expense tracking, bill splitting, and group balance calculation platform. <strong>Splitry is NOT a bank, licensed money transmitter, depository institution, or financial payment processor.</strong>
+            </p>
+            <ul className="space-y-2 text-xs sm:text-sm text-[#28282C]">
+              <li className="flex gap-2 items-start">
+                <CheckCircle2 className="w-4 h-4 text-[#03A671] flex-shrink-0 mt-0.5" />
+                <span>No monetary funds or user deposits are held, transmitted, or processed on Splitry servers.</span>
+              </li>
+              <li className="flex gap-2 items-start">
+                <CheckCircle2 className="w-4 h-4 text-[#03A671] flex-shrink-0 mt-0.5" />
+                <span>When users record a payment or &quot;Settle Up&quot;, they are manually logging external transactions completed via cash, UPI, bank transfer, or third-party payment applications.</span>
+              </li>
+              <li className="flex gap-2 items-start">
+                <CheckCircle2 className="w-4 h-4 text-[#03A671] flex-shrink-0 mt-0.5" />
+                <span>Splitry is not responsible for resolving financial disputes, unverified offline transactions, or failed third-party money transfers.</span>
+              </li>
+            </ul>
+          </section>
+
+          {/* 3. User Registration & Eligibility */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">3</span>
+              User Registration & Account Responsibilities
+            </h2>
+            <ul className="space-y-3 text-[#98979F] text-sm sm:text-base">
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Age Requirement:</strong> You must be at least 13 years old to create an account or use the Service.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Account Security:</strong> You are responsible for safeguarding your login credentials and authenticating access to your registered device.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Truthful Information:</strong> You must provide accurate identity information (name, phone number, email) during account creation.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Unauthorized Access:</strong> Notify us immediately at <a href="mailto:hello@splitry.com" className="text-[#03A671] underline font-semibold">hello@splitry.com</a> if you suspect unauthorized activity on your account.</span>
+              </li>
+            </ul>
+          </section>
+
+          {/* 4. Acceptable Use & Conduct Guidelines */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">4</span>
+              Acceptable Use & Group Conduct
+            </h2>
+            <p className="text-[#98979F] text-sm mb-4">
+              To maintain a safe and respectful community, you agree strictly NOT to engage in any of the following prohibited activities:
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2 text-xs sm:text-sm text-[#28282C]">
+              <div className="p-4 bg-red-50 border border-red-100 rounded-2xl flex items-start gap-2.5">
+                <Ban className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                <span>Submit fraudulent, fictitious, or inflated expense claims.</span>
+              </div>
+              <div className="p-4 bg-red-50 border border-red-100 rounded-2xl flex items-start gap-2.5">
+                <Ban className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                <span>Use group chats or whiteboards to post abusive, obscene, or hateful material.</span>
+              </div>
+              <div className="p-4 bg-red-50 border border-red-100 rounded-2xl flex items-start gap-2.5">
+                <Ban className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                <span>Engage in illegal financial activities or deceptive billing schemes.</span>
+              </div>
+              <div className="p-4 bg-red-50 border border-red-100 rounded-2xl flex items-start gap-2.5">
+                <Ban className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                <span>Attempt to reverse engineer, scrape, or bypass secure API encryption (`AES-256`).</span>
+              </div>
+            </div>
+          </section>
+
+          {/* 5. QR Codes, Invites & Deep Links */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">5</span>
+              QR Codes, Invites & Deep Link Usage
+            </h2>
+            <p className="text-[#98979F] leading-relaxed text-sm">
+              Splitry generates encrypted QR codes and deep links (`splitry://` and `https://splitry.com/join/...`) to allow users to add friends and join groups conveniently. You are responsible for sharing invite links only with intended recipients. Splitry is not liable for unauthorized group access resulting from publicly broadcasted invitation links.
+            </p>
+          </section>
+
+          {/* 6. Receipt Scanner & Automated OCR Disclaimers */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">6</span>
+              Automated Receipt Scanning & Analytics
+            </h2>
+            <p className="text-[#98979F] leading-relaxed text-sm">
+              Automated features such as receipt image scanning, OCR extraction, spending insights, and bill reminders are provided for convenience. While we aim for maximum extraction accuracy, automated OCR results may contain discrepancies. Users are required to verify all extracted expense details before publishing expenses to group ledgers.
+            </p>
+          </section>
+
+          {/* 7. Limitation of Liability & Disclaimers */}
+          <section className="p-6 bg-amber-50 border border-amber-200 rounded-3xl space-y-3 text-amber-900">
+            <div className="flex items-center gap-2 font-bold text-lg">
+              <AlertTriangle className="w-5 h-5 text-amber-600" />
+              <span>7. Disclaimer of Warranties & Limitation of Liability</span>
+            </div>
+            <p className="text-xs sm:text-sm leading-relaxed">
+              THE SERVICE IS PROVIDED ON AN &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; BASIS WITHOUT WARRANTIES OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SPLITRY INC. DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED. SPLITRY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING FROM YOUR USE OF THE SERVICE, UNSETTLED GROUP DEBTS, OR SERVICE INTERRUPTIONS.
+            </p>
+          </section>
+
+          {/* 8. Termination & Account Deactivation */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">8</span>
+              Account Termination & Deactivation
+            </h2>
+            <p className="text-[#98979F] leading-relaxed text-sm">
+              We reserve the right to suspend or terminate your access to the Service at our discretion if you violate these Terms or engage in fraudulent activities. You may deactivate your account at any time within app settings or by contacting <a href="mailto:hello@splitry.com" className="text-[#03A671] underline font-semibold">hello@splitry.com</a>. As outlined in our Privacy Policy, historical expense totals remain recorded under an anonymized identity to protect remaining group members.
+            </p>
+          </section>
+
+          {/* 9. Governing Law & Dispute Resolution */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">9</span>
+              Governing Law & Jurisdiction
+            </h2>
+            <p className="text-[#98979F] leading-relaxed text-sm">
+              These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles. Any legal suit, action, or proceeding arising out of or related to these Terms shall be instituted exclusively in the courts located in India.
+            </p>
+          </section>
+
+          {/* 10. Contact Us */}
+          <section className="p-6 bg-[#FDFBF7] rounded-3xl border border-[#E5E5E7] text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-xl font-bold text-[#28282C] mb-1">Questions About Our Terms?</h3>
+              <p className="text-xs sm:text-sm text-[#98979F]">
+                Our legal and support team is ready to answer any questions regarding our terms and policies.
+              </p>
+            </div>
+            <a
+              href="mailto:hello@splitry.com"
+              className="px-6 py-3 bg-[#03A671] text-white font-semibold text-sm rounded-2xl hover:bg-[#028f61] transition-all flex items-center gap-2 flex-shrink-0 shadow-lg shadow-[#03A671]/20"
+            >
+              <Mail className="w-4 h-4" />
+              Contact Legal Team
+            </a>
           </section>
 
         </div>
