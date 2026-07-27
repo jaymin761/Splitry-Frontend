@@ -122,7 +122,7 @@ export default function TermsOfService() {
               </li>
               <li className="flex gap-3">
                 <span className="text-[#03A671] font-bold">•</span>
-                <span><strong>Unauthorized Access:</strong> Notify us immediately at <a href="mailto:hello@splitry.com" className="text-[#03A671] underline font-semibold">hello@splitry.com</a> if you suspect unauthorized activity on your account.</span>
+                <span><strong>Unauthorized Access:</strong> Notify us immediately at <a href="mailto:splitry@gmail.com" className="text-[#03A671] underline font-semibold">splitry@gmail.com</a> if you suspect unauthorized activity on your account.</span>
               </li>
             </ul>
           </section>
@@ -196,7 +196,7 @@ export default function TermsOfService() {
               Account Termination & Deactivation
             </h2>
             <p className="text-[#98979F] leading-relaxed text-sm">
-              We reserve the right to suspend or terminate your access to the Service at our discretion if you violate these Terms or engage in fraudulent activities. You may deactivate your account at any time within app settings or by contacting <a href="mailto:hello@splitry.com" className="text-[#03A671] underline font-semibold">hello@splitry.com</a>. As outlined in our Privacy Policy, historical expense totals remain recorded under an anonymized identity to protect remaining group members.
+              We reserve the right to suspend or terminate your access to the Service at our discretion if you violate these Terms or engage in fraudulent activities. You may deactivate your account at any time within app settings or by contacting <a href="mailto:splitry@gmail.com" className="text-[#03A671] underline font-semibold">splitry@gmail.com</a>. As outlined in our Privacy Policy, historical expense totals remain recorded under an anonymized identity to protect remaining group members.
             </p>
           </section>
 
@@ -220,7 +220,7 @@ export default function TermsOfService() {
               </p>
             </div>
             <a
-              href="mailto:hello@splitry.com"
+              href="mailto:splitry@gmail.com"
               className="px-6 py-3 bg-[#03A671] text-white font-semibold text-sm rounded-2xl hover:bg-[#028f61] transition-all flex items-center gap-2 flex-shrink-0 shadow-lg shadow-[#03A671]/20"
             >
               <Mail className="w-4 h-4" />

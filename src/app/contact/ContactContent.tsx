@@ -58,7 +58,7 @@ export default function ContactContent() {
                   <p className="text-secondary-gray text-sm mb-4 leading-relaxed">
                     Need to permanently delete your account and data? Send us an email and we will process it within 60 days.
                   </p>
-                  <a href="mailto:hello@splitry.com?subject=Account%20Deletion%20Request" className="text-sm font-semibold text-alert-red flex items-center gap-1 hover:gap-2 transition-all">
+                  <a href="mailto:splitry@gmail.com?subject=Account%20Deletion%20Request" className="text-sm font-semibold text-alert-red flex items-center gap-1 hover:gap-2 transition-all">
                     Request Deletion <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -71,7 +71,7 @@ export default function ContactContent() {
 
             {/* Main Email Card */}
             <a
-              href="mailto:hello@splitry.com"
+              href="mailto:splitry@gmail.com"
               className="sm:col-span-2 block bg-[#F0FBF8] rounded-[2rem] p-8 md:p-10 border border-[#E0F2EC] hover:shadow-glow hover:-translate-y-1 transition-all duration-300 group"
             >
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
@@ -84,7 +84,7 @@ export default function ContactContent() {
                     Drop us an email and we&apos;ll get back to you within 24 hours. We&apos;re always happy to chat!
                   </p>
                   <span className="inline-flex items-center gap-2 text-[#168C72] font-bold text-xl group-hover:gap-4 transition-all">
-                    hello@splitry.com <ArrowRight className="w-6 h-6" />
+                    splitry@gmail.com <ArrowRight className="w-6 h-6" />
                   </span>
                 </div>
                 {/* Optional decorative element on the right */}

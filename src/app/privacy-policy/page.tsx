@@ -208,7 +208,7 @@ export default function PrivacyPolicy() {
               <div className="p-4 bg-white rounded-2xl border border-[#E5E5E7] space-y-1">
                 <h4 className="font-bold text-[#03A671]">Method B: Direct Email Deletion Request</h4>
                 <p className="text-xs text-[#98979F]">
-                  Send an email to <a href="mailto:hello@splitry.com" className="text-[#03A671] underline font-semibold">hello@splitry.com</a> with the subject <em>&quot;Account Deletion Request&quot;</em> from your registered email address. We will process your request within 7 business days.
+                  Send an email to <a href="mailto:splitry@gmail.com" className="text-[#03A671] underline font-semibold">splitry@gmail.com</a> with the subject <em>&quot;Account Deletion Request&quot;</em> from your registered email address. We will process your request within 7 business days.
                 </p>
               </div>
             </div>
@@ -261,7 +261,7 @@ export default function PrivacyPolicy() {
               </p>
             </div>
             <a
-              href="mailto:hello@splitry.com"
+              href="mailto:splitry@gmail.com"
               className="px-6 py-3 bg-[#03A671] text-white font-semibold text-sm rounded-2xl hover:bg-[#028f61] transition-all flex items-center gap-2 flex-shrink-0 shadow-lg shadow-[#03A671]/20"
             >
               <Mail className="w-4 h-4" />

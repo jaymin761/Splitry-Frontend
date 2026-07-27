@@ -68,7 +68,7 @@ const faqCategories = [
       },
       {
         question: "Can I delete my account and data?",
-        answer: "Yes, you have full control over your data. You can request account and data deletion at any time by contacting us directly at hello@splitry.com. We will permanently delete your profile, groups, and transaction history from our servers."
+        answer: "Yes, you have full control over your data. You can request account and data deletion at any time by contacting us directly at splitry@gmail.com. We will permanently delete your profile, groups, and transaction history from our servers."
       }
     ]
   }
