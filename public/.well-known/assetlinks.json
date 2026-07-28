@@ -1,13 +1,17 @@
 [
   {
     "relation": [
-      "delegate_permission/common.handle_all_urls"
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
     ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.splitry.app.splitry",
       "sha256_cert_fingerprints": [
-        "89:39:6B:90:A3:68:56:3B:3F:02:9E:D1:6F:21:05:C0:9F:0D:5F:C9:8E:63:A6:44:80:73:C1:8A:D5:D4:EC:58"
+        "89:39:6B:90:A3:68:56:3B:3F:02:9E:D1:6F:21:05:C0:9F:0D:5F:C9:8E:63:A6:44:80:73:C1:8A:D5:D4:EC:58",
+        "2A:92:B5:8A:D6:75:8E:02:0B:F9:83:2A:83:5B:30:50:3C:CC:E9:E4:70:97:21:95:EA:E1:FD:C5:3C:75:EC:E3",
+        "E5:BA:55:DB:D3:C5:82:39:B0:8A:FE:0A:60:20:A0:78:1B:EC:8E:48:A3:D6:26:6B:F1:75:67:C5:0E:77:8F:8B",
+        "1B:B6:F0:CE:36:0B:E5:BA:68:D0:DC:BC:FD:DB:93:30:BC:D9:06:C6:1C:17:2E:13:9E:62:7C:70:61:7A:D7:29"
       ]
     }
   }
