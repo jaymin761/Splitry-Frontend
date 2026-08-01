@@ -6,7 +6,7 @@ import { Sparkles } from "lucide-react";
 
 const DownloadSection = () => {
   return (
-    <section className="py-24 px-6">
+    <section id="download" className="py-24 px-6">
       <div className="max-w-7xl mx-auto [perspective:1600px]">
         <motion.div
           initial={{ opacity: 0, rotateX: 8, y: 30 }}

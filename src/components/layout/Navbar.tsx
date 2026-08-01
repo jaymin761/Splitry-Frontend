@@ -29,6 +29,17 @@ const Navbar = () => {
     }
   };
 
+  const handleDownloadClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const downloadSec = document.getElementById("download");
+    if (downloadSec) {
+      downloadSec.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#download";
+    }
+  };
+
   const navLinks = [
     { name: "Features", href: "/#features" },
     { name: "How it works", href: "/#how-it-works" },
@@ -87,7 +98,12 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="primary" size="default" className="group font-bold text-sm uppercase tracking-wide">
+          <Button
+            variant="primary"
+            size="default"
+            onClick={handleDownloadClick}
+            className="group font-bold text-sm uppercase tracking-wide cursor-pointer"
+          >
             Download App
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -128,7 +144,12 @@ const Navbar = () => {
                 <Button variant="outline" size="default" className="w-full font-bold text-sm uppercase tracking-wide">
                   Sign In
                 </Button>
-                <Button variant="primary" size="default" className="w-full font-bold text-sm uppercase tracking-wide">
+                <Button
+                  variant="primary"
+                  size="default"
+                  onClick={handleDownloadClick}
+                  className="w-full font-bold text-sm uppercase tracking-wide cursor-pointer"
+                >
                   Download App
                 </Button>
               </div>
