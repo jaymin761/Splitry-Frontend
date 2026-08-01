@@ -103,14 +103,19 @@ const DownloadSection = () => {
                   <rect width="190" height="64" rx="12" fill="black" />
                   <rect x="0.75" y="0.75" width="188.5" height="62.5" rx="11.25" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" fill="none" />
 
-                  {/* Play triangle */}
-                  <path d="M24 18 L24 46 L42 32 Z" fill="white" />
+                  {/* Official 4-color Google Play logo */}
+                  <g transform="translate(18, 14) scale(1.02)">
+                    <path fill="#00D2FF" d="M1.3,1.4 C1.1,1.7 1,2.1 1,2.6 L1,31.4 C1,31.9 1.1,32.3 1.3,32.6 L1.4,32.7 L16.8,17.3 L16.8,16.8 L1.4,1.4 L1.3,1.4 Z" />
+                    <path fill="#FFC207" d="M21.9,22.4 L16.8,17.3 L16.8,16.8 L21.9,11.7 L22,11.8 L28.1,15.3 C29.8,16.3 29.8,17.8 28.1,18.8 L22,22.3 L21.9,22.4 Z" />
+                    <path fill="#FF3A44" d="M16.9,17.1 L1.4,32.6 C1.9,33.1 2.7,33.2 3.6,32.7 L21.9,22.3 L16.9,17.1 Z" />
+                    <path fill="#00F076" d="M16.9,17 L21.9,11.8 L3.6,1.4 C2.7,0.9 1.9,1 1.4,1.5 L16.9,17 Z" />
+                  </g>
 
                   {/* GET IT ON */}
-                  <text x="58" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="11" fill="white" letterSpacing="0.5">GET IT ON</text>
+                  <text x="56" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="11" fill="white" letterSpacing="0.5">GET IT ON</text>
 
                   {/* Google Play */}
-                  <text x="56" y="48" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="23" fontWeight="600" fill="white" letterSpacing="-0.3">Play Store</text>
+                  <text x="55" y="48" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="23" fontWeight="600" fill="white" letterSpacing="-0.3">Google Play</text>
                 </svg>
               </a>
             </div>
