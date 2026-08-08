@@ -84,7 +84,7 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-primary-dark mb-6 text-lg">Legal</h4>
             <ul className="flex flex-col gap-3.5 text-sm text-secondary-gray">
-              <li><Link href="/privacy" className="hover:text-primary-green transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-primary-green transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-primary-green transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
@@ -95,7 +95,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Splitry Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-8 text-sm text-secondary-gray">
-            <Link href="/privacy" className="hover:text-primary-green transition-colors">Privacy</Link>
+            <Link href="/privacy-policy" className="hover:text-primary-green transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-primary-green transition-colors">Terms</Link>
           </div>
         </div>
