@@ -50,7 +50,9 @@ const HeroSection = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="#"
+              href={process.env.NEXT_PUBLIC_IOS_STORE_URL || "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block transition-transform hover:scale-105 active:scale-95"
               aria-label="Download on the App Store"
             >

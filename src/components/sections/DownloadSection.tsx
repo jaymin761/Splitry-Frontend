@@ -56,7 +56,9 @@ const DownloadSection = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-6">
               <a
-                href="#"
+                href={process.env.NEXT_PUBLIC_IOS_STORE_URL || "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block transition-opacity hover:opacity-80 active:opacity-60"
                 aria-label="Download on the App Store"
               >

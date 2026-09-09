@@ -206,7 +206,7 @@ export default async function JoinPage({ params }: PageProps) {
             </a>
             <span>•</span>
             <a
-              href="https://apps.apple.com/app/splitry/id123456789"
+              href={process.env.NEXT_PUBLIC_IOS_STORE_URL || "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203"}
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-[#03A671] hover:underline"

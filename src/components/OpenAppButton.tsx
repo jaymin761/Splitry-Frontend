@@ -14,7 +14,7 @@ export const OpenAppButton: React.FC<OpenAppButtonProps> = ({
   androidStoreUrl = process.env.NEXT_PUBLIC_ANDROID_STORE_URL ||
     "https://play.google.com/store/apps/details?id=com.splitry.app.splitry",
   iosStoreUrl = process.env.NEXT_PUBLIC_IOS_STORE_URL ||
-    "https://apps.apple.com/app/splitry/id123456789",
+    "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203",
 }) => {
   const [isLoading, setIsLoading] = useState(false);
 
