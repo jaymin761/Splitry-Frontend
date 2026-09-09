@@ -77,7 +77,9 @@ const HeroSection = () => {
             </a>
 
             <a
-              href="#"
+              href={process.env.NEXT_PUBLIC_ANDROID_STORE_URL || "https://play.google.com/store/apps/details?id=com.splitry.app.splitry"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative inline-block transition-transform hover:scale-105 active:scale-95"
               aria-label="Get it on Google Play"
             >

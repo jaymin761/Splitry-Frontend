@@ -12,7 +12,7 @@ interface OpenAppButtonProps {
 export const OpenAppButton: React.FC<OpenAppButtonProps> = ({
   encryptedPayload,
   androidStoreUrl = process.env.NEXT_PUBLIC_ANDROID_STORE_URL ||
-    "https://play.google.com/store/apps/details?id=com.splitry.app",
+    "https://play.google.com/store/apps/details?id=com.splitry.app.splitry",
   iosStoreUrl = process.env.NEXT_PUBLIC_IOS_STORE_URL ||
     "https://apps.apple.com/app/splitry/id123456789",
 }) => {

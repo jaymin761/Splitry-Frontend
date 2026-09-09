@@ -197,7 +197,7 @@ export default async function JoinPage({ params }: PageProps) {
           <span>Don&apos;t have Splitry?</span>
           <div className="flex items-center gap-3">
             <a
-              href="https://play.google.com/store/apps/details?id=com.splitry.app"
+              href={process.env.NEXT_PUBLIC_ANDROID_STORE_URL || "https://play.google.com/store/apps/details?id=com.splitry.app.splitry"}
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-[#03A671] hover:underline"

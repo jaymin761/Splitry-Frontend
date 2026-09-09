@@ -89,7 +89,9 @@ const DownloadSection = () => {
               </a>
 
               <a
-                href="#"
+                href={process.env.NEXT_PUBLIC_ANDROID_STORE_URL || "https://play.google.com/store/apps/details?id=com.splitry.app.splitry"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative inline-block transition-opacity hover:opacity-80 active:opacity-60"
                 aria-label="Get it on Google Play"
               >
