@@ -76,28 +76,29 @@ const faqCategories = [
 
 export default function FAQ() {
   return (
-    <main className="min-h-screen bg-background-soft">
+    <main className="min-h-screen bg-[#080A0F] text-white">
       {/* Header */}
-      <div className="bg-white border-b border-border-stroke">
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-primary-green font-semibold mb-6 hover:opacity-80 transition-opacity">
+      <div className="bg-[#0B0E14] border-b border-white/10">
+        <div className="max-w-4xl mx-auto px-6 py-12">
+          <Link href="/" className="inline-flex items-center gap-2 text-emerald-400 font-semibold mb-6 hover:text-emerald-300 transition-colors">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M19 12H5M12 5l-7 7 7 7"/>
             </svg>
             Back to Home
           </Link>
-          <h1 className="text-4xl font-bold text-primary-dark">Frequently Asked Questions</h1>
-          <p className="text-secondary-gray mt-3">Find quick answers to common questions about Splitry&apos;s expense splitting, smart features, and payment settlements.</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white">Frequently Asked Questions</h1>
+          <p className="text-slate-400 mt-3 text-lg">Find quick answers to common questions about Splitry&apos;s expense splitting, smart features, and payment settlements.</p>
         </div>
       </div>
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="bg-white rounded-3xl border border-border-stroke shadow-sm p-10 space-y-12">
+        <div className="bg-[#111522]/90 rounded-3xl border border-white/10 shadow-xl p-6 sm:p-10 space-y-12">
           
           {faqCategories.map((cat, catIdx) => (
             <section key={catIdx} className="space-y-6">
-              <h2 className="text-2xl font-bold text-primary-dark border-b border-border-stroke pb-3">
+              <h2 className="text-2xl font-bold text-white border-b border-white/10 pb-3 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 {cat.category}
               </h2>
               
@@ -105,17 +106,17 @@ export default function FAQ() {
                 {cat.items.map((item, itemIdx) => (
                   <details 
                     key={itemIdx} 
-                    className="group border border-border-stroke rounded-2xl p-5 hover:border-primary-green/40 transition-colors duration-200 [&_summary::-webkit-details-marker]:hidden"
+                    className="group border border-white/10 bg-[#0B0E14]/80 rounded-2xl p-5 hover:border-emerald-500/40 transition-colors duration-200 [&_summary::-webkit-details-marker]:hidden"
                   >
-                    <summary className="flex items-center justify-between font-bold text-lg text-primary-dark cursor-pointer list-none select-none">
+                    <summary className="flex items-center justify-between font-bold text-lg text-white cursor-pointer list-none select-none">
                       <span className="pr-4">{item.question}</span>
-                      <span className="transition-transform duration-200 group-open:rotate-180 text-secondary-gray group-hover:text-primary-green flex-shrink-0">
+                      <span className="transition-transform duration-200 group-open:rotate-180 text-slate-400 group-hover:text-emerald-400 flex-shrink-0">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M6 9l6 6 6-6"/>
                         </svg>
                       </span>
                     </summary>
-                    <div className="mt-4 text-secondary-gray leading-relaxed text-[15px] border-t border-border-stroke/50 pt-4">
+                    <div className="mt-4 text-slate-300 leading-relaxed text-[15px] border-t border-white/10 pt-4">
                       {item.answer}
                     </div>
                   </details>

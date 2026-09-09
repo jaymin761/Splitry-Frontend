@@ -57,10 +57,10 @@ export default function AboutContent() {
   ];
 
   return (
-    <div className="flex-grow relative z-10 py-24 md:py-32 overflow-hidden">
+    <div className="flex-grow relative z-10 py-24 md:py-32 overflow-hidden bg-[#080A0F] text-white">
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-green/10 rounded-full blur-[150px] -z-10 pointer-events-none" />
-      <div className="absolute top-[40%] left-[-10%] w-[500px] h-[500px] bg-[#00C6FF]/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-green/10 rounded-full blur-[160px] -z-10 pointer-events-none" />
+      <div className="absolute top-[40%] left-[-10%] w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] -z-10 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 mt-8">
         <motion.div
@@ -71,23 +71,23 @@ export default function AboutContent() {
         >
           {/* Hero Section */}
           <div className="text-center max-w-3xl mx-auto space-y-6">
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-green/10 text-primary-green font-semibold text-sm w-fit mx-auto">
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold text-xs sm:text-sm w-fit mx-auto border border-emerald-500/25">
               <Target className="w-4 h-4" />
               Our Mission
             </motion.div>
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-extrabold text-primary-dark leading-[1.1]">
-              Reinventing how friends <span className="gradient-text">split expenses.</span>
+            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1]">
+              Reinventing how friends <span className="gradient-text-emerald">split expenses.</span>
             </motion.h1>
-            <motion.p variants={itemVariants} className="text-xl text-secondary-gray leading-relaxed pt-4">
+            <motion.p variants={itemVariants} className="text-lg md:text-xl text-slate-400 leading-relaxed pt-4">
               We built Splitry because we believe that sharing moments with friends shouldn&apos;t be overshadowed by the awkwardness of figuring out the bill.
             </motion.p>
           </div>
 
           {/* The Story Section */}
-          <motion.div variants={itemVariants} className="bg-white rounded-[2.5rem] p-10 md:p-16 border border-border-stroke shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary-green/5 to-transparent rounded-bl-full pointer-events-none" />
+          <motion.div variants={itemVariants} className="bg-[#111522]/90 rounded-[2.5rem] p-10 md:p-16 border border-white/10 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary-green/10 to-transparent rounded-bl-full pointer-events-none" />
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-dark mb-10 text-center">The Story Behind Splitry</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">The Story Behind Splitry</h2>
               <div className="flex flex-col">
                 {storySteps.map((step, idx) => (
                   <motion.div
@@ -99,52 +99,25 @@ export default function AboutContent() {
                     className="flex gap-5"
                   >
                     <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-primary-green/10 text-primary-green font-bold flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold flex items-center justify-center flex-shrink-0">
                         {idx + 1}
                       </div>
                       {idx < storySteps.length - 1 && (
-                        <div className="w-px flex-1 bg-border-stroke my-2" />
+                        <div className="w-px flex-1 bg-white/10 my-2" />
                       )}
                     </div>
-                    <p className="text-secondary-gray leading-relaxed text-lg pb-8">{step}</p>
+                    <p className="text-slate-300 leading-relaxed text-lg pb-8">{step}</p>
                   </motion.div>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* Stats Strip */}
-          {/* <motion.div
-            variants={itemVariants}
-            className="bg-white rounded-[2.5rem] p-10 md:p-14 border border-border-stroke shadow-sm"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
-              {stats.map((stat, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="text-center"
-                >
-                  <p className="flex items-center justify-center gap-1 text-4xl md:text-5xl font-extrabold text-primary-dark">
-                    {stat.icon}
-                    {stat.value}
-                  </p>
-                  <p className="mt-2 text-sm font-medium text-secondary-gray uppercase tracking-wider">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div> */}
-
           {/* Values Section */}
           <motion.div variants={itemVariants} className="space-y-12">
             <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-dark mb-4">Our Core Values</h2>
-              <p className="text-secondary-gray text-lg">The principles that guide every feature we build and every decision we make.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Core Values</h2>
+              <p className="text-slate-400 text-lg">The principles that guide every feature we build and every decision we make.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -159,13 +132,13 @@ export default function AboutContent() {
                   <TiltCard
                     maxTilt={7}
                     scale={1.015}
-                    className="group relative p-8 rounded-[2rem] bg-white border border-border-stroke hover:border-primary-green/30 transition-colors shadow-sm hover:shadow-premium"
+                    className="group relative p-8 rounded-[2rem] bg-[#111522]/90 border border-white/10 hover:border-emerald-500/40 transition-colors shadow-lg hover:shadow-[0_0_30px_rgba(3,166,113,0.15)]"
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-background-soft border border-border-stroke flex items-center justify-center text-primary-dark mb-6 group-hover:bg-primary-green/10 group-hover:text-primary-green group-hover:border-primary-green/20 transition-all [transform:translateZ(20px)]">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0B0E14] border border-white/10 flex items-center justify-center text-emerald-400 mb-6 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/30 transition-all [transform:translateZ(20px)]">
                       {value.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-primary-dark mb-3 [transform:translateZ(15px)]">{value.title}</h3>
-                    <p className="text-secondary-gray leading-relaxed text-lg">
+                    <h3 className="text-2xl font-bold text-white mb-3 [transform:translateZ(15px)]">{value.title}</h3>
+                    <p className="text-slate-400 leading-relaxed text-base">
                       {value.description}
                     </p>
                   </TiltCard>
@@ -183,7 +156,7 @@ export default function AboutContent() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="[perspective:1600px]"
           >
-            <div className="bg-primary-dark rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
+            <div className="bg-gradient-to-b from-[#151B2C] to-[#0A0D15] border border-white/10 rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
               <div className="absolute inset-0 -z-10">
                 <motion.div
                   animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -197,11 +170,11 @@ export default function AboutContent() {
                 />
               </div>
               <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">Ready to stop doing math?</h2>
-                <p className="text-[#98979F] text-lg">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">Ready to stop doing math?</h2>
+                <p className="text-slate-400 text-lg">
                   Join thousands of friends who have already switched to Splitry for stress-free expense splitting.
                 </p>
-                <Link href="/" className="inline-flex items-center gap-2 bg-primary-green text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-[#128C63] hover:scale-105 transition-all shadow-glow">
+                <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-green to-[#00F5A0] text-black font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 transition-all shadow-[0_0_25px_rgba(3,166,113,0.4)]">
                   Get Started Free
                   <ArrowRight className="w-5 h-5" />
                 </Link>

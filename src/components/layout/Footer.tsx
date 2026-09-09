@@ -21,9 +21,9 @@ const Instagram = ({ className }: { className?: string }) => (
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-border-stroke pt-24 pb-12 relative overflow-hidden">
+    <footer className="bg-[#05070A] border-t border-white/10 pt-24 pb-12 relative overflow-hidden text-white">
       {/* Top Emerald Accent Line */}
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-green to-transparent opacity-60" />
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary-green to-transparent opacity-80" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -37,11 +37,11 @@ const Footer = () => {
                   className="object-contain"
                 />
               </motion.div>
-              <span className="text-2xl font-bold tracking-tight text-primary-dark group-hover:text-primary-green transition-colors">
+              <span className="text-2xl font-bold tracking-tight text-white group-hover:text-primary-green transition-colors">
                 Splitry
               </span>
             </Link>
-            <p className="text-secondary-gray text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               Smart expense splitting for friends, couples, and groups. Settle debts instantly and stay friends with zero awkwardness.
             </p>
             <div className="flex items-center gap-3">
@@ -54,7 +54,7 @@ const Footer = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center text-secondary-gray hover:text-primary-green hover:border-primary-green hover:shadow-[0_4px_15px_rgba(3,166,113,0.2)] transition-all duration-200"
+                  className="w-10 h-10 rounded-full border border-white/10 bg-[#111522] flex items-center justify-center text-slate-400 hover:text-primary-green hover:border-primary-green hover:shadow-[0_0_15px_rgba(3,166,113,0.3)] transition-all duration-200"
                 >
                   <Icon className="w-5 h-5" />
                 </Link>
@@ -63,8 +63,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-primary-dark mb-6 text-lg">Product</h4>
-            <ul className="flex flex-col gap-3.5 text-sm text-secondary-gray">
+            <h4 className="font-bold text-white mb-6 text-lg">Product</h4>
+            <ul className="flex flex-col gap-3.5 text-sm text-slate-400">
               <li><Link href="/#features" className="hover:text-primary-green transition-colors">Features</Link></li>
               <li><Link href="/#how-it-works" className="hover:text-primary-green transition-colors">How it works</Link></li>
               <li><Link href="/#use-cases" className="hover:text-primary-green transition-colors">Use Cases</Link></li>
@@ -74,27 +74,27 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-primary-dark mb-6 text-lg">Company</h4>
-            <ul className="flex flex-col gap-3.5 text-sm text-secondary-gray">
+            <h4 className="font-bold text-white mb-6 text-lg">Company</h4>
+            <ul className="flex flex-col gap-3.5 text-sm text-slate-400">
               <li><Link href="/about" className="hover:text-primary-green transition-colors">About Us</Link></li>
               <li><a href="mailto:splitryapp@gmail.com" className="hover:text-primary-green transition-colors">Contact Support</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-primary-dark mb-6 text-lg">Legal</h4>
-            <ul className="flex flex-col gap-3.5 text-sm text-secondary-gray">
+            <h4 className="font-bold text-white mb-6 text-lg">Legal</h4>
+            <ul className="flex flex-col gap-3.5 text-sm text-slate-400">
               <li><Link href="/privacy-policy" className="hover:text-primary-green transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-primary-green transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-border-stroke pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-secondary-gray">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-sm text-slate-500">
             © {new Date().getFullYear()} Splitry Inc. All rights reserved.
           </p>
-          <div className="flex items-center gap-8 text-sm text-secondary-gray">
+          <div className="flex items-center gap-8 text-sm text-slate-400">
             <Link href="/privacy-policy" className="hover:text-primary-green transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-primary-green transition-colors">Terms</Link>
           </div>

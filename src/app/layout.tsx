@@ -115,7 +115,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased bg-background-soft text-primary-dark overflow-x-hidden">
+      <body className="antialiased bg-[#080A0F] text-[#F1F5F9] overflow-x-hidden selection:bg-primary-green/30 selection:text-white">
         {children}
         {/* Google Analytics */}
         <Script
