@@ -6,18 +6,15 @@ import { Sparkles } from "lucide-react";
 
 const DownloadSection = () => {
   return (
-    <section id="download" className="py-28 px-6 bg-[#080A0F]">
+    <section id="download" className="py-24 px-6">
       <div className="max-w-7xl mx-auto [perspective:1600px]">
         <motion.div
           initial={{ opacity: 0, rotateX: 8, y: 30 }}
           whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-[3rem] bg-gradient-to-b from-[#151B2C] to-[#0A0D15] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.9)] overflow-hidden p-12 md:p-24 text-center"
+          className="relative rounded-[3rem] bg-primary-dark overflow-hidden p-12 md:p-24 text-center"
         >
-          {/* Top border glow line */}
-          <div className="absolute top-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
-
           {/* Animated Background Gradients */}
           <div className="absolute inset-0 -z-10">
             <motion.div
@@ -26,7 +23,7 @@ const DownloadSection = () => {
                 opacity: [0.3, 0.5, 0.3],
               }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary-green/25 blur-[120px] rounded-full"
+              className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary-green/20 blur-[100px] rounded-full"
             />
             <motion.div
               animate={{
@@ -34,7 +31,7 @@ const DownloadSection = () => {
                 opacity: [0.2, 0.4, 0.2],
               }}
               transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-emerald-500/20 blur-[120px] rounded-full"
+              className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-primary-green/20 blur-[100px] rounded-full"
             />
           </div>
 
@@ -43,17 +40,17 @@ const DownloadSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto relative z-10"
+            className="max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 text-xs sm:text-sm font-semibold mb-8 border border-emerald-500/25">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-green/20 text-primary-green text-sm font-semibold mb-8">
               <Sparkles className="w-4 h-4" />
               Available now on iOS and Android
             </div>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white mb-8 leading-tight">
+            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
               Ready to simplify <br />
-              <span className="gradient-text-emerald">shared expenses?</span>
+              <span className="text-primary-green">shared expenses?</span>
             </h2>
-            <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-xl mx-auto">
+            <p className="text-xl text-secondary-gray mb-12 max-w-xl mx-auto">
               Join 10,000+ users who split expenses the smart way. Download Splitry today and start tracking for free.
             </p>
 
@@ -62,7 +59,7 @@ const DownloadSection = () => {
                 href={process.env.NEXT_PUBLIC_IOS_STORE_URL || "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.25)] rounded-[14px] active:scale-95"
+                className="inline-block transition-opacity hover:opacity-80 active:opacity-60"
                 aria-label="Download on the App Store"
               >
                 <svg
@@ -72,8 +69,8 @@ const DownloadSection = () => {
                   viewBox="0 0 190 64"
                   aria-hidden="true"
                 >
-                  <rect width="190" height="64" rx="12" fill="#0B0E14" />
-                  <rect x="0.75" y="0.75" width="188.5" height="62.5" rx="11.25" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" fill="none" />
+                  <rect width="190" height="64" rx="12" fill="black" />
+                  <rect x="0.75" y="0.75" width="188.5" height="62.5" rx="11.25" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" fill="none" />
 
                   {/* Apple logo */}
                   <path
@@ -86,7 +83,7 @@ const DownloadSection = () => {
                   />
 
                   {/* Download on the */}
-                  <text x="58" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="12" fill="#94A3B8" letterSpacing="0.3">Download on the</text>
+                  <text x="58" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="12" fill="white" letterSpacing="0.3">Download on the</text>
 
                   {/* App Store */}
                   <text x="56" y="48" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="26" fontWeight="600" fill="white" letterSpacing="-0.5">App Store</text>
@@ -97,7 +94,7 @@ const DownloadSection = () => {
                 href={process.env.NEXT_PUBLIC_ANDROID_STORE_URL || "https://play.google.com/store/apps/details?id=com.splitry.app.splitry"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative inline-block transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(3,166,113,0.35)] rounded-[14px] active:scale-95"
+                className="relative inline-block transition-opacity hover:opacity-80 active:opacity-60"
                 aria-label="Get it on Google Play"
               >
                 <svg
@@ -107,8 +104,8 @@ const DownloadSection = () => {
                   viewBox="0 0 190 64"
                   aria-hidden="true"
                 >
-                  <rect width="190" height="64" rx="12" fill="#0B0E14" />
-                  <rect x="0.75" y="0.75" width="188.5" height="62.5" rx="11.25" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" fill="none" />
+                  <rect width="190" height="64" rx="12" fill="black" />
+                  <rect x="0.75" y="0.75" width="188.5" height="62.5" rx="11.25" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" fill="none" />
 
                   {/* Official 4-color Google Play logo */}
                   <g transform="translate(18, 14) scale(1.02)">
@@ -119,7 +116,7 @@ const DownloadSection = () => {
                   </g>
 
                   {/* GET IT ON */}
-                  <text x="56" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="11" fill="#94A3B8" letterSpacing="0.5">GET IT ON</text>
+                  <text x="56" y="26" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="11" fill="white" letterSpacing="0.5">GET IT ON</text>
 
                   {/* Google Play */}
                   <text x="55" y="48" fontFamily="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" fontSize="23" fontWeight="600" fill="white" letterSpacing="-0.3">Google Play</text>

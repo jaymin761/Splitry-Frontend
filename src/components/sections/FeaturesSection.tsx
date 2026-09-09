@@ -94,23 +94,20 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
       <TiltCard
         maxTilt={6}
         scale={1.02}
-        className="group relative p-8 rounded-3xl bg-[#111522]/90 border border-white/10 hover:border-emerald-500/40 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(3,166,113,0.15)] h-full flex flex-col justify-between overflow-hidden"
+        className="group relative p-8 rounded-3xl bg-white border border-border-stroke hover:border-primary-green/40 transition-all duration-300 shadow-sm hover:shadow-[0_15px_35px_-5px_rgba(3,166,113,0.12)] h-full flex flex-col justify-between"
       >
-        {/* Subtle hover gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-
-        <div className="relative z-10">
+        <div>
           <div className={`w-13 h-13 rounded-2xl border ${feature.bgClass} flex items-center justify-center mb-6 transition-transform group-hover:scale-110 group-hover:rotate-3 [transform:translateZ(20px)]`}>
             <Icon className={`w-6 h-6 ${feature.iconClass}`} />
           </div>
-          <h3 className="text-xl font-bold text-white mb-3 [transform:translateZ(15px)] group-hover:text-emerald-400 transition-colors">
+          <h3 className="text-xl font-bold text-primary-dark mb-3 [transform:translateZ(15px)] group-hover:text-primary-green transition-colors">
             {feature.title}
           </h3>
-          <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>
+          <p className="text-secondary-gray text-sm leading-relaxed">{feature.description}</p>
         </div>
 
         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+          <div className="w-2 h-2 rounded-full bg-primary-green animate-ping" />
         </div>
       </TiltCard>
     </motion.div>
@@ -119,21 +116,18 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-28 bg-[#080A0F] relative overflow-hidden">
-      {/* Background ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary-green/5 blur-[160px] rounded-full pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="features" className="py-24 bg-background-soft">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 text-xs sm:text-sm font-semibold mb-6 border border-emerald-500/25">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-green/10 text-primary-green text-sm font-semibold mb-6 border border-primary-green/20">
             <Sparkles className="w-4 h-4" />
             Platform Capabilities
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6 tracking-tight">
             Everything you need to <br />
-            <span className="gradient-text-emerald">manage shared finances.</span>
+            <span className="text-primary-green">manage shared finances.</span>
           </h2>
-          <p className="text-lg text-slate-400 leading-relaxed">
+          <p className="text-lg text-secondary-gray leading-relaxed">
             Powerful tools designed for speed, clarity, and total automation. Stop worrying about who owes what.
           </p>
         </div>

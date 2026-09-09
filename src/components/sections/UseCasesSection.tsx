@@ -79,18 +79,18 @@ const UseCaseCard = ({
     <TiltCard
       maxTilt={8}
       scale={1.03}
-      className="group relative h-full p-8 rounded-3xl bg-[#111522]/90 border border-white/10 hover:border-emerald-500/40 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(3,166,113,0.15)] overflow-hidden flex flex-col justify-between"
+      className="group relative h-full p-8 rounded-3xl bg-white border border-border-stroke hover:border-primary-green/40 transition-all duration-300 shadow-sm hover:shadow-[0_15px_35px_-5px_rgba(3,166,113,0.12)] overflow-hidden flex flex-col justify-between"
     >
       <div
         className={cn(
-          "absolute -top-12 -right-12 w-36 h-36 rounded-full bg-gradient-to-br opacity-50 blur-2xl transition-opacity group-hover:opacity-80",
+          "absolute -top-12 -right-12 w-36 h-36 rounded-full bg-gradient-to-br opacity-80 blur-2xl transition-opacity group-hover:opacity-100",
           useCase.glowColor
         )}
       />
 
-      <div className="relative z-10">
+      <div>
         <div className="flex items-center justify-between mb-6">
-          <div className="w-16 h-16 rounded-2xl bg-[#0B0E14] border border-white/10 flex items-center justify-center text-3xl shadow-inner [transform:translateZ(20px)] group-hover:scale-110 transition-transform">
+          <div className="w-16 h-16 rounded-2xl bg-background-soft border border-border-stroke flex items-center justify-center text-3xl shadow-inner [transform:translateZ(20px)] group-hover:scale-110 transition-transform">
             {useCase.emoji}
           </div>
           <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold border uppercase tracking-wider ${useCase.badgeBg}`}>
@@ -98,7 +98,7 @@ const UseCaseCard = ({
           </span>
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-5 [transform:translateZ(15px)] group-hover:text-emerald-400 transition-colors">
+        <h3 className="text-xl font-bold text-primary-dark mb-5 [transform:translateZ(15px)] group-hover:text-primary-green transition-colors">
           {useCase.title}
         </h3>
 
@@ -113,10 +113,10 @@ const UseCaseCard = ({
             <motion.li
               key={item}
               variants={itemVariants}
-              className="flex items-center gap-2.5"
+              className="flex items-center gap-2.5 text-secondary-gray"
             >
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-              <span className="text-sm font-medium text-slate-300">{item}</span>
+              <CheckCircle2 className="w-4 h-4 text-primary-green flex-shrink-0" />
+              <span className="text-sm font-medium text-stone-700">{item}</span>
             </motion.li>
           ))}
         </motion.ul>
@@ -127,18 +127,18 @@ const UseCaseCard = ({
 
 const UseCasesSection = () => {
   return (
-    <section id="use-cases" className="py-28 bg-[#080A0F] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="use-cases" className="py-24 bg-background-soft">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 text-xs sm:text-sm font-semibold mb-6 border border-emerald-500/25">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-green/10 text-primary-green text-sm font-semibold mb-6 border border-primary-green/20">
             <MapPinned className="w-4 h-4" />
             Real-Life Use Cases
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6 tracking-tight">
             Built for the moments <br />
-            <span className="gradient-text-emerald">that matter.</span>
+            <span className="text-primary-green">that matter.</span>
           </h2>
-          <p className="text-lg text-slate-400 leading-relaxed">
+          <p className="text-lg text-secondary-gray leading-relaxed">
             Not just features — real everyday scenarios where Splitry keeps everyone square effortlessly.
           </p>
         </div>
