@@ -58,6 +58,24 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  itunes: {
+    appId: "6803580203",
+    appArgument: "https://splitry.com",
+  },
+  appLinks: {
+    ios: {
+      url: "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203",
+      app_store_id: "6803580203",
+    },
+    android: {
+      package: "com.splitry.app.splitry",
+      app_name: "Splitry",
+    },
+    web: {
+      url: "https://splitry.com",
+      should_fallback: true,
+    },
+  },
   openGraph: {
     title: "Splitry | Split Expenses the Smart Way",
     description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly with automated receipt scanning.",
@@ -94,6 +112,12 @@ export default function RootLayout({
     "name": "Splitry",
     "operatingSystem": "iOS, Android, Web",
     "applicationCategory": "FinanceApplication",
+    "downloadUrl": "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203",
+    "installUrl": "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203",
+    "sameAs": [
+      "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203",
+      "https://play.google.com/store/apps/details?id=com.splitry.app.splitry"
+    ],
     "offers": {
       "@type": "Offer",
       "price": "0",
