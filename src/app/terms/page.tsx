@@ -15,7 +15,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Terms of Service | Splitry",
-  description: "Read Splitry's Terms of Service to understand the rules, user guidelines, non-banking disclaimers, and legal policies governing our apps and platform.",
+  description: "Read Splitry's Terms of Service to understand the rules, user guidelines, Splitry Premium subscriptions, non-banking disclaimers, and legal policies governing our apps and platform.",
   alternates: { canonical: "/terms" },
 };
 
@@ -41,7 +41,7 @@ export default function TermsOfService() {
             </h1>
           </div>
           <p className="text-[#98979F] text-sm sm:text-base font-medium">
-            Last updated: July 27, 2026 • Effective for all Splitry applications & web services
+            Last updated: October 5, 2026 • Effective for all Splitry applications & web services
           </p>
         </div>
       </div>
@@ -127,10 +127,51 @@ export default function TermsOfService() {
             </ul>
           </section>
 
-          {/* 4. Acceptable Use & Conduct Guidelines */}
+          {/* 4. Free Plan & Splitry Premium */}
           <section>
             <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
               <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">4</span>
+              Free Plan & Splitry Premium
+            </h2>
+            <p className="text-[#98979F] leading-relaxed text-sm mb-4">
+              Splitry is free to download. The free plan has limits, shown in the app, on features such as the number of expenses you can add. We may change these limits. Splitry Premium is an optional paid subscription that removes those limits and unlocks extra features, shown in the app at the time you subscribe.
+            </p>
+            <ul className="space-y-3 text-[#98979F] text-sm sm:text-base">
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Plans & Prices:</strong> The plans on offer and the price for your country are shown in the app before you buy.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Free Trial:</strong> Where a plan includes a free trial, it is shown before you subscribe. If you do not cancel at least 24 hours before the trial ends, the subscription starts and you are charged. A free trial is available once per customer.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Payment:</strong> Purchases are made through your Apple App Store or Google Play account. We do not receive or store your card details.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Automatic Renewal:</strong> A subscription renews for the same period at the current price unless you cancel at least 24 hours before the period ends.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Cancelling:</strong> Cancel in your App Store or Google Play subscription settings. Deleting the app or your Splitry account does not cancel a subscription. After cancelling, Premium stays active until the end of the period already paid for.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Refunds:</strong> Payments are handled by Apple or Google and their refund policies apply, so request a refund from them. Nothing in these Terms limits refund rights you have by law.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#03A671] font-bold">•</span>
+                <span><strong>Restoring:</strong> You can restore an active subscription on a new device from the Premium screen while signed in to the same store account.</span>
+              </li>
+            </ul>
+          </section>
+
+          {/* 5. Acceptable Use & Conduct Guidelines */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">5</span>
               Acceptable Use & Group Conduct
             </h2>
             <p className="text-[#98979F] text-sm mb-4">
@@ -156,10 +197,10 @@ export default function TermsOfService() {
             </div>
           </section>
 
-          {/* 5. QR Codes, Invites & Deep Links */}
+          {/* 6. QR Codes, Invites & Deep Links */}
           <section>
             <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">5</span>
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">6</span>
               QR Codes, Invites & Deep Link Usage
             </h2>
             <p className="text-[#98979F] leading-relaxed text-sm">
@@ -167,10 +208,10 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          {/* 6. Receipt Scanner & Automated OCR Disclaimers */}
+          {/* 7. Receipt Scanner & Automated OCR Disclaimers */}
           <section>
             <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">6</span>
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">7</span>
               Automated Receipt Scanning & Analytics
             </h2>
             <p className="text-[#98979F] leading-relaxed text-sm">
@@ -178,21 +219,21 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          {/* 7. Limitation of Liability & Disclaimers */}
+          {/* 8. Limitation of Liability & Disclaimers */}
           <section className="p-6 bg-amber-50 border border-amber-200 rounded-3xl space-y-3 text-amber-900">
             <div className="flex items-center gap-2 font-bold text-lg">
               <AlertTriangle className="w-5 h-5 text-amber-600" />
-              <span>7. Disclaimer of Warranties & Limitation of Liability</span>
+              <span>8. Disclaimer of Warranties & Limitation of Liability</span>
             </div>
             <p className="text-xs sm:text-sm leading-relaxed">
               THE SERVICE IS PROVIDED ON AN &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; BASIS WITHOUT WARRANTIES OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SPLITRY INC. DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED. SPLITRY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING FROM YOUR USE OF THE SERVICE, UNSETTLED GROUP DEBTS, OR SERVICE INTERRUPTIONS.
             </p>
           </section>
 
-          {/* 8. Termination & Account Deactivation */}
+          {/* 9. Termination & Account Deactivation */}
           <section>
             <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">8</span>
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">9</span>
               Account Termination & Deactivation
             </h2>
             <p className="text-[#98979F] leading-relaxed text-sm">
@@ -200,10 +241,21 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          {/* 9. Governing Law & Dispute Resolution */}
+          {/* 10. Privacy & Ad Measurement */}
           <section>
             <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">9</span>
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">10</span>
+              Privacy & Ad Measurement
+            </h2>
+            <p className="text-[#98979F] leading-relaxed text-sm">
+              Our <Link href="/privacy-policy" className="text-[#03A671] underline font-semibold">Privacy Policy</Link> explains what data we collect and how we use and share it. It is part of these Terms. Splitry advertises on Facebook and Instagram, and the app asks whether you allow us to measure those ads with Meta. Ad measurement is optional and off unless you allow it, you can change your choice at any time in the app under Profile → Preferences → Ad measurement, and Splitry works the same either way.
+            </p>
+          </section>
+
+          {/* 11. Governing Law & Dispute Resolution */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#28282C] mb-4 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-xl bg-[#28282C] text-white flex items-center justify-center text-sm font-bold">11</span>
               Governing Law & Jurisdiction
             </h2>
             <p className="text-[#98979F] leading-relaxed text-sm">
@@ -211,7 +263,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          {/* 10. Contact Us */}
+          {/* 12. Contact Us */}
           <section className="p-6 bg-[#FDFBF7] rounded-3xl border border-[#E5E5E7] text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-bold text-[#28282C] mb-1">Questions About Our Terms?</h3>
