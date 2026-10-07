@@ -54,7 +54,7 @@ const UseCasesSection = () => {
                   {useCase.emoji}
                 </span>
                 <h3 className="mt-6 text-xl font-semibold text-primary-dark">{useCase.title}</h3>
-                <p className="mt-1 text-sm font-medium text-primary-green-deep">{useCase.subtitle}</p>
+                <p className="mt-1 text-sm font-medium text-primary-green-deeper">{useCase.subtitle}</p>
 
                 <ul className="mt-5 flex flex-col gap-2.5 border-t border-border-stroke pt-5">
                   {useCase.items.map((item) => (

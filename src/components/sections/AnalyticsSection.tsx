@@ -1,18 +1,8 @@
-"use client";
-
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { PieChart, TrendingUp } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-
-const data = [
-  { name: "Jan", amount: 4000 },
-  { name: "Feb", amount: 3000 },
-  { name: "Mar", amount: 2000 },
-  { name: "Apr", amount: 2780 },
-  { name: "May", amount: 1890 },
-  { name: "Jun", amount: 3400 },
-];
+import { CountUp } from "@/components/motion/CountUp";
+import { LazyAnalyticsChart } from "@/components/sections/LazyAnalyticsChart";
 
 const highlights = [
   { icon: TrendingUp, title: "98.4% Accurate", description: "AI receipt itemization & tax extraction." },
@@ -63,35 +53,16 @@ const AnalyticsSection = () => {
               </div>
             </div>
 
-            <div className="mt-6 h-[220px] w-full sm:h-[260px]" role="img" aria-label="Area chart of monthly group spending from January to June">
-              <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 520, height: 260 }}>
-                <AreaChart data={data} margin={{ top: 8, right: 8, left: 8, bottom: 0 }}>
-                  <defs>
-                    <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#03A671" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#03A671" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E6E8EA" />
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: "#98979F", fontSize: 12 }} />
-                  <YAxis hide />
-                  <Tooltip
-                    formatter={(value) => [`$${Number(value).toLocaleString()}`, "Spend"]}
-                    contentStyle={{ borderRadius: "14px", border: "1px solid #E6E8EA", boxShadow: "0 10px 30px rgba(40,40,44,0.10)", backgroundColor: "#FFFFFF", fontSize: 13 }}
-                  />
-                  <Area type="monotone" dataKey="amount" stroke="#03A671" strokeWidth={2.5} fillOpacity={1} fill="url(#colorAmount)" />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
+            <LazyAnalyticsChart />
 
             <figcaption className="mt-5 grid grid-cols-2 gap-3">
               <div className="rounded-2xl border border-border-stroke bg-background-soft p-4">
                 <p className="text-xs font-medium text-muted">Total Shared</p>
-                <p className="mt-1 text-xl font-bold text-primary-dark sm:text-2xl">$42,390</p>
+                <p className="mt-1 text-xl font-bold text-primary-dark sm:text-2xl"><CountUp value={42390} prefix="$" /></p>
               </div>
               <div className="rounded-2xl border border-border-stroke bg-background-soft p-4">
                 <p className="text-xs font-medium text-muted">Avg. per Group</p>
-                <p className="mt-1 text-xl font-bold text-primary-green sm:text-2xl">$1,240</p>
+                <p className="mt-1 text-xl font-bold text-primary-green sm:text-2xl"><CountUp value={1240} prefix="$" /></p>
               </div>
             </figcaption>
           </figure>

@@ -52,7 +52,7 @@ export default function AboutContent() {
           <h2 className="text-center text-3xl font-bold tracking-tight text-primary-dark sm:text-4xl">The Story Behind Splitry</h2>
           <ol className="mt-12 flex flex-col">
             {storySteps.map((step, idx) => (
-              <Reveal as="li" key={idx} delay={idx * 0.08} className="flex gap-5">
+              <li key={idx} className="flex gap-5">
                 <div className="flex flex-col items-center">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary-green/20 bg-primary-green/10 font-bold text-primary-green">
                     {idx + 1}
@@ -60,7 +60,7 @@ export default function AboutContent() {
                   {idx < storySteps.length - 1 && <span className="my-2 w-px flex-1 bg-border-stroke" aria-hidden="true" />}
                 </div>
                 <p className="pb-10 pt-1.5 text-base leading-relaxed text-body sm:text-lg">{step}</p>
-              </Reveal>
+              </li>
             ))}
           </ol>
         </div>
@@ -73,7 +73,7 @@ export default function AboutContent() {
           <ul className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-5">
             {values.map(({ icon: Icon, title, description }, idx) => (
               <Reveal as="li" key={title} delay={idx * 0.05}>
-                <div className="flex h-full gap-5 rounded-3xl border border-border-stroke bg-background-soft p-6 sm:p-8">
+                <div className="flex h-full gap-5 rounded-3xl border border-border-stroke bg-background-soft p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary-green/30 hover:bg-white hover:shadow-lift sm:p-8">
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-primary-green/20 bg-primary-green/10 text-primary-green">
                     <Icon className="h-[22px] w-[22px]" aria-hidden="true" />
                   </span>
@@ -97,7 +97,7 @@ export default function AboutContent() {
           </p>
           <Link
             href="/#download"
-            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-primary-green-deep transition-colors hover:bg-background-soft"
+            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-primary-green-deeper transition-all hover:bg-background-soft active:scale-[0.98]"
           >
             Get Started Free
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

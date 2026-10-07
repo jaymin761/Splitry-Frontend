@@ -1,32 +1,23 @@
-"use client";
-
-import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import type { CSSProperties, ReactNode } from "react";
 
 interface RevealProps {
   children: ReactNode;
   className?: string;
+  /** Delay in seconds, for staggering siblings. */
   delay?: number;
   as?: "div" | "li";
 }
 
-/** Subtle fade-up on scroll. Renders statically when the user prefers reduced motion. */
-export function Reveal({ children, className, delay = 0, as = "div" }: RevealProps) {
-  const reduce = useReducedMotion();
-  const Component = as === "li" ? motion.li : motion.div;
-
-  if (reduce) {
-    const Static = as;
-    return <Static className={className}>{children}</Static>;
-  }
-
+/**
+ * Subtle fade-up on scroll. Server-rendered: content is always in the HTML and visible
+ * without JS; RevealObserver (mounted in SiteShell) triggers the transition in view.
+ */
+export function Reveal({ children, className, delay = 0, as: Component = "div" }: RevealProps) {
   return (
     <Component
+      data-reveal=""
       className={className}
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
+      style={delay ? ({ "--reveal-delay": `${Math.round(delay * 1000)}ms` } as CSSProperties) : undefined}
     >
       {children}
     </Component>

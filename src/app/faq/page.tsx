@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
 import { ChevronDown, Mail } from "lucide-react";
 import { PageHeader, SiteShell } from "@/components/layout/SiteShell";
 
-export const metadata: Metadata = {
-  title: "Frequently Asked Questions (FAQ)",
-  description: "Get answers to all your questions about Splitry, the smart expense splitting app. Learn how to scan receipts, split bills, and record settlements.",
-  alternates: { canonical: "/faq" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "FAQ – Splitting Bills, Receipts & Settlements",
+  description:
+    "Answers to common questions about Splitry: how to split bills with friends, scan receipts, simplify debts, record settlements, and keep your data private.",
+  path: "/faq",
+});
 
 const faqCategories = [
   {
@@ -80,9 +83,22 @@ const faqCategories = [
   }
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqCategories.flatMap((cat) =>
+    cat.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    }))
+  ),
+};
+
 export default function FAQ() {
   return (
     <SiteShell>
+      <JsonLd data={[faqJsonLd, breadcrumbJsonLd([{ name: "FAQ", path: "/faq" }])]} />
       <PageHeader
         eyebrow="Help Center"
         title="Frequently Asked Questions"
@@ -136,7 +152,7 @@ export default function FAQ() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-primary-green px-5 py-2.5 text-sm font-semibold text-white shadow-green transition-colors hover:bg-primary-green-deep"
+            className="inline-flex items-center gap-2 rounded-full bg-primary-green-deeper px-5 py-2.5 text-sm font-semibold text-white shadow-green transition-all hover:bg-primary-green-deeper/90 active:scale-[0.98]"
           >
             <Mail className="h-4 w-4" aria-hidden="true" />
             Contact us

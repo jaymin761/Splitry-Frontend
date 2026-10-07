@@ -47,7 +47,7 @@ const TestimonialsSection = () => {
         <ul className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3 lg:mt-16 lg:gap-6">
           {testimonials.map((t, i) => (
             <Reveal as="li" key={t.name} delay={i * 0.08}>
-              <figure className="flex h-full flex-col rounded-3xl border border-border-stroke bg-background-soft p-6 sm:p-8">
+              <figure className="flex h-full flex-col rounded-3xl border border-border-stroke bg-background-soft p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary-green/30 hover:bg-white hover:shadow-lift sm:p-8">
                 <div className="flex items-center gap-0.5 text-primary-green" aria-label={`Rated ${t.rating} out of 5`} role="img">
                   {Array.from({ length: t.rating }).map((_, idx) => (
                     <Star key={idx} className="h-4 w-4 fill-current" aria-hidden="true" />

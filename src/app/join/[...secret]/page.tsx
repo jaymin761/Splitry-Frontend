@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import { NOINDEX } from "@/lib/seo";
 import { decryptGroupQRPayload } from "@/lib/qr";
 import { InvalidLinkCard, InviteCard } from "@/components/invite/InviteCard";
 import { GroupQRPayload } from "@/types/qr";
@@ -36,7 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Fallback metadata if decryption fails
   if (!payload || !payload.name) {
     return {
-      title: "Splitry",
+      title: { absolute: "Splitry" },
+      robots: NOINDEX,
       description: "Splitry is a free app for sharing expenses with friends and family.",
       alternates: {
         canonical: canonicalUrl,
@@ -70,7 +72,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description =
     "Split expenses with your group in seconds. Track who owes what, settle balances, and stay organized with Splitry.";
   return {
-    title,
+    title: { absolute: title },
+    robots: NOINDEX,
     description,
     alternates: {
       canonical: canonicalUrl,

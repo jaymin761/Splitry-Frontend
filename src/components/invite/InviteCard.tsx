@@ -85,7 +85,7 @@ export function InviteCard({ variant, name, avatarUrl, secret, title, descriptio
       </div>
 
       {badge && (
-        <p className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary-green/20 bg-primary-green/10 px-3 py-1 text-xs font-semibold text-primary-green-deep">
+        <p className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary-green/20 bg-primary-green/10 px-3 py-1 text-xs font-semibold text-primary-green-deeper">
           <Users2 className="h-3.5 w-3.5" aria-hidden="true" />
           {badge}
         </p>

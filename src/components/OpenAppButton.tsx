@@ -68,7 +68,7 @@ export const OpenAppButton: React.FC<OpenAppButtonProps> = ({
       disabled={isLoading}
       type="button"
       aria-busy={isLoading}
-      className="group flex w-full cursor-pointer items-center justify-center gap-3 rounded-2xl bg-primary-green px-6 py-4 text-base font-semibold text-white shadow-green transition-all duration-200 hover:bg-primary-green-deep active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-80 sm:text-lg"
+      className="group flex w-full cursor-pointer items-center justify-center gap-3 rounded-2xl bg-primary-green-deeper px-6 py-4 text-base font-semibold text-white shadow-green transition-all duration-200 hover:bg-primary-green-deeper/90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-80 sm:text-lg"
     >
       {isLoading ? (
         <>

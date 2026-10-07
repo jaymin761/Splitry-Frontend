@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { PageHeader, SiteShell } from "@/components/layout/SiteShell";
 import { 
   Trash2, 
@@ -16,15 +18,17 @@ import {
   Target
 } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
-  description: "Read Splitry's Privacy Policy to understand how we collect, use, share, and protect your data, our optional ad measurement with Meta, and your account deletion rights.",
-  alternates: { canonical: "/privacy-policy" },
-};
+  description:
+    "Read the Splitry Privacy Policy: what data we collect, how we use and protect it, optional ad measurement with Meta, and your account deletion rights.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicy() {
   return (
     <SiteShell>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Privacy Policy", path: "/privacy-policy" }])} />
       <PageHeader
         eyebrow="Legal"
         title="Privacy Policy &amp; Data Security"

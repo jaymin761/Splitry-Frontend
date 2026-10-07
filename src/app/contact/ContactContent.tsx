@@ -37,7 +37,7 @@ export default function ContactContent() {
                 </p>
               </div>
             </div>
-            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-primary-green-deep">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-primary-green-deeper">
               splitry@gmail.com
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </span>

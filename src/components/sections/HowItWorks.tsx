@@ -1,6 +1,7 @@
 import { CreditCard, Receipt, Users } from "lucide-react";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { Parallax, ScrollProgress } from "@/components/motion/ScrollMotion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const steps = [
@@ -38,12 +39,13 @@ const HowItWorks = () => {
           description="Zero complex setups. Clear ledgers from day one."
         />
 
-        <ol className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-5 lg:mt-16 lg:max-w-none lg:grid-cols-3 lg:gap-6">
+        <ScrollProgress className="mt-14 lg:mt-24">
+        <ol className="mx-auto grid max-w-3xl grid-cols-1 gap-5 lg:max-w-none lg:grid-cols-3 lg:gap-6">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
               <Reveal as="li" key={step.title} delay={i * 0.08}>
-                <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-border-stroke bg-white shadow-card md:flex-row lg:flex-col">
+                <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-border-stroke bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift md:flex-row lg:flex-col">
                   <div className="p-6 sm:p-7 md:flex-1 md:self-center lg:self-auto">
                     <div className="flex items-center justify-between">
                       <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary-green/20 bg-primary-green/10 text-primary-green">
@@ -55,17 +57,20 @@ const HowItWorks = () => {
                     <p className="mt-2 text-sm leading-relaxed text-body">{step.description}</p>
                   </div>
                   <div className="relative mt-auto h-64 overflow-hidden bg-background-soft px-10 pt-8 sm:h-72 md:mt-0 md:w-[42%] md:shrink-0 lg:mt-auto lg:w-auto">
-                    <PhoneFrame
-                      {...step.screenshot}
-                      sizes="240px"
-                      className="mx-auto w-full max-w-[220px] rounded-b-none pb-0 shadow-card [&>div]:rounded-b-none"
-                    />
+                    <Parallax distance={20}>
+                      <PhoneFrame
+                        {...step.screenshot}
+                        sizes="240px"
+                        className="mx-auto w-full max-w-[220px] rounded-b-none pb-0 shadow-card [&>div]:rounded-b-none"
+                      />
+                    </Parallax>
                   </div>
                 </article>
               </Reveal>
             );
           })}
         </ol>
+        </ScrollProgress>
       </div>
     </section>
   );

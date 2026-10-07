@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { NAV_LINKS } from "@/lib/site";
@@ -49,12 +48,20 @@ const Navbar = () => {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         isScrolled || mobileMenuOpen
-          ? "border-b border-border-stroke bg-background-soft/90 backdrop-blur-xl"
+          ? "border-b border-border-stroke bg-background-soft/90 shadow-[0_8px_24px_-18px_rgba(40,40,44,0.35)] backdrop-blur-xl"
           : "border-b border-transparent bg-background-soft/60 backdrop-blur-md"
       )}
     >
       <nav aria-label="Main" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-[4.5rem]">
-        <Link href="/" onClick={handleLogoClick} className="rounded-lg" aria-label="Splitry home">
+        <Link
+          href="/"
+          onClick={handleLogoClick}
+          aria-label="Splitry home"
+          className={cn(
+            "origin-left rounded-lg transition-transform duration-300",
+            isScrolled && !mobileMenuOpen ? "scale-[0.92]" : "scale-100"
+          )}
+        >
           <Logo />
         </Link>
 
@@ -87,7 +94,7 @@ const Navbar = () => {
           </Link>
           <Link
             href="/#download"
-            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary-green px-5 py-2.5 text-sm font-semibold text-white shadow-green transition-colors hover:bg-primary-green-deep"
+            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary-green-deeper px-5 py-2.5 text-sm font-semibold text-white shadow-green transition-all hover:bg-primary-green-deeper/90 active:scale-[0.98]"
           >
             Get the app
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
@@ -106,19 +113,18 @@ const Navbar = () => {
         </button>
       </nav>
 
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
+      {mobileMenuOpen && (
+          <div
             id="mobile-menu"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.18 }}
-            className="h-[calc(100dvh-4rem)] lg:h-auto overflow-y-auto border-t border-border-stroke bg-background-soft px-4 pb-8 pt-4 lg:hidden"
+            className="animate-rise [--rise-delay:0ms] h-[calc(100dvh-4rem)] lg:h-auto overflow-y-auto border-t border-border-stroke bg-background-soft px-4 pb-8 pt-4 lg:hidden"
           >
             <ul className="flex flex-col gap-1">
-              {[...NAV_LINKS, { name: "Contact", href: "/contact" }].map((link) => (
-                <li key={link.name}>
+              {[...NAV_LINKS, { name: "Contact", href: "/contact" }].map((link, i) => (
+                <li
+                  key={link.name}
+                  className="animate-rise"
+                  style={{ "--rise-delay": `${50 + i * 40}ms` } as CSSProperties}
+                >
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
@@ -137,14 +143,13 @@ const Navbar = () => {
             <Link
               href="/#download"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-primary-green py-4 text-base font-semibold text-white shadow-green"
+              className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-primary-green-deeper py-4 text-base font-semibold text-white shadow-green transition-transform active:scale-[0.98]"
             >
               Get the app
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </header>
   );
 };

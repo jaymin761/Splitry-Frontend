@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import { NOINDEX } from "@/lib/seo";
 import { decryptQRPayload } from "@/lib/qr";
 import { InvalidLinkCard, InviteCard } from "@/components/invite/InviteCard";
 import { QRPayload } from "@/types/qr";
@@ -22,7 +23,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Fallback metadata if decryption fails
   if (!payload || !payload.fullName) {
     return {
-      title: "Splitry",
+      title: { absolute: "Splitry" },
+      robots: NOINDEX,
       description: "Split expenses with friends.",
       alternates: {
         canonical: canonicalUrl,
@@ -55,7 +57,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = `Join ${payload.fullName} on Splitry and split expenses effortlessly.`;
 
   return {
-    title,
+    title: { absolute: title },
+    robots: NOINDEX,
     description,
     alternates: {
       canonical: canonicalUrl,

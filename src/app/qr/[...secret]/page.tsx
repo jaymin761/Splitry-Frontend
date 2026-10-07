@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import { NOINDEX } from "@/lib/seo";
 import { decryptQRPayload } from "@/lib/qr";
 import { InvalidLinkCard, InviteCard } from "@/components/invite/InviteCard";
 import { QRPayload } from "@/types/qr";
@@ -34,7 +35,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : "Splitry";
 
   return {
-    title,
+    title: { absolute: title },
+    robots: NOINDEX,
     description: appDescription,
     alternates: {
       canonical: canonicalUrl,

@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { jsonLdScript, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
     default: "Splitry | Split Expenses the Smart Way",
     template: "%s | Splitry",
   },
-  description: "Track, split, settle, and manage shared expenses with friends, roommates, and groups.",
+  description: "Splitry is the free expense splitting app to split bills with friends, roommates, and groups. Scan receipts, track balances, and settle up in one tap.",
   keywords: [
     "expense splitting app",
     "bill split",
@@ -37,15 +39,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://splitry.com",
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/AppIcon.png", type: "image/png" }
-    ],
-    apple: [
-      { url: "/AppIcon.png", type: "image/png" }
-    ],
   },
   robots: {
     index: true,
@@ -83,20 +76,11 @@ export const metadata: Metadata = {
     url: "https://splitry.com",
     siteName: "Splitry",
     locale: "en_US",
-    images: [
-      {
-        url: "/AppIcon.png",
-        width: 1200,
-        height: 630,
-        alt: "Splitry App Interface",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Splitry | Split Expenses the Smart Way",
     description: "Track, split, settle, and manage shared expenses with friends and groups effortlessly.",
-    images: ["/AppIcon.png"],
     creator: "@splitry",
   },
 };
@@ -106,38 +90,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Splitry",
-    "operatingSystem": "iOS, Android, Web",
-    "applicationCategory": "FinanceApplication",
-    "downloadUrl": "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203",
-    "installUrl": "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203",
-    "sameAs": [
-      "https://apps.apple.com/us/app/splitry-split-expenses/id6803580203",
-      "https://play.google.com/store/apps/details?id=com.splitry.app.splitry"
-    ],
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Splitry is a smart expense manager that helps friends, couples, and groups track, split, and settle shared bills effortlessly using smart calculations.",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "8450"
-    }
-  };
-
   return (
-    <html lang="en" className={`${montserrat.variable} scroll-smooth`} data-scroll-behavior="smooth">
+    <html lang="en" className={`${montserrat.variable} scroll-smooth`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {/* Marks JS availability before first paint so scroll reveals never hide content without JS */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(organizationJsonLd)} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(websiteJsonLd)} />
       </head>
       <body className="antialiased bg-background-soft text-primary-dark overflow-x-hidden">
         {children}

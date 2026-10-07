@@ -15,7 +15,7 @@ export function Eyebrow({ children, className }: { children: ReactNode; classNam
   return (
     <p
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-primary-green/20 bg-primary-green/8 px-3 py-1 text-xs font-semibold text-primary-green-deep",
+        "inline-flex items-center gap-2 rounded-full border border-primary-green/20 bg-primary-green/8 px-3 py-1 text-xs font-semibold text-primary-green-deeper",
         className
       )}
     >
@@ -29,6 +29,7 @@ export function SectionHeader({ eyebrow, title, description, align = "center", c
   const Heading = as;
   return (
     <div
+      data-reveal=""
       className={cn(
         "flex flex-col gap-4",
         align === "center" ? "mx-auto max-w-2xl items-center text-center" : "max-w-xl items-start text-left",

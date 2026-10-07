@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
 import { PageHeader, SiteShell } from "@/components/layout/SiteShell";
 import { 
@@ -10,15 +12,17 @@ import {
   CheckCircle2
 } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms of Service",
-  description: "Read Splitry's Terms of Service to understand the rules, user guidelines, Splitry Premium subscriptions, non-banking disclaimers, and legal policies governing our apps and platform.",
-  alternates: { canonical: "/terms" },
-};
+  description:
+    "The Splitry Terms of Service: user responsibilities, how expense records and settlements work, QR and invite link usage, and account termination.",
+  path: "/terms",
+});
 
 export default function TermsOfService() {
   return (
     <SiteShell>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Terms of Service", path: "/terms" }])} />
       <PageHeader
         eyebrow="Legal"
         title="Terms of Service"

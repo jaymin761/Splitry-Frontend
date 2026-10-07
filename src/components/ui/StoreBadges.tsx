@@ -48,7 +48,7 @@ interface StoreBadgesProps {
 export function StoreBadges({ className, size = "md" }: StoreBadgesProps) {
   const badgeClass = size === "lg" ? "h-[62px] w-[184px]" : "h-[54px] w-[160px]";
   const linkClass =
-    "inline-block rounded-[12px] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0";
+    "inline-block rounded-[12px] transition-transform duration-200 hover:-translate-y-0.5 active:scale-[0.98]";
 
   return (
     <div className={cn("flex flex-wrap items-center gap-3", className)}>
