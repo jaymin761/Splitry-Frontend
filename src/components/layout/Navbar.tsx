@@ -1,174 +1,151 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Zap, Sparkles, Layers, ShieldCheck } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, Menu, X } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
+import { NAV_LINKS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 8);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close the mobile menu on Escape and lock page scroll while it's open
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMobileMenuOpen(false);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [mobileMenuOpen]);
+
   const handleLogoClick = (e: React.MouseEvent) => {
+    setMobileMenuOpen(false);
     if (window.location.pathname === "/") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-  const handleDownloadClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    const downloadSec = document.getElementById("download");
-    if (downloadSec) {
-      downloadSec.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = "/#download";
-    }
-  };
-
-  const navLinks = [
-    { name: "Features", href: "/#features", icon: Zap },
-    { name: "How it works", href: "/#how-it-works", icon: Sparkles },
-    { name: "Use Cases", href: "/#use-cases", icon: Layers },
-    { name: "About Us", href: "/about", icon: ShieldCheck },
-  ];
+  const isActive = (href: string) => !href.startsWith("/#") && pathname === href;
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    <header
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300 font-sans border-b border-stone-200/70",
-        "bg-white/90 backdrop-blur-2xl",
-        isScrolled ? "py-3 shadow-[0_12px_35px_-5px_rgba(3,166,113,0.15)]" : "py-4 shadow-sm"
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        isScrolled || mobileMenuOpen
+          ? "border-b border-border-stroke bg-background-soft/90 backdrop-blur-xl"
+          : "border-b border-transparent bg-background-soft/60 backdrop-blur-md"
       )}
     >
-      {/* Top Emerald Gradient Line */}
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-green to-transparent opacity-80" />
+      <nav aria-label="Main" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-[4.5rem]">
+        <Link href="/" onClick={handleLogoClick} className="rounded-lg" aria-label="Splitry home">
+          <Logo />
+        </Link>
 
-      <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
-        {/* Brand Logo + Live AI Badge */}
-        <div className="flex items-center gap-3">
-          <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2.5 group">
-            <motion.div
-              whileHover={{ scale: 1.08, rotate: 3 }}
-              className="relative w-9 h-9 transition-transform"
-            >
-              <Image
-                src="/AppIcon.png"
-                alt="Splitry Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </motion.div>
-            <span className="text-2xl font-extrabold tracking-tight text-primary-dark group-hover:text-primary-green transition-colors">
-              Splitry
-            </span>
+        <ul className="hidden items-center gap-1 lg:flex">
+          {NAV_LINKS.map((link) => (
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={cn(
+                  "whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-medium transition-colors xl:px-4",
+                  isActive(link.href)
+                    ? "bg-white text-primary-dark shadow-card"
+                    : "text-primary-dark/70 hover:bg-white/80 hover:text-primary-dark"
+                )}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="hidden items-center gap-2 lg:flex">
+          <Link
+            href="/contact"
+            aria-current={pathname === "/contact" ? "page" : undefined}
+            className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-primary-dark/70 transition-colors hover:text-primary-dark"
+          >
+            Contact
+          </Link>
+          <Link
+            href="/#download"
+            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary-green px-5 py-2.5 text-sm font-semibold text-white shadow-green transition-colors hover:bg-primary-green-deep"
+          >
+            Get the app
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </Link>
         </div>
 
-        {/* Desktop Navigation Capsule */}
-        <div
-          className="hidden md:flex items-center gap-1 bg-stone-100/90 p-1.5 rounded-full border border-stone-200/70 shadow-inner relative"
-          onMouseLeave={() => setHoveredLink(null)}
-        >
-          {navLinks.map((link) => {
-            const Icon = link.icon;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="relative px-4 py-2 text-xs font-bold text-stone-700 hover:text-stone-900 transition-colors uppercase tracking-wider rounded-full z-10 flex items-center gap-1.5"
-                onMouseEnter={() => setHoveredLink(link.name)}
-              >
-                <Icon className="w-3.5 h-3.5 text-primary-green opacity-80" />
-                <span className="relative z-10">{link.name}</span>
-                {hoveredLink === link.name && (
-                  <motion.span
-                    layoutId="full-nav-hover-pill"
-                    className="absolute inset-0 bg-white rounded-full shadow-sm border border-stone-200/50 -z-0"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-              </Link>
-            );
-          })}
-        </div>
-
-        {/* Download App Action */}
-        <div className="hidden md:flex items-center gap-4">
-          <button
-            onClick={handleDownloadClick}
-            className="group relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-primary-green via-[#03A671] to-[#028F61] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_18px_rgba(3,166,113,0.35)] hover:shadow-[0_6px_28px_rgba(3,166,113,0.5)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden"
-          >
-            <span className="relative z-10">Download App</span>
-            <ArrowRight className="w-3.5 h-3.5 relative z-10 group-hover:translate-x-1 transition-transform" />
-          </button>
-        </div>
-
-        {/* Mobile Toggle Button */}
         <button
-          className="md:hidden text-primary-dark cursor-pointer p-2 rounded-full bg-stone-100 hover:bg-stone-200 transition-colors border border-stone-200/60"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Menu"
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-stroke bg-white text-primary-dark lg:hidden"
+          onClick={() => setMobileMenuOpen((open) => !open)}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-      </div>
+      </nav>
 
-      {/* Full-Width Mobile Dropdown */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            id="mobile-menu"
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl border-b border-stone-200/80 p-6 shadow-2xl md:hidden flex flex-col gap-5"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18 }}
+            className="h-[calc(100dvh-4rem)] lg:h-auto overflow-y-auto border-t border-border-stroke bg-background-soft px-4 pb-8 pt-4 lg:hidden"
           >
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => {
-                const Icon = link.icon;
-                return (
+            <ul className="flex flex-col gap-1">
+              {[...NAV_LINKS, { name: "Contact", href: "/contact" }].map((link) => (
+                <li key={link.name}>
                   <Link
-                    key={link.name}
                     href={link.href}
-                    className="px-4 py-3 text-sm font-bold text-stone-700 hover:text-primary-green hover:bg-stone-100/80 rounded-xl transition-all uppercase tracking-wider flex items-center gap-3"
                     onClick={() => setMobileMenuOpen(false)}
+                    aria-current={isActive(link.href) ? "page" : undefined}
+                    className={cn(
+                      "flex items-center justify-between rounded-2xl px-4 py-3.5 text-base font-semibold transition-colors",
+                      isActive(link.href) ? "bg-white text-primary-green shadow-card" : "text-primary-dark hover:bg-white"
+                    )}
                   >
-                    <Icon className="w-4 h-4 text-primary-green" />
-                    <span>{link.name}</span>
+                    {link.name}
+                    <ArrowRight className="h-4 w-4 text-secondary-gray" aria-hidden="true" />
                   </Link>
-                );
-              })}
-              <hr className="border-stone-200/60 my-2" />
-              <button
-                onClick={handleDownloadClick}
-                className="w-full py-3 rounded-full bg-gradient-to-r from-primary-green to-[#028F61] text-white font-bold text-xs uppercase tracking-wider shadow-md flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Download App</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/#download"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-primary-green py-4 text-base font-semibold text-white shadow-green"
+            >
+              Get the app
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </header>
   );
 };
 

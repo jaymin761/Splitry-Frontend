@@ -48,11 +48,11 @@ export const OpenAppButton: React.FC<OpenAppButtonProps> = ({
       // If page did not switch to background and app did not launch within timeout
       if (!appOpened && elapsedTime < 3500) {
         const userAgent =
-          navigator.userAgent || navigator.vendor || (window as any).opera || "";
+          navigator.userAgent || navigator.vendor || (window as Window & { opera?: string }).opera || "";
 
         if (/android/i.test(userAgent)) {
           window.location.href = androidStoreUrl;
-        } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as Window & { MSStream?: unknown }).MSStream) {
           window.location.href = iosStoreUrl;
         } else {
           // Default redirect for Desktop / unspecified platforms
@@ -66,18 +66,20 @@ export const OpenAppButton: React.FC<OpenAppButtonProps> = ({
     <button
       onClick={handleOpenApp}
       disabled={isLoading}
-      className="w-full py-4 px-6 rounded-2xl bg-[#03A671] text-white font-semibold text-base sm:text-lg flex items-center justify-center gap-3 shadow-lg shadow-[#03A671]/25 hover:bg-[#028f61] hover:shadow-xl active:scale-[0.98] transition-all duration-200 cursor-pointer disabled:opacity-80 disabled:cursor-not-allowed group"
+      type="button"
+      aria-busy={isLoading}
+      className="group flex w-full cursor-pointer items-center justify-center gap-3 rounded-2xl bg-primary-green px-6 py-4 text-base font-semibold text-white shadow-green transition-all duration-200 hover:bg-primary-green-deep active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-80 sm:text-lg"
     >
       {isLoading ? (
         <>
-          <Loader2 className="w-5 h-5 animate-spin" />
+          <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
           <span>Opening Splitry...</span>
         </>
       ) : (
         <>
-          <Smartphone className="w-5 h-5 transition-transform group-hover:scale-110" />
+          <Smartphone className="w-5 h-5 transition-transform group-hover:scale-110" aria-hidden="true" />
           <span>Open Splitry</span>
-          <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </>
       )}
     </button>

@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 @theme {
+  /* Brand palette — unchanged from the original site */
   --color-primary-dark: #28282C;
   --color-primary-green: #03A671;
+  --color-primary-green-deep: #028F61;
+  --color-primary-green-deeper: #027751;
   --color-secondary-gray: #98979F;
   --color-white: #FFFFFF;
   --color-border-stroke: #E6E8EA;
@@ -11,13 +14,14 @@
   --color-alert-red: #FF383C;
 
   --font-sans: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
-  
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
 
-  --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 20px rgba(3, 166, 113, 0.2);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
+
+  --shadow-card: 0 1px 2px rgba(40, 40, 44, 0.04), 0 8px 24px -12px rgba(40, 40, 44, 0.08);
+  --shadow-lift: 0 2px 4px rgba(40, 40, 44, 0.04), 0 20px 40px -16px rgba(40, 40, 44, 0.16);
+  --shadow-green: 0 12px 30px -12px rgba(3, 166, 113, 0.55);
 }
 
 :root {
@@ -27,17 +31,75 @@
   --border: #E6E8EA;
 }
 
+html {
+  scroll-padding-top: 5.5rem;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 @layer base {
   * {
     @apply border-border-stroke;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary-green);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: rgba(3, 166, 113, 0.18);
+  }
+}
+
+/* Body copy on cream/white: primary-dark at reduced opacity keeps WCAG AA contrast
+   (secondary-gray alone is ~2.8:1 and is reserved for meta text). */
+@utility text-body {
+  color: rgb(40 40 44 / 0.72);
+}
+
+@utility text-muted {
+  color: rgb(40 40 44 / 0.58);
+}
+
+/* The app's "Total balance" card: green gradient with soft decorative circles */
+@utility balance-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-image: linear-gradient(135deg, var(--color-primary-green) 0%, var(--color-primary-green-deep) 60%, var(--color-primary-green-deeper) 100%);
+  color: var(--color-white);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+  }
+
+  &::before {
+    width: 70%;
+    aspect-ratio: 1;
+    top: -35%;
+    right: -18%;
+  }
+
+  &::after {
+    width: 45%;
+    aspect-ratio: 1;
+    bottom: -30%;
+    right: 8%;
   }
 }
 
@@ -46,7 +108,7 @@ body {
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-dark to-primary-green;
+  @apply bg-clip-text text-transparent bg-linear-to-r from-primary-dark to-primary-green;
 }
 
 @keyframes marquee {
@@ -66,4 +128,18 @@ body {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

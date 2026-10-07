@@ -1,11 +1,10 @@
 import React from 'react';
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { SiteShell } from "@/components/layout/SiteShell";
 import ContactContent from './ContactContent';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Splitry',
+  title: 'Contact Us',
   description: 'Get in touch with the Splitry team for any questions, feedback, or support regarding the application.',
   alternates: {
     canonical: 'https://splitry.com/contact',
@@ -20,10 +19,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen flex flex-col bg-background-soft">
-      <Navbar />
+    <SiteShell>
       <ContactContent />
-      <Footer />
-    </main>
+    </SiteShell>
   );
 }

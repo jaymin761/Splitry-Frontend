@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ChevronDown, Mail } from "lucide-react";
+import { PageHeader, SiteShell } from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions (FAQ)",
@@ -9,6 +11,7 @@ export const metadata: Metadata = {
 
 const faqCategories = [
   {
+    id: "general",
     category: "General Questions",
     items: [
       {
@@ -26,6 +29,7 @@ const faqCategories = [
     ]
   },
   {
+    id: "receipts",
     category: "Receipt Scanning",
     items: [
       {
@@ -43,6 +47,7 @@ const faqCategories = [
     ]
   },
   {
+    id: "settlements",
     category: "Balances & Settlements",
     items: [
       {
@@ -60,6 +65,7 @@ const faqCategories = [
     ]
   },
   {
+    id: "privacy",
     category: "Security & Privacy",
     items: [
       {
@@ -76,56 +82,67 @@ const faqCategories = [
 
 export default function FAQ() {
   return (
-    <main className="min-h-screen bg-background-soft">
-      {/* Header */}
-      <div className="bg-white border-b border-border-stroke">
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-primary-green font-semibold mb-6 hover:opacity-80 transition-opacity">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 5l-7 7 7 7"/>
-            </svg>
-            Back to Home
-          </Link>
-          <h1 className="text-4xl font-bold text-primary-dark">Frequently Asked Questions</h1>
-          <p className="text-secondary-gray mt-3">Find quick answers to common questions about Splitry&apos;s expense splitting, smart features, and payment settlements.</p>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="bg-white rounded-3xl border border-border-stroke shadow-sm p-10 space-y-12">
-          
-          {faqCategories.map((cat, catIdx) => (
-            <section key={catIdx} className="space-y-6">
-              <h2 className="text-2xl font-bold text-primary-dark border-b border-border-stroke pb-3">
-                {cat.category}
-              </h2>
-              
-              <div className="space-y-4">
-                {cat.items.map((item, itemIdx) => (
-                  <details 
-                    key={itemIdx} 
-                    className="group border border-border-stroke rounded-2xl p-5 hover:border-primary-green/40 transition-colors duration-200 [&_summary::-webkit-details-marker]:hidden"
-                  >
-                    <summary className="flex items-center justify-between font-bold text-lg text-primary-dark cursor-pointer list-none select-none">
-                      <span className="pr-4">{item.question}</span>
-                      <span className="transition-transform duration-200 group-open:rotate-180 text-secondary-gray group-hover:text-primary-green flex-shrink-0">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M6 9l6 6 6-6"/>
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="mt-4 text-secondary-gray leading-relaxed text-[15px] border-t border-border-stroke/50 pt-4">
-                      {item.answer}
-                    </div>
-                  </details>
-                ))}
-              </div>
-            </section>
+    <SiteShell>
+      <PageHeader
+        eyebrow="Help Center"
+        title="Frequently Asked Questions"
+        description="Find quick answers to common questions about Splitry's expense splitting, smart features, and payment settlements."
+      >
+        <nav aria-label="FAQ categories" className="mt-2 flex flex-wrap justify-center gap-2">
+          {faqCategories.map((cat) => (
+            <a
+              key={cat.id}
+              href={`#${cat.id}`}
+              className="rounded-full border border-border-stroke bg-white px-4 py-2 text-sm font-medium text-primary-dark/80 transition-colors hover:border-primary-green/40 hover:text-primary-green"
+            >
+              {cat.category}
+            </a>
           ))}
+        </nav>
+      </PageHeader>
 
+      <div className="mx-auto max-w-3xl space-y-14 px-4 py-16 sm:px-6 sm:py-20">
+        {faqCategories.map((cat) => (
+          <section key={cat.id} id={cat.id} aria-labelledby={`${cat.id}-heading`}>
+            <h2 id={`${cat.id}-heading`} className="mb-5 text-2xl font-bold tracking-tight text-primary-dark">
+              {cat.category}
+            </h2>
+
+            <div className="space-y-3">
+              {cat.items.map((item) => (
+                <details
+                  key={item.question}
+                  className="group rounded-2xl border border-border-stroke bg-white shadow-card transition-colors open:border-primary-green/30 hover:border-primary-green/30 [&_summary::-webkit-details-marker]:hidden"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-2xl p-5 text-base font-semibold text-primary-dark select-none sm:p-6 sm:text-lg">
+                    <span>{item.question}</span>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-background-soft text-primary-dark/60 transition-transform duration-200 group-open:rotate-180 group-open:bg-primary-green/10 group-open:text-primary-green">
+                      <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[15px] leading-relaxed text-body sm:px-6 sm:pb-6">
+                    {item.answer}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        <div className="flex flex-col items-start gap-5 rounded-3xl border border-border-stroke bg-white p-7 shadow-card sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-lg font-semibold text-primary-dark">Still have questions?</h2>
+            <p className="mt-1 text-sm text-body">Our team is happy to help.</p>
+          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-primary-green px-5 py-2.5 text-sm font-semibold text-white shadow-green transition-colors hover:bg-primary-green-deep"
+          >
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            Contact us
+          </Link>
         </div>
       </div>
-    </main>
+    </SiteShell>
   );
 }

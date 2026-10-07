@@ -132,7 +132,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${montserrat.variable} scroll-smooth`}>
+    <html lang="en" className={`${montserrat.variable} scroll-smooth`} data-scroll-behavior="smooth">
       <head>
         <script
           type="application/ld+json"

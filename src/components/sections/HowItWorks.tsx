@@ -1,96 +1,71 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-import { Users, Receipt, CreditCard, ChevronRight, Workflow } from "lucide-react";
+import { CreditCard, Receipt, Users } from "lucide-react";
+import { PhoneFrame } from "@/components/ui/PhoneFrame";
+import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const steps = [
   {
-    title: "1. Create Group",
+    title: "Create Group",
     description: "Start a group for a trip, household, or event and invite your friends in seconds with a simple invite link or QR code.",
     icon: Users,
-    gradient: "from-blue-500 to-indigo-600",
+    screenshot: { src: "/Create Group.png", width: 1500, height: 3248, alt: "Create Group screen with group name and type options" },
   },
   {
-    title: "2. Split Expenses",
+    title: "Split Expenses",
     description: "Splitry automatically categorizes items, calculates tax, and assigns exact shares.",
     icon: Receipt,
-    gradient: "from-emerald-500 to-teal-600",
+    screenshot: { src: "/Group.png", width: 321, height: 636, alt: "Group screen listing shared expenses and who lent or borrowed" },
   },
   {
-    title: "3. Settle Instantly",
+    title: "Settle Instantly",
     description: "Record settlements in one tap. Splitry minimizes required transactions so everyone gets squared up with zero hassle.",
     icon: CreditCard,
-    gradient: "from-amber-500 to-orange-600",
+    screenshot: { src: "/Home Screen.png", width: 324, height: 638, alt: "Home screen with total balance and Settle up quick action" },
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-24 bg-white relative overflow-hidden">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-primary-green/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+    <section id="how-it-works" className="py-20 sm:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <SectionHeader
+          eyebrow="Simple 3-Step Process"
+          title={
+            <>
+              Split bills in <span className="text-primary-green">3 easy steps.</span>
+            </>
+          }
+          description="Zero complex setups. Clear ledgers from day one."
+        />
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-green/10 text-primary-green text-sm font-semibold mb-6 border border-primary-green/20">
-            <Workflow className="w-4 h-4" />
-            Simple 3-Step Process
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6 tracking-tight">
-            Split bills in <span className="text-primary-green">3 easy steps.</span>
-          </h2>
-          <p className="text-lg text-secondary-gray max-w-2xl mx-auto leading-relaxed">
-            Zero complex setups. Clear ledgers from day one.
-          </p>
-        </div>
-
-        <div className="relative">
-          {/* Desktop Connecting Bar */}
-          <div className="hidden lg:block absolute top-[4.5rem] left-[10%] right-[10%] h-1 bg-stone-200 -translate-y-1/2 z-0 rounded-full" />
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
-            style={{ transformOrigin: "left" }}
-            className="hidden lg:block absolute top-[4.5rem] left-[10%] right-[10%] h-1 bg-gradient-to-r from-blue-500 via-primary-green to-orange-500 -translate-y-1/2 z-0 rounded-full"
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 relative z-10">
-            {steps.map((step, i) => {
-              const Icon = step.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.2 }}
-                  className="flex flex-col items-center text-center p-8 rounded-3xl bg-background-soft border border-border-stroke hover:border-primary-green/30 hover:shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06)] transition-all duration-300 group"
-                >
-                  <div className={`w-20 h-20 rounded-3xl bg-gradient-to-tr ${step.gradient} flex items-center justify-center text-white mb-8 shadow-xl shadow-stone-300/50 relative transition-transform group-hover:scale-110 group-hover:rotate-3 duration-300`}>
-                    <Icon className="w-10 h-10" />
-                    <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary-dark border-2 border-white text-white flex items-center justify-center font-bold text-sm shadow-md">
-                      {i + 1}
+        <ol className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-5 lg:mt-16 lg:max-w-none lg:grid-cols-3 lg:gap-6">
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <Reveal as="li" key={step.title} delay={i * 0.08}>
+                <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-border-stroke bg-white shadow-card md:flex-row lg:flex-col">
+                  <div className="p-6 sm:p-7 md:flex-1 md:self-center lg:self-auto">
+                    <div className="flex items-center justify-between">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary-green/20 bg-primary-green/10 text-primary-green">
+                        <Icon className="h-[22px] w-[22px]" aria-hidden="true" />
+                      </span>
+                      <span className="text-sm font-semibold text-muted">Step {i + 1}</span>
                     </div>
+                    <h3 className="mt-6 text-xl font-semibold text-primary-dark">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-body">{step.description}</p>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-primary-dark mb-4 group-hover:text-primary-green transition-colors">{step.title}</h3>
-                  <p className="text-secondary-gray leading-relaxed text-sm max-w-xs">
-                    {step.description}
-                  </p>
-
-                  {i < steps.length - 1 && (
-                    <div className="mt-8 lg:hidden text-primary-green animate-bounce">
-                      <ChevronRight className="w-6 h-6 rotate-90" />
-                    </div>
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+                  <div className="relative mt-auto h-64 overflow-hidden bg-background-soft px-10 pt-8 sm:h-72 md:mt-0 md:w-[42%] md:shrink-0 lg:mt-auto lg:w-auto">
+                    <PhoneFrame
+                      {...step.screenshot}
+                      sizes="240px"
+                      className="mx-auto w-full max-w-[220px] rounded-b-none pb-0 shadow-card [&>div]:rounded-b-none"
+                    />
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

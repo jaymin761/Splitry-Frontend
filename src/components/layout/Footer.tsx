@@ -1,102 +1,102 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { Logo } from "@/components/ui/Logo";
+import { SOCIAL_LINKS } from "@/lib/site";
 
 const Facebook = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
   </svg>
 );
 
 const Instagram = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
   </svg>
 );
 
+const columns = [
+  {
+    title: "Product",
+    links: [
+      { name: "Features", href: "/#features" },
+      { name: "How it works", href: "/#how-it-works" },
+      { name: "Use cases", href: "/#use-cases" },
+      { name: "Analytics", href: "/#analytics" },
+      { name: "Download app", href: "/#download" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { name: "About us", href: "/about" },
+      { name: "Contact", href: "/contact" },
+      { name: "FAQ", href: "/faq" },
+      { name: "Contact support", href: "mailto:splitryapp@gmail.com" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { name: "Privacy policy", href: "/privacy-policy" },
+      { name: "Terms of service", href: "/terms" },
+    ],
+  },
+];
+
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-border-stroke pt-24 pb-12 relative overflow-hidden">
-      {/* Top Emerald Accent Line */}
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary-green to-transparent opacity-60" />
-
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <motion.div whileHover={{ scale: 1.08, rotate: 3 }} className="relative w-10 h-10 transition-transform">
-                <Image
-                  src="/AppIcon.png"
-                  alt="Splitry Logo"
-                  fill
-                  className="object-contain"
-                />
-              </motion.div>
-              <span className="text-2xl font-bold tracking-tight text-primary-dark group-hover:text-primary-green transition-colors">
-                Splitry
-              </span>
+    <footer className="border-t border-border-stroke bg-white">
+      <div className="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 lg:pt-20">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-12 md:gap-8">
+          <div className="col-span-2 flex flex-col gap-5 md:col-span-5 lg:col-span-4">
+            <Link href="/" className="w-fit rounded-lg" aria-label="Splitry home">
+              <Logo />
             </Link>
-            <p className="text-secondary-gray text-sm leading-relaxed">
+            <p className="max-w-sm text-sm leading-relaxed text-body">
               Smart expense splitting for friends, couples, and groups. Settle debts instantly and stay friends with zero awkwardness.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               {[
-                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61590603446388" },
-                { Icon: Instagram, href: "https://www.instagram.com/splitryapp/" }
-              ].map(({ Icon, href }, i) => (
-                <Link
-                  key={i}
+                { Icon: Facebook, href: SOCIAL_LINKS.facebook, label: "Splitry on Facebook" },
+                { Icon: Instagram, href: SOCIAL_LINKS.instagram, label: "Splitry on Instagram" },
+              ].map(({ Icon, href, label }) => (
+                <a
+                  key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center text-secondary-gray hover:text-primary-green hover:border-primary-green hover:shadow-[0_4px_15px_rgba(3,166,113,0.2)] transition-all duration-200"
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border-stroke text-primary-dark/70 transition-colors hover:border-primary-green hover:text-primary-green"
                 >
-                  <Icon className="w-5 h-5" />
-                </Link>
+                  <Icon className="h-[18px] w-[18px]" />
+                </a>
               ))}
             </div>
           </div>
 
-          <div>
-            <h4 className="font-bold text-primary-dark mb-6 text-lg">Product</h4>
-            <ul className="flex flex-col gap-3.5 text-sm text-secondary-gray">
-              <li><Link href="/#features" className="hover:text-primary-green transition-colors">Features</Link></li>
-              <li><Link href="/#how-it-works" className="hover:text-primary-green transition-colors">How it works</Link></li>
-              <li><Link href="/#use-cases" className="hover:text-primary-green transition-colors">Use Cases</Link></li>
-              <li><Link href="/#analytics" className="hover:text-primary-green transition-colors">Analytics</Link></li>
-              <li><Link href="/#download" className="hover:text-primary-green transition-colors">Download App</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-primary-dark mb-6 text-lg">Company</h4>
-            <ul className="flex flex-col gap-3.5 text-sm text-secondary-gray">
-              <li><Link href="/about" className="hover:text-primary-green transition-colors">About Us</Link></li>
-              <li><a href="mailto:splitryapp@gmail.com" className="hover:text-primary-green transition-colors">Contact Support</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-primary-dark mb-6 text-lg">Legal</h4>
-            <ul className="flex flex-col gap-3.5 text-sm text-secondary-gray">
-              <li><Link href="/privacy-policy" className="hover:text-primary-green transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-primary-green transition-colors">Terms of Service</Link></li>
-            </ul>
-          </div>
+          {columns.map((col) => (
+            <div key={col.title} className="md:col-span-2 lg:col-span-2 lg:col-start-auto">
+              <h2 className="mb-4 text-sm font-semibold text-primary-dark">{col.title}</h2>
+              <ul className="flex flex-col gap-3 text-sm">
+                {col.links.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-body transition-colors hover:text-primary-green">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="border-t border-border-stroke pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-secondary-gray">
-            © {new Date().getFullYear()} Splitry Inc. All rights reserved.
-          </p>
-          <div className="flex items-center gap-8 text-sm text-secondary-gray">
-            <Link href="/privacy-policy" className="hover:text-primary-green transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-primary-green transition-colors">Terms</Link>
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border-stroke pt-8 text-sm text-muted sm:flex-row">
+          <p>© {new Date().getFullYear()} Splitry Inc. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy-policy" className="transition-colors hover:text-primary-green">Privacy</Link>
+            <Link href="/terms" className="transition-colors hover:text-primary-green">Terms</Link>
           </div>
         </div>
       </div>
