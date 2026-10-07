@@ -85,6 +85,7 @@ export const appJsonLd = {
   installUrl: IOS_STORE_URL,
   sameAs: [IOS_STORE_URL, ANDROID_STORE_URL],
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", ratingCount: "8450" },
   description:
     "Splitry is a smart expense manager that helps friends, couples, and groups track, split, and settle shared bills effortlessly using smart calculations.",
   publisher: { "@id": `${SITE_URL}/#organization` },

@@ -33,7 +33,7 @@ const columns = [
       { name: "About us", href: "/about" },
       { name: "Contact", href: "/contact" },
       { name: "FAQ", href: "/faq" },
-      { name: "Contact support", href: "mailto:splitryapp@gmail.com" },
+      { name: "Contact support", href: "mailto:splitry@gmail.com" },
     ],
   },
   {
