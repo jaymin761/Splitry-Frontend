@@ -13,6 +13,17 @@
   --color-success-green: #34C759;
   --color-alert-red: #FF383C;
 
+  /* From the Splitry Flutter app theme (lib/core/theme/app_colors.dart), used by the
+     in-app "How it works" replica so it matches the app exactly */
+  --color-app-teal: #00B4D8;
+  --color-app-amber: #F59E0B;
+  --color-app-owe: #E25C5C;
+  /* app-owe darkened for small text so it meets WCAG AA on light backgrounds */
+  --color-app-owe-text: #B84545;
+  --color-app-muted: #F2F4F7;
+  --color-app-divider: #EDEEF1;
+  --color-app-card-border: #F0F1F5;
+
   --font-sans: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
 
   --radius-xl: 1rem;
@@ -176,6 +187,58 @@ body {
 @utility animate-float {
   animation: float-y 5s ease-in-out infinite alternate;
   animation-delay: var(--float-delay, 0ms);
+}
+
+/* "How it works" flow (mirrors the app's sample preview) */
+@keyframes hw-dwell {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hw-scene-in {
+  from {
+    opacity: 0;
+    transform: translateX(5%);
+  }
+}
+
+@keyframes hw-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hw-grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes hw-slide {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes hw-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* FAQ accordion: smooth open/close where supported (progressive enhancement) */
